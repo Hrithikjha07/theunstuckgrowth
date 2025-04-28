@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Fix for Website</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        button {
+            background: #333;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin: 10px 0;
+            font-size: 16px;
+        }
+        h1, h2 {
+            color: #333;
+        }
+        .status {
+            margin-top: 20px;
+            padding: 15px;
+            background: #f5f5f5;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Website Repair Tool</h1>
+    <p>Click the button below to restore your website to its original working condition.</p>
+    
+    <button id="fixWebsite">Restore Website</button>
+    <button id="resetChanges">Reset All Changes</button>
+    
+    <div id="status" class="status">Status: Ready to fix website issues</div>
+    
+    <script>
+        document.getElementById('fixWebsite').addEventListener('click', function() {
+            try {
+                // Reset index.html to basic structure
+                localStorage.setItem('restoreWebsite', 'true');
+                
+                // Redirect to index page
+                document.getElementById('status').innerHTML = 'Redirecting to your website...';
+                setTimeout(() => {
+                    window.location.href = 'index.html';
+                }, 1000);
+            } catch (e) {
+                document.getElementById('status').innerHTML = 'Error: ' + e.message;
+            }
+        });
+        
+        document.getElementById('resetChanges').addEventListener('click', function() {
+            try {
+                // Clear any stored states
+                localStorage.removeItem('restoreWebsite');
+                localStorage.removeItem('selectedPersona');
+                
+                document.getElementById('status').innerHTML = 'All changes reset. You can safely return to your website.';
+            } catch (e) {
+                document.getElementById('status').innerHTML = 'Error: ' + e.message;
+            }
+        });
+    </script>
+</body>
+</html> 

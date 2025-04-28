@@ -1,0 +1,8 @@
+# Redirect booking-services.html to Topmate
+Redirect 301 /booking-services.html https://topmate.io/swati12
+
+# Enable URL rewriting
+RewriteEngine On
+
+# Redirect any old booking links to Topmate
+RewriteRule ^booking/.* https://topmate.io/swati12 [R=301,L] 

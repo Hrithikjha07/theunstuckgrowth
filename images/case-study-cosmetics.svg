@@ -1,0 +1,68 @@
+<svg width="800" height="450" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background gradient -->
+  <defs>
+    <linearGradient id="bg-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#e84393" />
+      <stop offset="100%" stop-color="#fd79a8" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="100%" height="100%" fill="url(#bg-gradient)" rx="10" ry="10" />
+  
+  <!-- Cosmetic Elements -->
+  <g fill="white" opacity="0.2">
+    <!-- Lipstick -->
+    <rect x="150" y="150" width="30" height="100" rx="5" ry="5" />
+    <path d="M150,150 L180,150 L165,120 Z" />
+    
+    <!-- Foundation Bottle -->
+    <rect x="230" y="170" width="50" height="80" rx="5" ry="5" />
+    <rect x="245" y="150" width="20" height="20" rx="2" ry="2" />
+    
+    <!-- Brush -->
+    <rect x="320" y="180" width="5" height="70" />
+    <ellipse cx="323" cy="180" rx="15" ry="8" />
+    
+    <!-- Makeup Palette -->
+    <rect x="370" y="170" width="80" height="50" rx="5" ry="5" />
+    <circle cx="390" cy="185" r="8" />
+    <circle cx="410" cy="185" r="8" />
+    <circle cx="430" cy="185" r="8" />
+    <circle cx="390" cy="205" r="8" />
+    <circle cx="410" cy="205" r="8" />
+    <circle cx="430" cy="205" r="8" />
+    
+    <!-- Shopping Bag -->
+    <path d="M500,170 L530,170 L540,220 L490,220 Z" />
+    <path d="M505,170 C505,150 525,150 525,170" stroke="white" stroke-width="3" fill="none" />
+  </g>
+  
+  <!-- Digital/Retail Connection -->
+  <g opacity="0.7">
+    <line x1="250" y1="300" x2="550" y2="300" stroke="white" stroke-width="2" stroke-dasharray="10,5" />
+    <circle cx="250" cy="300" r="15" fill="white" opacity="0.5" />
+    <circle cx="550" cy="300" r="15" fill="white" opacity="0.5" />
+    
+    <!-- Digital Symbol -->
+    <text x="250" y="305" font-family="Arial, sans-serif" font-size="16" fill="white" text-anchor="middle">D</text>
+    
+    <!-- Retail Symbol -->
+    <text x="550" y="305" font-family="Arial, sans-serif" font-size="16" fill="white" text-anchor="middle">R</text>
+  </g>
+  
+  <!-- Title -->
+  <text x="400" y="100" font-family="Arial, sans-serif" font-size="40" fill="white" text-anchor="middle" font-weight="bold">D2C Cosmetic Brand</text>
+  
+  <!-- Subtitle -->
+  <text x="400" y="140" font-family="Arial, sans-serif" font-size="20" fill="white" text-anchor="middle" opacity="0.9">Omnichannel strategy for digital and retail expansion</text>
+  
+  <!-- Metrics -->
+  <g font-family="Arial, sans-serif" fill="white">
+    <text x="300" y="370" font-size="40" text-anchor="middle" font-weight="bold">185%</text>
+    <text x="300" y="400" font-size="20" text-anchor="middle" opacity="0.8">Revenue Growth</text>
+    
+    <text x="500" y="370" font-size="40" text-anchor="middle" font-weight="bold">24</text>
+    <text x="500" y="400" font-size="20" text-anchor="middle" opacity="0.8">Retail Locations</text>
+  </g>
+</svg> 

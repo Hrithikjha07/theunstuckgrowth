@@ -1,0 +1,97 @@
+/* Consolidated Mobile Quick Contact Banner */
+.mobile-quick-contact {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    background-color: #fff;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+    z-index: 999;
+    padding: 10px 0;
+    padding-bottom: max(10px, env(safe-area-inset-bottom));
+    display: none;
+    transition: transform 0.3s ease;
+}
+
+.mobile-quick-contact .quick-actions {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 5px;
+}
+
+.mobile-quick-contact .quick-action {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #333;
+    text-decoration: none;
+    padding: 8px 15px;
+    border-radius: 8px;
+    transition: background-color 0.2s;
+}
+
+.mobile-quick-contact .quick-action i {
+    font-size: 22px;
+    margin-bottom: 5px;
+}
+
+.mobile-quick-contact .quick-action span {
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.mobile-quick-contact .quick-action.book-now {
+    color: #1a73e8;
+    font-weight: 600;
+}
+
+.mobile-quick-contact .quick-action.call i {
+    color: #28a745;
+}
+
+.mobile-quick-contact .quick-action.message i {
+    color: #007bff;
+}
+
+.mobile-quick-contact .quick-action.calendar i {
+    color: #dc3545;
+}
+
+.mobile-quick-contact .quick-action.active,
+.mobile-quick-contact .quick-action:active {
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+/* Show mobile quick contact only on mobile devices */
+@media (max-width: 768px) {
+    .mobile-quick-contact {
+        display: block;
+    }
+    
+    .back-to-top {
+        bottom: 80px; /* Adjust back-to-top button to account for quick contact bar */
+    }
+    
+    /* Add padding to the bottom of the page to account for the banner */
+    body {
+        padding-bottom: 70px;
+    }
+    
+    /* Hide the banner when scrolling down */
+    .mobile-quick-contact.hidden {
+        transform: translateY(100%);
+    }
+}
+
+/* iPhone 16 specific mobile quick contact adjustments */
+@media screen and (max-width: 393px) {
+    .mobile-quick-contact {
+        padding: 12px 0;
+    }
+    
+    .mobile-quick-contact .quick-action i {
+        font-size: 24px;
+    }
+} 
