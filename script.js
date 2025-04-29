@@ -585,16 +585,23 @@ function initializeFileUpload() {
 
 // Function to handle form submission
 function handleFormSubmit(e) {
+    // Skip for Formspree forms
+    if (e.target.action && e.target.action.includes('formspree.io')) {
+        // Let Formspree handle these forms directly
+        return true;
+    }
+    
     e.preventDefault();
     
     // Get the form element
     const form = e.target;
     
-    // Get the submit button and show loading state
+    // Show loading state
     const submitBtn = form.querySelector('button[type="submit"]');
-    const originalBtnText = submitBtn.innerHTML;
-    submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
-    submitBtn.disabled = true;
+    if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+    }
     
     console.log('Form submission started');
     
@@ -614,30 +621,30 @@ function handleFormSubmit(e) {
         // Log form data (for debugging)
         console.log('Form data:', formDataObj);
         
-        // Send email using EmailJS
+        // Send the form data using EmailJS (only for non-Formspree forms)
         emailjs.send(window.emailjsServiceId, window.emailjsTemplateId, formDataObj)
-            .then(function(response) {
-                console.log('Email sent successfully:', response);
+            .then(function() {
+                console.log('Form submitted successfully');
                 showSuccessMessage(form);
                 form.reset();
             })
             .catch(function(error) {
-                console.error('Email sending failed:', error);
+                console.error('Error submitting form:', error);
                 alert('There was an error submitting your form. Please try again or contact us directly.');
             })
             .finally(function() {
-                // Restore button state
-                submitBtn.innerHTML = originalBtnText;
-                submitBtn.disabled = false;
+                if (submitBtn) {
+                    submitBtn.disabled = false;
+                    submitBtn.innerHTML = 'Send Message';
+                }
             });
-            
     } catch (error) {
         console.error('Error in form submission:', error);
         alert('There was an error submitting your form. Please try again or contact us directly.');
-        
-        // Restore button state
-        submitBtn.innerHTML = originalBtnText;
-        submitBtn.disabled = false;
+        if (submitBtn) {
+            submitBtn.disabled = false;
+            submitBtn.innerHTML = 'Send Message';
+        }
     }
 }
 
@@ -706,16 +713,11 @@ function showVerificationMessage(form) {
 
 // Add event listeners for form submission
 document.addEventListener('DOMContentLoaded', function() {
-    const contactForm = document.getElementById('contactForm');
-    const newsletterForm = document.querySelector('.footer-newsletter');
-    
-    if (contactForm) {
-        contactForm.addEventListener('submit', handleFormSubmit);
-    }
-    
-    if (newsletterForm) {
-        newsletterForm.addEventListener('submit', handleFormSubmit);
-    }
+    // Only attach event listeners to non-Formspree forms
+    const forms = document.querySelectorAll('form:not([action*="formspree.io"])');
+    forms.forEach(form => {
+        form.addEventListener('submit', handleFormSubmit);
+    });
 });
 
 // Initialize page navigation system for mobile
