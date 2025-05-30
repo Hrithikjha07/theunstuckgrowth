@@ -463,4 +463,57 @@ function addTopmateStyles() {
 }
 
 // Call style function
-addTopmateStyles(); 
+addTopmateStyles();
+
+// Mock Topmate API integration
+document.addEventListener('DOMContentLoaded', function() {
+    // Mock data for Topmate services
+    const topmateServices = [
+        {
+            id: 'startup-advisory',
+            title: 'Startup Advisory Session',
+            description: 'Get strategic advice for your startup journey',
+            duration: '60 minutes',
+            price: '$120'
+        },
+        {
+            id: 'product-review',
+            title: 'Product Review & Feedback',
+            description: 'Expert review of your product with actionable feedback',
+            duration: '45 minutes',
+            price: '$90'
+        },
+        {
+            id: 'career-guidance',
+            title: 'Career Guidance Session',
+            description: 'Navigate your career path with expert guidance',
+            duration: '60 minutes',
+            price: '$100'
+        }
+    ];
+
+    // Function to load Topmate services
+    function loadTopmateServices() {
+        const servicesContainer = document.getElementById('topmate-services');
+        
+        if (servicesContainer) {
+            topmateServices.forEach(service => {
+                const serviceCard = document.createElement('div');
+                serviceCard.className = 'service-card';
+                serviceCard.innerHTML = `
+                    <h3>${service.title}</h3>
+                    <p>${service.description}</p>
+                    <div class="service-meta">
+                        <span><i class="far fa-clock"></i> ${service.duration}</span>
+                        <span><i class="far fa-money-bill-alt"></i> ${service.price}</span>
+                    </div>
+                    <a href="#contact" class="btn btn-primary">Book Now</a>
+                `;
+                servicesContainer.appendChild(serviceCard);
+            });
+        }
+    }
+
+    // Call function to load services
+    loadTopmateServices();
+}); 

@@ -1,4 +1,4 @@
-/* Consolidated Mobile Quick Contact Banner */
+/* Mobile Quick Contact Banner */
 .mobile-quick-contact {
     position: fixed;
     bottom: 0;
@@ -14,54 +14,81 @@
     transition: transform 0.3s ease;
 }
 
-.mobile-quick-contact .quick-actions {
+.mobile-quick-contact.hidden {
+    transform: translateY(100%);
+}
+
+.mobile-quick-contact p {
+    font-size: 0.9rem;
+    margin-bottom: 0.75rem;
+    color: #333;
+    font-weight: 500;
+    text-align: center;
+}
+
+.quick-actions {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    padding: 5px;
+    padding: 0;
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
 }
 
-.mobile-quick-contact .quick-action {
+.quick-action {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     color: #333;
     text-decoration: none;
-    padding: 8px 15px;
+    padding: 8px 10px;
     border-radius: 8px;
-    transition: background-color 0.2s;
+    transition: all 0.2s ease;
+    flex: 1;
+    text-align: center;
+    min-width: 70px;
 }
 
-.mobile-quick-contact .quick-action i {
-    font-size: 22px;
+.quick-action:hover,
+.quick-action:active,
+.quick-action.active {
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+.quick-action i {
+    font-size: 20px;
     margin-bottom: 5px;
+    line-height: 1;
+    display: block;
+    text-align: center;
 }
 
-.mobile-quick-contact .quick-action span {
+.quick-action span {
     font-size: 12px;
     font-weight: 500;
+    line-height: 1.2;
+    display: block;
+    width: 100%;
+    text-align: center;
 }
 
-.mobile-quick-contact .quick-action.book-now {
-    color: #1a73e8;
-    font-weight: 600;
-}
-
-.mobile-quick-contact .quick-action.call i {
+.quick-action.call i {
     color: #28a745;
 }
 
-.mobile-quick-contact .quick-action.message i {
+.quick-action.message i {
     color: #007bff;
 }
 
-.mobile-quick-contact .quick-action.calendar i {
+.quick-action.calendar i,
+.quick-action.book-now i {
     color: #dc3545;
 }
 
-.mobile-quick-contact .quick-action.active,
-.mobile-quick-contact .quick-action:active {
-    background-color: rgba(0, 0, 0, 0.05);
+.quick-action.book-now {
+    font-weight: 600;
 }
 
 /* Show mobile quick contact only on mobile devices */
@@ -78,20 +105,30 @@
     body {
         padding-bottom: 70px;
     }
-    
-    /* Hide the banner when scrolling down */
-    .mobile-quick-contact.hidden {
-        transform: translateY(100%);
-    }
 }
 
-/* iPhone 16 specific mobile quick contact adjustments */
+/* iPhone 16 and other mobile devices specific adjustments */
 @media screen and (max-width: 393px) {
     .mobile-quick-contact {
         padding: 12px 0;
     }
     
-    .mobile-quick-contact .quick-action i {
-        font-size: 24px;
+    .quick-action {
+        padding: 8px 5px;
     }
+    
+    .quick-action i {
+        font-size: 22px;
+        margin-bottom: 4px;
+    }
+    
+    .quick-action span {
+        font-size: 11px;
+    }
+}
+
+/* Ensure better focus styles for accessibility */
+.quick-action:focus {
+    outline: 2px solid rgba(0, 123, 255, 0.5);
+    outline-offset: -2px;
 } 

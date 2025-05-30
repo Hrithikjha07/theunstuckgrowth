@@ -22,6 +22,15 @@
     <meta property="twitter:description" content="Strategic advisory for ambitious founders and professionals. Expert guidance in product strategy, marketing, and career development.">
     <meta property="twitter:image" content="images/twitter-image.jpg">
     
+    <!-- Favicon -->
+    <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+    
+    <!-- Preconnect to external domains -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link rel="preconnect" href="https://cdn.jsdelivr.net">
+    
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     
@@ -29,14 +38,152 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
     
     <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=DM+Serif+Display&display=swap" rel="stylesheet">
+    
+    <!-- Calendly Widget -->
+    <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
+    
+    <!-- EmailJS for Form Submissions -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script type="text/javascript">
+        // Initialize EmailJS
+        emailjs.init("XckwJOyxQhp1wzmJP");
+        
+        // Set default service and template IDs
+        window.emailjsServiceId = "service_123";
+        window.emailjsTemplateId = "template_456";
+    </script>
+    
+    <!-- CSS for Booking Preview Section -->
+    <style>
+        .booking-preview {
+            padding: 5rem 0;
+            background-color: #f9f9f9;
+        }
+        
+        .booking-preview-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+        
+        .booking-preview-text h3 {
+            font-size: 1.75rem;
+            margin-bottom: 1.5rem;
+            color: var(--text-dark, #333);
+        }
+        
+        .booking-preview-text p {
+            margin-bottom: 2rem;
+            color: var(--text-medium, #666);
+            line-height: 1.6;
+        }
+        
+        .booking-benefits {
+            margin-bottom: 2rem;
+        }
+        
+        .benefit {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+        }
+        
+        .benefit i {
+            color: var(--primary-color, #3498db);
+            margin-right: 1rem;
+            font-size: 1.25rem;
+            margin-top: 0.2rem;
+        }
+        
+        .booking-preview-widget {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+        }
+        
+        .booking-preview-widget h4 {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--text-dark, #333);
+        }
+        
+        .preview-service {
+            padding: 1.5rem;
+            border-radius: 8px;
+            border: 1px solid #eee;
+            margin-bottom: 1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .preview-service:hover {
+            border-color: var(--primary-color, #3498db);
+            box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+        }
+        
+        .preview-service h5 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-dark, #333);
+        }
+        
+        .preview-service-details {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+        
+        .preview-service-meta {
+            font-size: 0.9rem;
+            color: var(--text-medium, #666);
+        }
+        
+        .preview-service-price {
+            font-weight: bold;
+            color: var(--primary-color, #3498db);
+        }
+        
+        .preview-service a {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background-color: var(--primary-light, #e8f4fc);
+            color: var(--primary-color, #3498db);
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        
+        .preview-service a:hover {
+            background-color: var(--primary-color, #3498db);
+            color: white;
+        }
+        
+        .preview-loading {
+            text-align: center;
+            padding: 2rem 0;
+            color: var(--text-medium, #666);
+        }
+        
+        .view-all-services {
+            text-align: center;
+            margin-top: 1.5rem;
+        }
+        
+        @media screen and (max-width: 991px) {
+            .booking-preview-content {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
     
     <!-- CSS -->
     <link rel="stylesheet" href="styles.css">
 </head>
-<body>
+<body id="top">
     <!-- Page Navigation (Mobile) -->
     <div class="page-navigation">
         <div class="nav-indicator">
@@ -45,12 +192,10 @@
             </div>
         </div>
         <div class="nav-sections">
-            <a href="#" class="nav-section active" data-section="home">Home</a>
-            <a href="#startup-services" class="nav-section" data-section="startup-services">Startup Services</a>
-            <a href="#service-packages" class="nav-section" data-section="service-packages">Startup Packages</a>
-            <a href="#testimonials" class="nav-section" data-section="testimonials">Testimonials</a>
-            <a href="#career-advisory" class="nav-section" data-section="career-advisory">Career Advisory</a>
-            <a href="#pricing" class="nav-section" data-section="pricing">Career Pricing</a>
+            <a href="#top" class="nav-section active" data-section="home">Home</a>
+            <a href="#services" class="nav-section" data-section="services">Services</a>
+            <a href="#knowledge-hub" class="nav-section" data-section="knowledge-hub">Knowledge Hub</a>
+            <a href="#client-stories" class="nav-section" data-section="client-stories">Client Stories</a>
             <a href="#about" class="nav-section" data-section="about">About</a>
             <a href="#contact" class="nav-section" data-section="contact">Contact</a>
         </div>
@@ -60,20 +205,17 @@
     <header>
         <div class="container">
             <nav>
-                <a href="#" class="logo">The Unstuck Growth</a>
+                <a href="#top" class="logo">The Unstuck Growth</a>
                 <div class="nav-links">
-                    <a href="#">Home</a>
-                    <a href="#startup-services">Startup Services</a>
-                    <a href="#service-packages">Startup Packages</a>
-                    <a href="#testimonials">Testimonials</a>
-                    <a href="#career-advisory">Career Advisory</a>
-                    <a href="#pricing">Career Pricing</a>
+                    <a href="#top" class="active">Home</a>
+                    <a href="#services">Services</a>
                     <a href="#about">About</a>
+                    <a href="#knowledge-hub">Knowledge Hub</a>
+                    <a href="#client-stories">Client Stories</a>
+                    <a href="https://topmate.io/swati12" class="highlight" target="_blank" rel="noopener">Book Now</a>
                     <a href="#contact">Contact</a>
                 </div>
-                <div class="mobile-menu-btn">
-                    <i class="fas fa-bars"></i>
-                </div>
+                <button class="mobile-menu-btn" title="Toggle mobile menu"><i class="fas fa-bars"></i></button>
             </nav>
         </div>
     </header>
@@ -86,17 +228,48 @@
                 <h2>Navigate your next big move with clarity and confidence</h2>
                 <p>Whether you're launching a startup, scaling a product, or advancing your career, our expert guidance helps you break through barriers and achieve sustainable growth.</p>
                 <div class="cta-buttons">
-                    <a href="#startup-services" class="btn primary">Explore Services</a>
-                    <a href="#pricing" class="btn secondary">View Pricing</a>
+                    <a href="#services" class="btn primary">Explore Services</a>
+                    <a onclick="Calendly.initPopupWidget({url: 'https://calendly.com/unstuckgrowth/30min'});return false;" class="btn secondary">Book on Calendly</a>
+                    <a href="https://topmate.io/swati12" class="btn secondary" target="_blank" rel="noopener">Book on Topmate</a>
                 </div>
                 <div class="social-icons">
-                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                    <a href="#"><i class="fab fa-twitter"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.linkedin.com/in/swati-shukla-63327614/" target="_blank" rel="noopener"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="https://wa.me/12063561265" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i></a>
+                    <a href="mailto:unstuckgrowth@gmail.com"><i class="fas fa-envelope"></i></a>
                 </div>
             </div>
         </div>
     </section>
+
+    <!-- Impact Metrics Section -->
+    <section class="impact-metrics">
+        <div class="container">
+            <h2>Impact at a Glance</h2>
+            <div class="metrics-grid">
+                <div class="metric-card">
+                    <div class="metric-header">
+                        <h3>Minutes Mentored</h3>
+                    </div>
+                    <div class="metric-value accent-black" data-metric="minutes">2905</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-header">
+                        <h3>1:1 Bookings</h3>
+                    </div>
+                    <div class="metric-value accent-black" data-metric="bookings">148</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-header">
+                        <h3>Countries Reached</h3>
+                    </div>
+                    <div class="metric-value accent-black" data-metric="countries">19</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Add metrics data script -->
+    <script src="metrics-data.js"></script>
 
     <!-- About Home Section -->
     <section id="about-home" class="about-home">
@@ -154,231 +327,1155 @@
         </div>
     </section>
 
-    <!-- Startup Services Section (Moved up as requested) -->
-    <section id="startup-services" class="startup-services">
+    <!-- Services Section -->
+    <section id="services" class="services">
         <div class="container">
             <div class="section-header">
-                <h2>Startup Service Hierarchy</h2>
-                <p>Strategic support at every stage of your startup journey</p>
+                <h2>Our Services</h2>
+                <p>Strategic support for founders and professionals</p>
             </div>
             
-            <div class="startup-intro">
-                <h3>Startup Service Hierarchy</h3>
-                <p>Choose the service that matches your current stage and needs</p>
-            </div>
-            
-            <!-- Idea Validation Section -->
-            <div class="startup-category">
-                <div class="category-header">
-                    <h3>Idea Validation</h3>
-                    <p>Test before you build. Build what users crave.</p>
+            <!-- Services Tabs -->
+            <div class="services-tabs advisory-tabs">
+                <div class="advisory-navigation">
+                    <button class="advisory-nav-btn active" data-tab="startup">
+                        <i class="fas fa-rocket"></i>
+                        <span>Startup Advisory</span>
+                    </button>
+                    <button class="advisory-nav-btn" data-tab="career">
+                        <i class="fas fa-briefcase"></i>
+                        <span>Career Advisory</span>
+                    </button>
                 </div>
                 
-                <div class="startup-services-grid">
-                    <div class="startup-service-card">
-                        <h4>Idea Lab</h4>
-                        <p class="service-description">Got a spark of an idea? Let's shape it into something real.</p>
-                        <p class="service-audience">Perfect for aspiring founders or side hustlers testing the waters.</p>
+                <div class="tab-content">
+                    <!-- Startup Services Tab -->
+                    <div id="startup-tab" class="tab-pane active">
+                        <div class="startup-intro">
+                            <h3>Strategic Support for Founders</h3>
+                            <p>Comprehensive support for founders at every stage of your journey</p>
+                        </div>
                         
-                        <div class="service-details">
-                            <div class="detail-item">
-                                <h5>Why it's for you:</h5>
-                                <p>You're exploring a concept and want to know if it's worth building.</p>
+                        <!-- Idea Validation Category -->
+                        <div class="startup-category">
+                            <div class="category-header">
+                                <h3>Idea Validation</h3>
+                                <p>Test before you build. Build what users crave.</p>
                             </div>
                             
-                            <div class="detail-item">
-                                <h5>What you'll get:</h5>
-                                <p>Clarity, focus, and confidence in your startup direction.</p>
-                            </div>
-                            
-                            <div class="detail-item">
-                                <h5>What we'll do:</h5>
-                                <p>Collaborative brainstorming, refine your vision, and uncover your "why."</p>
+                            <div class="startup-services-grid">
+                                <div class="startup-service-card">
+                                    <div class="service-icon">
+                                        <i class="fas fa-lightbulb"></i>
+                                    </div>
+                                    <h4>Idea Lab</h4>
+                                    <p class="service-description">Got a spark of an idea? Let's shape it into something real.</p>
+                                    <p class="service-audience">Perfect for aspiring founders or side hustlers testing the waters.</p>
+                                    
+                                    <div class="service-details">
+                                        <div class="detail-item">
+                                            <h5>Why it's for you:</h5>
+                                            <p>You're exploring a concept and want to know if it's worth building.</p>
+                                        </div>
+                                        
+                                        <div class="detail-item">
+                                            <h5>What you'll get:</h5>
+                                            <p>Clarity, focus, and confidence in your startup direction.</p>
+                                        </div>
+                                        
+                                        <div class="detail-item">
+                                            <h5>What we'll do:</h5>
+                                            <p>Collaborative brainstorming, refine your vision, and uncover your "why."</p>
+                                        </div>
+                                    </div>
+                                    
+                                    <a href="https://topmate.io/swati12" class="btn primary" target="_blank" rel="noopener noreferrer">Book a Session</a>
+                                </div>
+                                
+                                <div class="startup-service-card">
+                                    <div class="service-icon">
+                                        <i class="fas fa-rocket"></i>
+                                    </div>
+                                    <h4>Problem Discovery</h4>
+                                    <p class="service-description">Does your solution actually solve a real problem? Let's find out.</p>
+                                    <p class="service-audience">For founders who need validation before investing resources.</p>
+                                    
+                                    <div class="service-details">
+                                        <div class="detail-item">
+                                            <h5>Why it's for you:</h5>
+                                            <p>You need to validate market demand before committing significant resources.</p>
+                                        </div>
+                                        
+                                        <div class="detail-item">
+                                            <h5>What you'll get:</h5>
+                                            <p>Validated problem statements and target customer insights.</p>
+                                        </div>
+                                        
+                                        <div class="detail-item">
+                                            <h5>What we'll do:</h5>
+                                            <p>Customer interviews, problem validation, and competitive landscape analysis.</p>
+                                        </div>
+                                    </div>
+                                    
+                                    <a href="https://topmate.io/swati12" class="btn primary" target="_blank" rel="noopener noreferrer">Book a Session</a>
+                                </div>
+                                
+                                <div class="startup-service-card">
+                                    <div class="service-icon">
+                                        <i class="fas fa-users"></i>
+                                    </div>
+                                    <h4>Persona Paintbox</h4>
+                                    <p class="service-description">Know exactly who you're building for—before you build.</p>
+                                    <p class="service-audience">Essential for startups defining their target audience.</p>
+                                    
+                                    <div class="service-details">
+                                        <div class="detail-item">
+                                            <h5>Why it's for you:</h5>
+                                            <p>You need clarity on who your ideal customers are and what they truly value.</p>
+                                        </div>
+                                        
+                                        <div class="detail-item">
+                                            <h5>What you'll get:</h5>
+                                            <p>Detailed user personas, customer journey maps, and empathy frameworks.</p>
+                                        </div>
+                                        
+                                        <div class="detail-item">
+                                            <h5>What we'll do:</h5>
+                                            <p>Research-driven persona development, needs analysis, and value proposition alignment.</p>
+                                        </div>
+                                    </div>
+                                    
+                                    <a href="https://topmate.io/swati12" class="btn primary" target="_blank" rel="noopener noreferrer">Book a Session</a>
+                                </div>
                             </div>
                         </div>
                         
-                        <a href="https://calendly.com/unstuckgrowth/ask-me-anything" class="btn primary" target="_blank" rel="noopener noreferrer">Book a Session</a>
+                        <!-- Fundraising & Pitch Prep Category -->
+                        <div class="startup-category">
+                            <div class="category-header">
+                                <h3>Fundraising & Pitch Prep</h3>
+                                <p>Tell your story and secure the funding you need.</p>
+                            </div>
+                            
+                            <div class="startup-services-grid">
+                                <div class="startup-service-card">
+                                    <div class="service-icon">
+                                        <i class="fas fa-chart-line"></i>
+                                    </div>
+                                    <h4>Pitch Perfect</h4>
+                                    <p class="service-description">Tell your story like a pro—and leave investors wanting more.</p>
+                                    <p class="service-audience">For founders preparing to pitch to investors or accelerators.</p>
+                                    
+                                    <div class="service-details">
+                                        <div class="detail-item">
+                                            <h5>Why it's for you:</h5>
+                                            <p>Your pitch isn't generating the interest or investment you're hoping for.</p>
+                                        </div>
+                                        
+                                        <div class="detail-item">
+                                            <h5>What you'll get:</h5>
+                                            <p>A compelling pitch deck and clear, persuasive narrative that resonates with investors.</p>
+                                        </div>
+                                        
+                                        <div class="detail-item">
+                                            <h5>What we'll do:</h5>
+                                            <p>Story development, slide design recommendations, and delivery coaching.</p>
+                                        </div>
+                                    </div>
+                                    
+                                    <a href="https://topmate.io/swati12" class="btn primary" target="_blank" rel="noopener noreferrer">Book a Session</a>
+                                </div>
+                                
+                                <div class="startup-service-card">
+                                    <div class="service-icon">
+                                        <i class="fas fa-hand-holding-usd"></i>
+                                    </div>
+                                    <h4>Fundraise Ready</h4>
+                                    <p class="service-description">Confidently walk into your raise with a clear story and ask.</p>
+                                    <p class="service-audience">For founders preparing for seed or Series A funding.</p>
+                                    
+                                    <div class="service-details">
+                                        <div class="detail-item">
+                                            <h5>Why it's for you:</h5>
+                                            <p>You're planning a fundraising round and need to maximize your chances of success.</p>
+                                        </div>
+                                        
+                                        <div class="detail-item">
+                                            <h5>What you'll get:</h5>
+                                            <p>Complete fundraising strategy and investor targeting plan with readiness assessment.</p>
+                                        </div>
+                                        
+                                        <div class="detail-item">
+                                            <h5>What we'll do:</h5>
+                                            <p>Financial story development, investor due diligence preparation, and negotiation coaching.</p>
+                                        </div>
+                                    </div>
+                                    
+                                    <a href="https://topmate.io/swati12" class="btn primary" target="_blank" rel="noopener noreferrer">Book a Session</a>
+                                </div>
+                                
+                                <div class="startup-service-card">
+                                    <div class="service-icon">
+                                        <i class="fas fa-magic"></i>
+                                    </div>
+                                    <h4>Last-Minute Polish</h4>
+                                    <p class="service-description">Need a deck review... yesterday? We've got you.</p>
+                                    <p class="service-audience">For founders with imminent investor meetings.</p>
+                                    
+                                    <div class="service-details">
+                                        <div class="detail-item">
+                                            <h5>Why it's for you:</h5>
+                                            <p>You have an upcoming investor meeting and need quick expert feedback.</p>
+                                        </div>
+                                        
+                                        <div class="detail-item">
+                                            <h5>What you'll get:</h5>
+                                            <p>Rapid turnaround feedback on your deck with actionable improvements.</p>
+                                        </div>
+                                        
+                                        <div class="detail-item">
+                                            <h5>What we'll do:</h5>
+                                            <p>Critical review, rapid revisions, and pre-meeting coaching for your investor pitch.</p>
+                                        </div>
+                                    </div>
+                                    
+                                    <a href="https://topmate.io/swati12" class="btn primary" target="_blank" rel="noopener noreferrer">Book a Session</a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Growth Strategy Category -->
+                        <div class="startup-category">
+                            <div class="category-header">
+                                <h3>Growth Strategy</h3>
+                                <p>Scale with purpose. Grow with intention.</p>
+                            </div>
+                            
+                            <div class="startup-services-grid">
+                                <div class="startup-service-card">
+                                    <div class="service-icon">
+                                        <i class="fas fa-bullhorn"></i>
+                                    </div>
+                                    <h4>Marketing Acceleration</h4>
+                                    <p class="service-description">Break through marketing barriers with data-driven strategies.</p>
+                                    <p class="service-audience">For founders who need to optimize customer acquisition and retention.</p>
+                                    
+                                    <div class="service-details">
+                                        <div class="detail-item">
+                                            <h5>Why it's for you:</h5>
+                                            <p>Your customer acquisition costs are too high or conversion rates are too low.</p>
+                                        </div>
+                                        
+                                        <div class="detail-item">
+                                            <h5>What you'll get:</h5>
+                                            <p>A comprehensive marketing strategy with execution roadmap.</p>
+                                        </div>
+                                        
+                                        <div class="detail-item">
+                                            <h5>What we'll do:</h5>
+                                            <p>Audit your current approach, identify quick wins, and build long-term tactics.</p>
+                                        </div>
+                                    </div>
+                                    
+                                    <a href="https://topmate.io/swati12" class="btn primary" target="_blank" rel="noopener noreferrer">Book a Session</a>
+                                </div>
+                                
+                                <div class="startup-service-card">
+                                    <div class="service-icon">
+                                        <i class="fas fa-tachometer-alt"></i>
+                                    </div>
+                                    <h4>Product-Market Fit Workshop</h4>
+                                    <p class="service-description">Transform a good idea into a solution users love and will pay for.</p>
+                                    <p class="service-audience">For startups struggling with user adoption or retention.</p>
+                                    
+                                    <div class="service-details">
+                                        <div class="detail-item">
+                                            <h5>Why it's for you:</h5>
+                                            <p>You have a product but users aren't sticking around or paying as expected.</p>
+                                        </div>
+                                        
+                                        <div class="detail-item">
+                                            <h5>What you'll get:</h5>
+                                            <p>A clear product roadmap focused on features that drive user value and retention.</p>
+                                        </div>
+                                        
+                                        <div class="detail-item">
+                                            <h5>What we'll do:</h5>
+                                            <p>User research analysis, value proposition refinement, and feature prioritization.</p>
+                                        </div>
+                                    </div>
+                                    
+                                    <a href="https://topmate.io/swati12" class="btn primary" target="_blank" rel="noopener noreferrer">Book a Consultation</a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Modes of Engagement Section -->
+                        <div class="engagement-models">
+                            <div class="section-header">
+                                <h3>Modes of Engagement</h3>
+                                <p>Choose how you want to work with us—based on your goals, pace, and team setup.</p>
+                            </div>
+                            
+                            <div class="engagement-intro">
+                                <p>We offer multiple formats for delivering high-impact product strategy and startup advisory services—so you can get the exact support you need, when you need it.</p>
+                            </div>
+                            
+                            <div class="engagement-models-grid">
+                                <div class="engagement-model">
+                                    <h4>1. Live Advisory</h4>
+                                    <p class="model-description">Your on-demand product partner—when you need fast, high-level support.</p>
+                                    <p>No long-term commitment. No waiting for the next sync. Just smart answers, real-time insights, and a product leader in your corner.</p>
+                                    
+                                    <div class="model-details">
+                                        <h5>Why it's for you:</h5>
+                                        <p>You need quick input, strategic guidance, or sounding board support—without the overhead of a full-time hire.</p>
+                                        
+                                        <h5>What you'll get:</h5>
+                                        <ul>
+                                            <li>Sprint planning & roadmap reviews</li>
+                                            <li>Product prioritization and GTM feedback</li>
+                                            <li>Leadership coaching for you or your PMs</li>
+                                            <li>Real-time feedback via Slack, Zoom, or async Loom</li>
+                                        </ul>
+                                    </div>
+                                    
+                                    <a href="https://topmate.io/swati12" class="btn primary" target="_blank" rel="noopener noreferrer">Book a Consultation</a>
+                                </div>
+                                
+                                <div class="engagement-model">
+                                    <h4>2. Fractional Product Leadership</h4>
+                                    <p class="model-description">Hands-on strategic support to help you grow without hiring full-time.</p>
+                                    <p>A structured and ongoing partnership where we act as your part-time CPO, product strategist, or growth advisor.</p>
+                                    
+                                    <div class="model-details">
+                                        <h5>Why it's for you:</h5>
+                                        <p>You're wearing too many hats and need experienced guidance on product, people, and processes.</p>
+                                        
+                                        <h5>What you'll get:</h5>
+                                        <ul>
+                                            <li>Monthly strategy huddles</li>
+                                            <li>Progress note reviews</li>
+                                            <li>Milestone tracker setup</li>
+                                            <li>Strategy doc & roadmap feedback</li>
+                                            <li>Alignment across product, growth, and ops</li>
+                                        </ul>
+                                    </div>
+                                    
+                                    <a href="https://topmate.io/swati12" class="btn primary" target="_blank" rel="noopener noreferrer">Book a Consultation</a>
+                                </div>
+                                
+                                <div class="engagement-model">
+                                    <h4>3. Retainer Engagements</h4>
+                                    <p class="model-description">Work with us for a fixed number of hours each month—customized around a milestone.</p>
+                                    <p>Ideal for early-stage startups working toward a clear deliverable (MVP launch, pitch prep, GTM rollout, etc.)</p>
+                                    
+                                    <div class="model-details">
+                                        <h5>Why it's for you:</h5>
+                                        <p>You want predictable support, momentum, and results—with flexibility.</p>
+                                        
+                                        <h5>What you'll get:</h5>
+                                        <ul>
+                                            <li>Pre-defined milestones</li>
+                                            <li>Weekly check-ins and async collaboration</li>
+                                            <li>Shared Notion board or tracker</li>
+                                            <li>Product, GTM, and team execution support</li>
+                                        </ul>
+                                    </div>
+                                    
+                                    <a href="https://topmate.io/swati12" class="btn primary" target="_blank" rel="noopener noreferrer">Book a Consultation</a>
+                                </div>
+                            </div>
+                            
+                            <div class="engagement-models-grid">
+                                <div class="engagement-model">
+                                    <h4>4. Coaching & Team Training</h4>
+                                    <p class="model-description">Level up your startup team's product, strategy, or leadership skills.</p>
+                                    <p>Workshops, 1:1 coaching, or small-group sessions focused on building internal capability.</p>
+                                    
+                                    <div class="model-details">
+                                        <h5>Why it's for you:</h5>
+                                        <p>You want to upskill junior PMs, clarify product thinking, or strengthen team rituals.</p>
+                                        
+                                        <h5>What you'll get:</h5>
+                                        <ul>
+                                            <li>Role-specific coaching (e.g., for PMs, product marketers)</li>
+                                            <li>Team-wide product or GTM workshops</li>
+                                            <li>Frameworks for prioritization, execution, and alignment</li>
+                                        </ul>
+                                    </div>
+                                    
+                                    <a href="https://topmate.io/swati12" class="btn primary" target="_blank" rel="noopener noreferrer">Book a Consultation</a>
+                                </div>
+                                
+                                <div class="engagement-model">
+                                    <h4>5. Playbooks & DIY Tools</h4>
+                                    <p class="model-description">Use our startup-tested playbooks and frameworks—on your own time.</p>
+                                    <p>Practical, no-fluff tools for founders and teams who want to move fast and stay lean.</p>
+                                    
+                                    <div class="model-details">
+                                        <h5>Why it's for you:</h5>
+                                        <p>You're not ready for ongoing advisory but still want expert systems and shortcuts.</p>
+                                        
+                                        <h5>What you'll get:</h5>
+                                        <ul>
+                                            <li>AI & Innovation Playbook (for PMs experimenting with AI)</li>
+                                            <li>Product Strategy Templates</li>
+                                            <li>Product-Market Fit Checklist</li>
+                                            <li>Founder Dashboard (Notion)</li>
+                                            <li>Prompt libraries & GTM workflows</li>
+                                        </ul>
+                                    </div>
+                                    
+                                    <a href="https://topmate.io/swati12" class="btn primary" target="_blank" rel="noopener noreferrer">Book a Consultation</a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Startup Advisory Packages Section -->
+                        <div class="service-packages">
+                            <div class="section-header">
+                                <h3>Startup Advisory Packages</h3>
+                                <p>Select the right level of support for your business</p>
+                            </div>
+                            
+                            <div class="packages-intro">
+                                <p>Choose from our structured advisory packages designed to solve specific challenges at different stages of your startup journey.</p>
+                            </div>
+                            
+                            <div class="packages-grid">
+                                <div class="package-card">
+                                    <div class="package-header">
+                                        <h4>Foundation Package</h4>
+                                        <p>For early-stage startups establishing their core</p>
+                                    </div>
+                                    
+                                    <div class="package-content">
+                                        <div class="package-section">
+                                            <h5>What's Included:</h5>
+                                            <ul class="feature-list">
+                                                <li><i class="fas fa-check"></i> Idea validation workshop</li>
+                                                <li><i class="fas fa-check"></i> Target audience analysis</li>
+                                                <li><i class="fas fa-check"></i> Basic MVP roadmap</li>
+                                                <li><i class="fas fa-check"></i> Competitive landscape analysis</li>
+                                                <li><i class="fas fa-check"></i> 3 one-hour advisory sessions</li>
+                                            </ul>
+                                        </div>
+                                        
+                                        <a href="https://topmate.io/swati12" class="btn primary" target="_blank" rel="noopener noreferrer">Book a Consultation</a>
+                                    </div>
+                                </div>
+                                
+                                <div class="package-card">
+                                    <div class="package-header">
+                                        <h4>Growth Package</h4>
+                                        <p>For startups ready to scale their user base</p>
+                                    </div>
+                                    
+                                    <div class="package-content">
+                                        <div class="package-section">
+                                            <h5>What's Included:</h5>
+                                            <ul class="feature-list">
+                                                <li><i class="fas fa-check"></i> Marketing funnel optimization</li>
+                                                <li><i class="fas fa-check"></i> User acquisition strategy</li>
+                                                <li><i class="fas fa-check"></i> Product roadmap refinement</li>
+                                                <li><i class="fas fa-check"></i> Pricing strategy</li>
+                                                <li><i class="fas fa-check"></i> 5 one-hour advisory sessions</li>
+                                            </ul>
+                                        </div>
+                                        
+                                        <a href="https://topmate.io/swati12" class="btn primary" target="_blank" rel="noopener noreferrer">Book a Consultation</a>
+                                    </div>
+                                </div>
+                                
+                                <div class="package-card">
+                                    <div class="package-header">
+                                        <h4>Scale Package</h4>
+                                        <p>For established startups preparing for significant expansion</p>
+                                    </div>
+                                    
+                                    <div class="package-content">
+                                        <div class="package-section">
+                                            <h5>What's Included:</h5>
+                                            <ul class="feature-list">
+                                                <li><i class="fas fa-check"></i> Fundraising preparation</li>
+                                                <li><i class="fas fa-check"></i> Team scaling strategy</li>
+                                                <li><i class="fas fa-check"></i> Operational excellence review</li>
+                                                <li><i class="fas fa-check"></i> Long-term growth planning</li>
+                                                <li><i class="fas fa-check"></i> 8 one-hour advisory sessions</li>
+                                            </ul>
+                                        </div>
+                                        
+                                        <a href="https://topmate.io/swati12" class="btn primary" target="_blank" rel="noopener noreferrer">Book a Consultation</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     
-                    <div class="startup-service-card">
-                        <h4>Problem Discovery & Fit</h4>
-                        <p class="service-description">Does your solution actually solve a real problem? Let's find out.</p>
-                        <p class="service-audience">Ideal for early founders unsure if there's a true need for their idea.</p>
+                    <!-- Career Advisory Tab -->
+                    <div id="career-tab" class="tab-pane">
+                        <div class="advisory-intro">
+                            <h3>Career Development Pathways</h3>
+                            <p>Choose the pathway that aligns with your current career goals and aspirations</p>
+                        </div>
                         
-                        <div class="service-details">
-                            <div class="detail-item">
-                                <h5>Why it's for you:</h5>
-                                <p>You're building something but not 100% sure it solves a pain point.</p>
+                        <div class="advisory-tabs">
+                            <div class="advisory-navigation">
+                                <button class="advisory-nav-btn active" data-tab="career-strategy">
+                                    <i class="fas fa-compass"></i>
+                                    <span>Career Strategy</span>
+                                </button>
+                                <button class="advisory-nav-btn" data-tab="mba-applications">
+                                    <i class="fas fa-graduation-cap"></i>
+                                    <span>MBA Applications</span>
+                                </button>
+                                <button class="advisory-nav-btn" data-tab="product-management">
+                                    <i class="fas fa-tasks"></i>
+                                    <span>Product Management</span>
+                                </button>
+                                <button class="advisory-nav-btn" data-tab="career-transitions">
+                                    <i class="fas fa-exchange-alt"></i>
+                                    <span>Career Transitions</span>
+                                </button>
+                                <button class="advisory-nav-btn" data-tab="custom-solution">
+                                    <i class="fas fa-puzzle-piece"></i>
+                                    <span>Custom Solution</span>
+                                </button>
                             </div>
                             
-                            <div class="detail-item">
-                                <h5>What you'll get:</h5>
-                                <p>Validation (or redirection) through user insight and need analysis.</p>
+                            <div class="tab-content">
+                                <!-- Career Strategy Tab -->
+                                <div id="career-strategy-tab" class="tab-pane active">
+                                    <div class="strategy-intro">
+                                        <h3>Career Strategy</h3>
+                                        <p>Define your career goals, create a personalized development plan, and navigate transitions.</p>
+                                    </div>
+                                    
+                                    <div class="strategy-services">
+                                        <div class="service-item">
+                                            <h4>Career Assessment & Planning</h4>
+                                            <p class="service-tagline">Gain clarity on your strengths, goals, and optimal career path</p>
+                                            
+                                            <div class="service-details-box">
+                                                <div class="details-section">
+                                                    <h5>The Process:</h5>
+                                                    <p>Comprehensive assessment, goal-setting workshop, and personalized action plan</p>
+                                                </div>
+                                                
+                                                <div class="details-section">
+                                                    <h5>Perfect For:</h5>
+                                                    <p>Professionals feeling stuck or uncertain about their next career move</p>
+                                                </div>
+                                            </div>
+                                            
+                                            <a href="https://topmate.io/swati12" class="btn primary" target="_blank" rel="noopener noreferrer">Book a Consultation</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- MBA Applications Tab -->
+                                <div id="mba-applications-tab" class="tab-pane">
+                                    <div class="mba-intro">
+                                        <h3>MBA Applications</h3>
+                                        <p>Get expert guidance on MBA applications, essays, and interview preparation.</p>
+                                    </div>
+                                    
+                                    <div class="mba-services">
+                                        <div class="service-item">
+                                            <h4>MBA Application Strategy</h4>
+                                            <p class="service-tagline">Develop a winning application strategy tailored to your target schools</p>
+                                            
+                                            <div class="service-details-box">
+                                                <div class="details-section">
+                                                    <h5>The Process:</h5>
+                                                    <p>School selection guidance, timeline planning, and personalized application strategy</p>
+                                                </div>
+                                                
+                                                <div class="details-section">
+                                                    <h5>Perfect For:</h5>
+                                                    <p>Professionals preparing to apply to MBA programs in the next 6-12 months</p>
+                                                </div>
+                                            </div>
+                                            
+                                            <a href="https://topmate.io/swati12" class="btn primary" target="_blank" rel="noopener noreferrer">Book a Consultation</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Product Management Tab -->
+                                <div id="product-management-tab" class="tab-pane">
+                                    <div class="pm-intro">
+                                        <h3>Product Management</h3>
+                                        <p>Launch or accelerate your career in product management</p>
+                                    </div>
+                                    
+                                    <div class="pm-services">
+                                        <div class="service-item">
+                                            <h4>PM Career Launchpad</h4>
+                                            <p class="service-tagline">Break into product management from a different background</p>
+                                            
+                                            <div class="service-details-box">
+                                                <div class="details-section">
+                                                    <h5>The Process:</h5>
+                                                    <p>Skills assessment, transferable experience mapping, and positioning strategy</p>
+                                                </div>
+                                                
+                                                <div class="details-section">
+                                                    <h5>Perfect For:</h5>
+                                                    <p>Professionals from engineering, design, marketing, or business looking to transition to PM</p>
+                                                </div>
+                                            </div>
+                                            
+                                            <a href="https://topmate.io/swati12" class="btn primary" target="_blank" rel="noopener noreferrer">Book a Consultation</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Career Transitions Tab -->
+                                <div id="career-transitions-tab" class="tab-pane">
+                                    <div class="transitions-intro">
+                                        <h3>Career Transitions</h3>
+                                        <p>Navigate major career shifts with strategic guidance and support</p>
+                                    </div>
+                                    
+                                    <div class="transitions-services">
+                                        <div class="service-item">
+                                            <h4>Industry Pivot Strategy</h4>
+                                            <p class="service-tagline">Successfully transition to a new industry while leveraging your existing expertise</p>
+                                            
+                                            <div class="service-details-box">
+                                                <div class="details-section">
+                                                    <h5>The Process:</h5>
+                                                    <p>Transferable skills analysis, industry research, and targeted networking strategy</p>
+                                                </div>
+                                                
+                                                <div class="details-section">
+                                                    <h5>Perfect For:</h5>
+                                                    <p>Professionals looking to switch industries while maintaining or advancing their career level</p>
+                                                </div>
+                                            </div>
+                                            
+                                            <a href="https://topmate.io/swati12" class="btn primary" target="_blank" rel="noopener noreferrer">Book a Consultation</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Custom Solution Tab -->
+                                <div id="custom-solution-tab" class="tab-pane">
+                                    <div class="custom-intro">
+                                        <h3>Custom Advisory Solution</h3>
+                                        <p>Tailored guidance and support designed specifically for your unique situation and goals</p>
+                                    </div>
+                                    
+                                    <div class="custom-solution-content">
+                                        <div class="custom-solution-box">
+                                            <div class="solution-icon">
+                                                <i class="fas fa-puzzle-piece"></i>
+                                            </div>
+                                            
+                                            <h4>Personalized Advisory Package</h4>
+                                            <p>Every career journey and business challenge is unique. When standard solutions don't quite address your specific needs, a custom advisory package provides the flexibility and focused attention to tackle your particular situation.</p>
+                                            
+                                            <div class="solution-features">
+                                                <div class="feature-item">
+                                                    <i class="fas fa-check-circle"></i>
+                                                    <span>Tailored to your specific challenges and goals</span>
+                                                </div>
+                                                <div class="feature-item">
+                                                    <i class="fas fa-check-circle"></i>
+                                                    <span>Flexible engagement formats and timeline</span>
+                                                </div>
+                                                <div class="feature-item">
+                                                    <i class="fas fa-check-circle"></i>
+                                                    <span>Comprehensive assessment and personalized roadmap</span>
+                                                </div>
+                                                <div class="feature-item">
+                                                    <i class="fas fa-check-circle"></i>
+                                                    <span>Blend of multiple service areas for holistic support</span>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="consultation-banner custom-banner" style="display: block !important;">
+                                                <h3 style="color: black;">Schedule a Free Discovery Call</h3>
+                                                <p>Discuss your unique needs and explore how a custom solution can help you achieve your goals.</p>
+                                                <a href="https://topmate.io/swati12" class="btn primary" target="_blank" rel="noopener noreferrer">Book Discovery Call</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Knowledge Hub Section -->
+    <section id="knowledge-hub" class="knowledge-hub">
+        <div class="container">
+            <div class="section-header">
+                <h2>Knowledge Hub</h2>
+                <p>Insights, case studies, and resources to accelerate your growth</p>
+            </div>
+            
+            <div class="knowledge-hub-locked">
+                <div class="locked-content">
+                    <i class="fas fa-lock"></i>
+                    <h3>Premium Content Locked</h3>
+                    <p>Our knowledge hub contains valuable case studies, articles, resources, and guides to help you accelerate your growth journey.</p>
+                    <p>Book a session to unlock access to these premium resources and get personalized guidance for your specific challenges.</p>
+                    <a href="https://topmate.io/swati12" class="btn primary" target="_blank" rel="noopener">Book a Session on Topmate</a>
+                </div>
+                
+                <div class="locked-preview">
+                    <div class="preview-item">
+                        <i class="fas fa-file-alt"></i>
+                        <h4>Case Studies</h4>
+                        <p>Real success stories and data-driven results from our clients</p>
+                    </div>
+                    <div class="preview-item">
+                        <i class="fas fa-newspaper"></i>
+                        <h4>Articles</h4>
+                        <p>In-depth analysis and actionable insights on business growth</p>
+                    </div>
+                    <div class="preview-item">
+                        <i class="fas fa-download"></i>
+                        <h4>Resources</h4>
+                        <p>Templates, worksheets, and tools for immediate implementation</p>
+                    </div>
+                    <div class="preview-item">
+                        <i class="fas fa-book"></i>
+                        <h4>Guides</h4>
+                        <p>Comprehensive playbooks for navigating specific challenges</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Client Stories Section -->
+    <section id="client-stories" class="client-stories">
+        <div class="container">
+            <div class="section-header">
+                <h2>What Clients Say</h2>
+                <p>Success stories, testimonials, and growth journeys</p>
+            </div>
+            
+            <div class="client-stories-tabs">
+                <div class="tab-nav">
+                    <button class="tab-btn active" data-tab="testimonials">Testimonials</button>
+                    <button class="tab-btn" data-tab="client-stories">Client Stories</button>
+                    <button class="tab-btn" data-tab="success-stories">Success Stories</button>
+                    <button class="tab-btn" data-tab="reviews">Reviews (24)</button>
+                    <button class="tab-btn" data-tab="contact">Contact</button>
+                </div>
+                
+                <div class="tab-content">
+                    <!-- Testimonials Tab -->
+                    <div id="testimonials-tab" class="tab-pane active">
+                        <div class="testimonials-grid">
+                            <div class="testimonial">
+                                <div class="quote">
+                                    <i class="fas fa-quote-left"></i>
+                                    <p class="testimonial-short">Swati quickly understood my startup challenges and offered clear, actionable guidance. Her sessions were incredibly valuable!</p>
+                                    <p class="testimonial-full">I had an excellent mentoring session with Swati. She quickly understood my startup's challenges and provided clear, actionable guidance. Swati's insightful approach and practical advice have been incredibly valuable, prompting me to have more sessions to continue benefiting from her expertise. Highly recommended for anyone serious about scaling their startup!</p>
+                                    <p class="client">- Sandeep Khemka <span class="testimonial-date">17 Mar 2025</span></p>
+                                    <button class="read-more-btn" aria-label="Read more testimonial from Sandeep Khemka" title="Read more testimonial from Sandeep Khemka">Read More</button>
+                                </div>
                             </div>
                             
-                            <div class="detail-item">
-                                <h5>What we'll do:</h5>
-                                <p>Analyze the problem, test assumptions, and sharpen your solution's value.</p>
+                            <div class="testimonial">
+                                <div class="quote">
+                                    <i class="fas fa-quote-left"></i>
+                                    <p class="testimonial-short">Swati's idea validation guidance really helped get my thinking back on track. She kindly extended our session too.</p>
+                                    <p class="testimonial-full">Swati was very kind and smoothly extended the session until I needed her time. Experiencing her detailed orientation about idea validation got my thinking hat on track.</p>
+                                    <p class="client">- Muhammad Asif <span class="testimonial-date">4 Mar 2025</span></p>
+                                    <button class="read-more-btn" aria-label="Read more testimonial from Muhammad Asif" title="Read more testimonial from Muhammad Asif">Read More</button>
+                                </div>
+                            </div>
+                            
+                            <div class="testimonial">
+                                <div class="quote">
+                                    <i class="fas fa-quote-left"></i>
+                                    <p class="testimonial-short">She provided immediate value and her experience came through instantly.</p>
+                                    <p class="testimonial-full">Swati was super helpful. She provided immediate value and her experience came through instantly. I look forward to nurturing a relationship with her.</p>
+                                    <p class="client">- Antoine Levy <span class="testimonial-date">3 Mar 2025</span></p>
+                                    <button class="read-more-btn" aria-label="Read more testimonial from Antoine Levy" title="Read more testimonial from Antoine Levy">Read More</button>
+                                </div>
                             </div>
                         </div>
                         
-                        <a href="https://calendly.com/unstuckgrowth/ask-me-anything" class="btn primary" target="_blank" rel="noopener noreferrer">Book a Session</a>
+                        <div class="testimonials-nav">
+                            <a href="#client-stories" class="btn secondary view-all-testimonials">View All Testimonials</a>
+                        </div>
                     </div>
                     
-                    <div class="startup-service-card">
-                        <h4>Persona Paintbox</h4>
-                        <p class="service-description">Know exactly who you're building for—before you build.</p>
-                        <p class="service-audience">Made for founders who want to deeply understand their target users.</p>
-                        
-                        <div class="service-details">
-                            <div class="detail-item">
-                                <h5>Why it's for you:</h5>
-                                <p>You're not clear on your audience or struggling with messaging.</p>
+                    <!-- Client Stories Tab -->
+                    <div id="client-stories-tab" class="tab-pane">
+                        <div class="stories-grid">
+                            <div class="story-card">
+                                <div class="story-header">
+                                    <h3>From Idea to Market: XYZ Tech Journey</h3>
+                                    <span class="story-category">Startup Growth</span>
+                                </div>
+                                <p class="story-excerpt">How a B2B SaaS startup transformed their product strategy and achieved product-market fit in just 4 months.</p>
+                                <div class="story-metrics">
+                                    <div class="metric">
+                                        <span class="metric-value">300%</span>
+                                        <span class="metric-label">User Growth</span>
+                                    </div>
+                                    <div class="metric">
+                                        <span class="metric-value">$1.2M</span>
+                                        <span class="metric-label">Funding Secured</span>
+                                    </div>
+                                </div>
+                                <a href="#case-studies" class="btn secondary">Read Full Story</a>
                             </div>
                             
-                            <div class="detail-item">
-                                <h5>What you'll get:</h5>
-                                <p>Actionable customer personas and real-world user journey maps.</p>
-                            </div>
-                            
-                            <div class="detail-item">
-                                <h5>What we'll do:</h5>
-                                <p>Define user profiles, behaviors, pain points, and map their journeys.</p>
+                            <div class="story-card">
+                                <div class="story-header">
+                                    <h3>Scaling Sustainably: GreenTech Solutions</h3>
+                                    <span class="story-category">Scale-Up Advisory</span>
+                                </div>
+                                <p class="story-excerpt">How a climate-tech company optimized operations and entered three new markets with minimal capital expenditure.</p>
+                                <div class="story-metrics">
+                                    <div class="metric">
+                                        <span class="metric-value">40%</span>
+                                        <span class="metric-label">Cost Reduction</span>
+                                    </div>
+                                    <div class="metric">
+                                        <span class="metric-value">3</span>
+                                        <span class="metric-label">New Markets</span>
+                                    </div>
+                                </div>
+                                <a href="#case-studies" class="btn secondary">Read Full Story</a>
                             </div>
                         </div>
-                        
-                        <a href="https://calendly.com/unstuckgrowth/ask-me-anything" class="btn primary" target="_blank" rel="noopener noreferrer">Book a Session</a>
+                    </div>
+                    
+                    <!-- Success Stories Tab -->
+                    <div id="success-stories-tab" class="tab-pane">
+                        <div class="success-stories-list">
+                            <h3>Client Success Stories</h3>
+                            <ul>
+                                <li>
+                                    <strong>Product Leader:</strong> Transitioned into a Principal PM role at Zalando after refining their analytical thinking and interview strategy.
+                                </li>
+                                <li>
+                                    <strong>Engineer:</strong> Moved into a Senior PM role at Amazon, mastering case studies and leadership principles.
+                                </li>
+                                <li>
+                                    <strong>MBA Student:</strong> Secured a Consultant offer at McKinsey after rigorous coaching on case studies and PEI strategies.
+                                </li>
+                                <li>
+                                    <strong>Job Seeker:</strong> Successfully landed a Director role at Pinterest, navigating complex leadership interviews.
+                                </li>
+                                <li>
+                                    <strong>UX Designer:</strong> Strengthened their portfolio and secured a role at Google.
+                                </li>
+                                <li>
+                                    <strong>Finance Professional:</strong> Pivoted into product management at JP Morgan.
+                                </li>
+                                <li>
+                                    <strong>Startup Founder:</strong> Successfully raised VC funding and achieved 50% user base growth.
+                                </li>
+                                <li>
+                                    <strong>MBA Applicants:</strong> Gained admission into Chicago Booth, Wharton, Kellogg, LBS, ISB, and more through essay reviews and interview prep.
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <!-- Reviews Tab -->
+                    <div id="reviews-tab" class="tab-pane">
+                        <div class="reviews-list">
+                            <h3>Client Reviews</h3>
+                            
+                            <div class="review-item">
+                                <div class="review-header">
+                                    <span class="reviewer-name">Tom Kaplan</span>
+                                    <span class="review-date">12 Apr 2025</span>
+                                </div>
+                                <p class="review-text">Swati provided great insights on how to approach improving our product.</p>
+                            </div>
+                            
+                            <div class="review-item">
+                                <div class="review-header">
+                                    <span class="reviewer-name">Khelan Shah</span>
+                                    <span class="review-date">28 Mar 2025</span>
+                                </div>
+                                <p class="review-text">Great call with Swati. Provided some helpful guidance in terms of a framework to help with finding my next role. Look forward to further deep dive sessions</p>
+                            </div>
+                            
+                            <div class="review-item">
+                                <div class="review-header">
+                                    <span class="reviewer-name">Sandeep Khemka</span>
+                                    <span class="review-date">17 Mar 2025</span>
+                                </div>
+                                <p class="review-text">I had an excellent mentoring session with Swati. She quickly understood my startup's challenges and provided clear, actionable guidance. Swati's insightful approach and practical advice have been incredibly valuable, prompting me to have more sessions to continue benefiting from her expertise. Highly recommended for anyone serious about scaling their startup!</p>
+                            </div>
+                            
+                            <div class="review-item">
+                                <div class="review-header">
+                                    <span class="reviewer-name">Muhammad Asif</span>
+                                    <span class="review-date">4 Mar 2025</span>
+                                </div>
+                                <p class="review-text">Swati was very kind and smoothly extended the session until i needed her time. Experiencing her detailed orientation about idea validation got my thinking hat on track.</p>
+                            </div>
+                            
+                            <div class="review-item">
+                                <div class="review-header">
+                                    <span class="reviewer-name">Antoine Levy</span>
+                                    <span class="review-date">3 Mar 2025</span>
+                                </div>
+                                <p class="review-text">Swati was super helpful. She provided immediate value and her experience came through instantly. I look forward to nurturing a relationship with her.</p>
+                            </div>
+                            
+                            <div class="review-item">
+                                <div class="review-header">
+                                    <span class="reviewer-name">Matthew</span>
+                                    <span class="review-date">19 Feb 2025</span>
+                                </div>
+                                <p class="review-text">Really good feedback, she helped me with a better methodology to answer interview questions and even gave me more time which was really helpful. Thank you so much!</p>
+                            </div>
+                            
+                            <div class="review-item">
+                                <div class="review-header">
+                                    <span class="reviewer-name">Paula Moss</span>
+                                    <span class="review-date">26 Jan 2025</span>
+                                </div>
+                                <p class="review-text">Very helpful session to give me a bit of direction for next steps. I have agreed to come back to Swati once i have actioned some of her advice and have access to my analytics to review.</p>
+                            </div>
+                            
+                            <div class="review-item">
+                                <div class="review-header">
+                                    <span class="reviewer-name">Anjali Datwani</span>
+                                    <span class="review-date">13 Jan 2025</span>
+                                </div>
+                                <p class="review-text">Swati was really helpful! She took time to understand what I am trying to do with my current campaign and provided a lot of steps and actions to take to create alignment. I tend to get overwhelmed with all the thoughts in my head, and appreciated Swati's patience as I shared the steps and actions I am taking. Thanks so much Swati!</p>
+                            </div>
+                            
+                            <div class="review-item">
+                                <div class="review-header">
+                                    <span class="reviewer-name">Rose Nzyoka</span>
+                                    <span class="review-date">13 Jan 2025</span>
+                                </div>
+                                <p class="review-text">My session with Swati was very insightful. She took her time to understand the context and what my background was. She gave me very practical suggestions that i can implement right away and also focused me on aspects that are important but that i hadn't considered yet.I look forward to engaging further with her.</p>
+                            </div>
+                            
+                            <div class="review-item">
+                                <div class="review-header">
+                                    <span class="reviewer-name">Andrew</span>
+                                    <span class="review-date">8 Jan 2025</span>
+                                </div>
+                                <p class="review-text">I had the pleasure of meeting with Ms. Shulka, and the conversation was both insightful and thought-provoking. Her expertise and perspectives provided invaluable guidance on our current challenges and opportunities. Ms. Shulka's ability to address challenges with practical, actionable suggestions made our discussion highly productive. I am excited to implement her advice. I look forward to staying connected and collaborating further in the future.</p>
+                            </div>
+                            
+                            <div class="review-item">
+                                <div class="review-header">
+                                    <span class="reviewer-name">Jacopo Bertonazzi</span>
+                                    <span class="review-date">5 Jan 2025</span>
+                                </div>
+                                <p class="review-text">Swati took the time to carefully understand the needs of my project and provided very useful insights and advice. I'm excited to take it further from here and discuss the results with her. Thank you!</p>
+                            </div>
+                            
+                            <div class="review-item">
+                                <div class="review-header">
+                                    <span class="reviewer-name">Case Eckman</span>
+                                    <span class="review-date">8 Oct 2024</span>
+                                </div>
+                                <p class="review-text">Swati was very helpful and I am looking forward to another call!</p>
+                            </div>
+                            
+                            <div class="review-item">
+                                <div class="review-header">
+                                    <span class="reviewer-name">Angel Hernandez</span>
+                                    <span class="review-date">13 Aug 2024</span>
+                                </div>
+                                <p class="review-text">She helped me with idea validation as I was struggling with introducing a paid tier to a free service and she helped me with the brainstorming which was helpful.</p>
+                            </div>
+                            
+                            <div class="review-item">
+                                <div class="review-header">
+                                    <span class="reviewer-name">Stephanie Hughes</span>
+                                    <span class="review-date">12 Jul 2024</span>
+                                </div>
+                                <p class="review-text">Great conversation and insights! thank you</p>
+                            </div>
+                            
+                            <div class="review-item">
+                                <div class="review-header">
+                                    <span class="reviewer-name">Simon Wang</span>
+                                    <span class="review-date">19 Jun 2024</span>
+                                </div>
+                                <p class="review-text">Swati provided lots of great and actionable advice. Highly recommend as a mentor!</p>
+                            </div>
+                            
+                            <div class="review-item">
+                                <div class="review-header">
+                                    <span class="reviewer-name">Walter Scalzone</span>
+                                    <span class="review-date">14 Jun 2024</span>
+                                </div>
+                                <p class="review-text">Valuable brainstorming about business development and funnel strategy</p>
+                            </div>
+                            
+                            <div class="review-item">
+                                <div class="review-header">
+                                    <span class="reviewer-name">Lizzy Palmer</span>
+                                    <span class="review-date">12 Jun 2024</span>
+                                </div>
+                                <p class="review-text">I really appreciate Swati's insights and the approach she shared while working on a marketing plan. It was great to connect!</p>
+                            </div>
+                            
+                            <div class="review-item">
+                                <div class="review-header">
+                                    <span class="reviewer-name">Wayne Fung</span>
+                                    <span class="review-date">6 Jun 2024</span>
+                                </div>
+                                <p class="review-text">Great Mentor, supper patient with all my questions with huge knowledge base</p>
+                            </div>
+                            
+                            <div class="review-item">
+                                <div class="review-header">
+                                    <span class="reviewer-name">Julian Reichert</span>
+                                    <span class="review-date">3 Jun 2024</span>
+                                </div>
+                                <p class="review-text">Swati knows how to listen well and gave me 2 awesome ideas I am going to try out this month!</p>
+                            </div>
+                            
+                            <div class="review-item">
+                                <div class="review-header">
+                                    <span class="reviewer-name">Seth Starr</span>
+                                    <span class="review-date">24 May 2024</span>
+                                </div>
+                                <p class="review-text">It was a pleasure working with Swati on figuring out ways to increase conversion on my apps. She was very patient and even went over the allotted time to give additional suggestions. We focused on the payment screen and determined multiple ways that we might be able to increase conversions on that screen. I would definitely recommend meeting with her.</p>
+                            </div>
+                            
+                            <div class="review-item">
+                                <div class="review-header">
+                                    <span class="reviewer-name">Sarah Williams</span>
+                                    <span class="review-date">16 May 2024</span>
+                                </div>
+                                <p class="review-text">This was an excellent session and so much was covered and I came away with a plan! Swati really helped me with analysis of my market - my strategy and my business road map! I am so grateful for swati expertise - it has made a huge difference! Highly recommended!</p>
+                            </div>
+                            
+                            <div class="review-item">
+                                <div class="review-header">
+                                    <span class="reviewer-name">David Epstein</span>
+                                    <span class="review-date">16 May 2024</span>
+                                </div>
+                                <p class="review-text">Swati had a lot of really good insights about how we could improve the messaging around the exact nature of our service, our value proposition, and how to lay out our pricing plans!</p>
+                            </div>
+                            
+                            <div class="review-item">
+                                <div class="review-header">
+                                    <span class="reviewer-name">Anastasia Rubleva</span>
+                                    <span class="review-date">11 May 2024</span>
+                                </div>
+                                <p class="review-text">Swati was very helpful with reviewing my CV and experience in sales & gave me some tips on how to improve them, looking forward to book a call with her again!</p>
+                            </div>
+                            
+                            <div class="review-item">
+                                <div class="review-header">
+                                    <span class="reviewer-name">Nour Elfekky</span>
+                                    <span class="review-date">8 May 2024</span>
+                                </div>
+                                <p class="review-text">Swati is very professional and knows how exactly to help you. She instantly identified the areas of improvement in the app after walking her through the user flow together in the call.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Contact Tab -->
+                    <div id="contact-tab" class="tab-pane">
+                        <div class="quick-contact-form">
+                            <h3>Get In Touch</h3>
+                            <p>Have a question or ready to start your growth journey? Reach out directly.</p>
+                            
+                            <form class="contact-mini-form">
+                                <div class="form-group">
+                                    <label for="name">Your Name</label>
+                                    <input type="text" id="name" name="name" placeholder="Enter your name" required>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="email">Email Address</label>
+                                    <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="phone">Phone Number</label>
+                                    <input type="tel" id="phone" name="phone" placeholder="Enter your phone number">
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="subject">Subject</label>
+                                    <select id="subject" name="subject" required>
+                                        <option value="" disabled selected>Select reason for contact</option>
+                                        <option value="startup-advisory">Startup Advisory</option>
+                                        <option value="career-guidance">Career Guidance</option>
+                                        <option value="partnership">Partnership Opportunities</option>
+                                        <option value="general">General Inquiry</option>
+                                    </select>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="message">Message</label>
+                                    <textarea id="message" name="message" rows="5" placeholder="Tell us about your needs or questions" required></textarea>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label>Resume/CV (Optional)</label>
+                                    <div id="drop-area" class="file-drop-area">
+                                        <div class="file-upload-prompt">
+                                            <i class="fas fa-cloud-upload-alt"></i>
+                                            <p>Drag and drop your file here or <span class="browse-link">browse</span></p>
+                                            <p class="file-type-info">Accepts PDF, DOC, DOCX files (5MB max)</p>
+                                        </div>
+                                        <div class="file-preview" style="display: none;">
+                                            <div class="file-details">
+                                                <i class="fas fa-file-alt"></i>
+                                                <span class="file-name">filename.pdf</span>
+                                            </div>
+                                            <button type="button" class="remove-file">
+                                                <i class="fas fa-times"></i>
+                                            </button>
+                                        </div>
+                                        <input type="file" id="resume" name="resume" accept=".pdf,.doc,.docx" style="display: none;">
+                                    </div>
+                                </div>
+                                
+                                <div class="checkbox-group">
+                                    <input type="checkbox" id="newsletter" name="newsletter" checked>
+                                    <label for="newsletter">Subscribe to our newsletter for growth insights and resources</label>
+                                </div>
+                                
+                                <button type="submit" class="btn primary">Send Message</button>
+                            </form>
+                            
+                            <div class="quick-contact-options">
+                                <div class="contact-option">
+                                    <i class="fas fa-calendar-alt"></i>
+                                    <a href="https://calendly.com/unstuckgrowth/30min" target="_blank" rel="noopener noreferrer">Schedule a Call</a>
+                                </div>
+                                
+                                <div class="contact-option">
+                                    <i class="fas fa-envelope"></i>
+                                    <a href="mailto:unstuckgrowth@gmail.com">unstuckgrowth@gmail.com</a>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
             
-            <!-- More Startup Service Categories -->
-            <!-- Additional service categories from the original page would go here -->
-        </div>
-    </section>
-
-    <!-- Startup Advisory Packages Section (Moved up as requested) -->
-    <section id="service-packages" class="service-packages">
-        <div class="container">
-            <div class="section-header">
-                <h2>Startup Advisory Packages</h2>
-                <p>Select the right level of support for your business</p>
+            <!-- Mobile Consultation Banner -->
+            <div class="consultation-banner">
+                <h3>Book your free consultation today</h3>
+                <p>Discuss your startup challenges or career goals with our experts</p>
+                <a onclick="Calendly.initPopupWidget({url: 'https://calendly.com/unstuckgrowth/30min'});return false;" class="btn primary">Book Now</a>
             </div>
-            
-            <!-- Packages content goes here -->
-            <div class="packages-intro">
-                <p>Choose from our structured advisory packages designed to solve specific challenges at different stages of your startup journey.</p>
-            </div>
-            
-            <div class="packages-grid">
-                <!-- Packages from the original page would go here -->
-            </div>
-        </div>
-    </section>
-
-    <!-- Testimonials Section (Moved as requested) -->
-    <section id="testimonials" class="testimonials">
-        <div class="container">
-            <div class="section-header">
-                <h2>Testimonials</h2>
-                <p>What our clients say about working with us</p>
-            </div>
-            
-            <div class="testimonials-grid">
-                <div class="testimonial">
-                    <div class="quote">
-                        <i class="fas fa-quote-left"></i>
-                        <p class="testimonial-short">Swati quickly understood my startup challenges and offered clear, actionable guidance. Her sessions were incredibly valuable!</p>
-                        <p class="testimonial-full">I had an excellent mentoring session with Swati. She quickly understood my startup's challenges and provided clear, actionable guidance. Swati's insightful approach and practical advice have been incredibly valuable, prompting me to have more sessions to continue benefiting from her expertise. Highly recommended for anyone serious about scaling their startup!</p>
-                        <p class="client">- Sandeep Khemka <span class="testimonial-date">17 Mar 2025</span></p>
-                        <button class="read-more-btn" aria-label="Read more testimonial from Sandeep Khemka">Read More</button>
-                    </div>
-                </div>
-                
-                <div class="testimonial">
-                    <div class="quote">
-                        <i class="fas fa-quote-left"></i>
-                        <p class="testimonial-short">Swati's idea validation guidance really helped get my thinking back on track. She kindly extended our session too.</p>
-                        <p class="testimonial-full">Swati was very kind and smoothly extended the session until I needed her time. Experiencing her detailed orientation about idea validation got my thinking hat on track.</p>
-                        <p class="client">- Muhammad Asif <span class="testimonial-date">4 Mar 2025</span></p>
-                        <button class="read-more-btn" aria-label="Read more testimonial from Muhammad Asif">Read More</button>
-                    </div>
-                </div>
-                
-                <div class="testimonial">
-                    <div class="quote">
-                        <i class="fas fa-quote-left"></i>
-                        <p class="testimonial-short">She provided immediate value and her experience came through instantly.</p>
-                        <p class="testimonial-full">Swati was super helpful. She provided immediate value and her experience came through instantly. I look forward to nurturing a relationship with her.</p>
-                        <p class="client">- Antoine Levy <span class="testimonial-date">3 Mar 2025</span></p>
-                        <button class="read-more-btn" aria-label="Read more testimonial from Antoine Levy">Read More</button>
-                    </div>
-                </div>
-                
-                <div class="testimonial">
-                    <div class="quote">
-                        <i class="fas fa-quote-left"></i>
-                        <p class="testimonial-short">She helped me with better interview strategies and even gave me more time. So helpful!</p>
-                        <p class="testimonial-full">Really good feedback, she helped me with a better methodology to answer interview questions and even gave me more time which was really helpful. Thank you so much!</p>
-                        <p class="client">- Matthew <span class="testimonial-date">19 Feb 2025</span></p>
-                        <button class="read-more-btn" aria-label="Read more testimonial from Matthew">Read More</button>
-                    </div>
-                </div>
-                
-                <div class="testimonial">
-                    <div class="quote">
-                        <i class="fas fa-quote-left"></i>
-                        <p class="testimonial-short">Her advice gave me clarity on next steps. I'll be coming back for more support!</p>
-                        <p class="testimonial-full">Very helpful session to give me a bit of direction for next steps. I have agreed to come back to Swati once I have actioned some of her advice and have access to my analytics to review.</p>
-                        <p class="client">- Paula Moss <span class="testimonial-date">26 Jan 2025</span></p>
-                        <button class="read-more-btn" aria-label="Read more testimonial from Paula Moss">Read More</button>
-                    </div>
-                </div>
-                
-                <div class="testimonial">
-                    <div class="quote">
-                        <i class="fas fa-quote-left"></i>
-                        <p class="testimonial-short">Swati took time to understand my campaign and gave me clear, actionable steps. Her patience really stood out!</p>
-                        <p class="testimonial-full">Swati was really helpful! She took time to understand what I am trying to do with my current campaign and provided a lot of steps and actions to take to create alignment. I tend to get overwhelmed with all the thoughts in my head, and appreciated Swati's patience as I shared the steps and actions I am taking. Thanks so much Swati!</p>
-                        <p class="client">- Anjali Datwani <span class="testimonial-date">13 Jan 2025</span></p>
-                        <button class="read-more-btn" aria-label="Read more testimonial from Anjali Datwani">Read More</button>
-                    </div>
-                </div>
-                
-                <div class="testimonial">
-                    <div class="quote">
-                        <i class="fas fa-quote-left"></i>
-                        <p class="testimonial-short">Swati offered practical advice I could use immediately and brought fresh perspective to areas I hadn't considered.</p>
-                        <p class="testimonial-full">My session with Swati was very insightful. She took her time to understand the context and what my background was. She gave me very practical suggestions that I can implement right away and also focused me on aspects that are important but that I hadn't considered yet. I look forward to engaging further with her.</p>
-                        <p class="client">- Rose Nzyoka <span class="testimonial-date">13 Jan 2025</span></p>
-                        <button class="read-more-btn" aria-label="Read more testimonial from Rose Nzyoka">Read More</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Career Advisory Section (Moved as requested) -->
-    <section id="career-advisory" class="career-advisory">
-        <div class="container">
-            <div class="section-header">
-                <h2>Career Advisory Services</h2>
-                <p>Navigate your career path with strategic guidance</p>
-            </div>
-            
-            <!-- Include the Career Advisory content from the original page -->
-        </div>
-    </section>
-
-    <!-- Career Pricing Section (Moved as requested) -->
-    <section id="pricing" class="pricing">
-        <div class="container">
-            <div class="section-header">
-                <h2>Career Advisory Pricing</h2>
-                <p>Founder-friendly. Flexible. Based on where you are in your career.</p>
-            </div>
-            
-            <!-- Include pricing content from the original page -->
         </div>
     </section>
 
@@ -390,7 +1487,287 @@
                 <p>Experience-backed advisory to unlock your potential</p>
             </div>
             
-            <!-- Include about content from the original page -->
+            <div class="mission-vision">
+                <div class="mission-block">
+                    <h3>Our Mission</h3>
+                    <p>To empower early-stage founders and aspiring product managers with the actionable insights, tools, and mentorship they need to launch high-impact products and accelerate their careers.</p>
+                </div>
+                
+                <div class="vision-block">
+                    <h3>Our Vision</h3>
+                    <p>To become the go-to global platform for startup advisory and product leadership coaching, where bold ideas are built, and careers are launched with purpose.</p>
+                </div>
+            </div>
+            
+            <div class="problem-block">
+                <h3>The Problem We Solve</h3>
+                <p>Most startups don't fail because of bad ideas—they fail due to misaligned product strategy, lack of go-to-market planning, and unclear stakeholder communication.</p>
+                <p>Similarly, professionals often feel stuck navigating complex transitions without proper career advisory or real-time support.</p>
+            </div>
+            
+            <div class="audience-block">
+                <h3>Who We Help</h3>
+                <div class="audience-items">
+                    <div class="audience-item">
+                        <h4><i class="fas fa-check-circle"></i> Startup Founders & Early-Stage Teams</h4>
+                        <p>From validating your startup idea to building your MVP and acquiring your first 100 users—we'll help you avoid common traps and build with clarity.</p>
+                    </div>
+                    
+                    <div class="audience-item">
+                        <h4><i class="fas fa-check-circle"></i> Product Managers Seeking Growth</h4>
+                        <p>Whether you're launching features, managing roadmaps, or aligning stakeholders—we support you with strategy coaching, leadership skills, and async feedback.</p>
+                    </div>
+                    
+                    <div class="audience-item">
+                        <h4><i class="fas fa-check-circle"></i> Aspiring PMs Breaking In</h4>
+                        <p>New to the field? We offer resume reviews, portfolio guidance, and interview prep to help you break into product management and land your first role.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="offering-block">
+                <h3>What We Offer</h3>
+                <p class="offering-tagline">"Tools, tactics, and strategic coaching to help you thrive in product, strategy, or startup leadership—no matter where you are in the journey."</p>
+                
+                <div class="offering-items">
+                    <div class="offering-item">
+                        <i class="fas fa-rocket"></i>
+                        <h4>Startup Advisory</h4>
+                        <p>From idea validation to growth strategy</p>
+                    </div>
+                    
+                    <div class="offering-item">
+                        <i class="fas fa-chart-line"></i>
+                        <h4>Career Advisory</h4>
+                        <p>For aspiring and mid-level PMs navigating career growth</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Meet Swati Shukla</h3>
+                    <p>A results-driven product leader, mentor, and startup advisor with 13 years of cross-sector experience across the US, Europe, and India. Her expertise spans top tier management consulting, tech giants, and consumer retail.</p>
+                    <p>With an MBA from London Business School, Swati has cultivated deep expertise in growth strategy, cost optimization, due diligence, digital transformation, product strategy (0 to 1), and ecommerce.</p>
+                    <p>As an experienced mentor, she has successfully guided startup founders to fuel their businesses and professionals to accelerate their careers, especially in product management and leadership roles.</p>
+                </div>
+                
+                <div class="about-tabs">
+                    <div class="tab-header">
+                        <button class="about-tab-btn active" data-tab="experience">Experience</button>
+                        <button class="about-tab-btn" data-tab="expertise">Expertise</button>
+                        <button class="about-tab-btn" data-tab="impact">Impact</button>
+                    </div>
+                    
+                    <div class="about-tab-content">
+                        <!-- Experience Tab -->
+                        <div id="experience-tab" class="about-tab-pane active">
+                            <div class="credentials">
+                                <h3>Professional Background</h3>
+                                <ul class="credentials-list">
+                                    <li><i class="fas fa-check-circle"></i> Former Product Leader at Amazon</li>
+                                    <li><i class="fas fa-check-circle"></i> Management Consultant at McKinsey & Company</li>
+                                    <li><i class="fas fa-check-circle"></i> MBA from London Business School</li>
+                                    <li><i class="fas fa-check-circle"></i> Experience across US, Europe, and India markets</li>
+                                    <li><i class="fas fa-check-circle"></i> Speaker at product and startup conferences</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <!-- Expertise Tab -->
+                        <div id="expertise-tab" class="about-tab-pane">
+                            <div class="expertise-areas">
+                                <h3>Areas of Expertise</h3>
+                                <div class="expertise-grid">
+                                    <div class="expertise-item">
+                                        <i class="fas fa-chart-line"></i>
+                                        <h4>Growth Strategy</h4>
+                                        <p>Data-driven approaches to scale businesses and optimize customer acquisition</p>
+                                    </div>
+                                    
+                                    <div class="expertise-item">
+                                        <i class="fas fa-coins"></i>
+                                        <h4>Cost Optimization</h4>
+                                        <p>Strategic cost reduction while maintaining operational excellence</p>
+                                    </div>
+                                    
+                                    <div class="expertise-item">
+                                        <i class="fas fa-search-dollar"></i>
+                                        <h4>Due Diligence</h4>
+                                        <p>Thorough analysis and evaluation for investment decisions</p>
+                                    </div>
+                                    
+                                    <div class="expertise-item">
+                                        <i class="fas fa-digital-tachograph"></i>
+                                        <h4>Digital Transformation</h4>
+                                        <p>Guiding businesses through technology-driven change</p>
+                                    </div>
+                                    
+                                    <div class="expertise-item">
+                                        <i class="fas fa-lightbulb"></i>
+                                        <h4>Product Strategy (0 to 1)</h4>
+                                        <p>Taking products from concept to market successfully</p>
+                                    </div>
+                                    
+                                    <div class="expertise-item">
+                                        <i class="fas fa-shopping-cart"></i>
+                                        <h4>Ecommerce</h4>
+                                        <p>Optimizing online retail experiences and operations</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Impact Tab -->
+                        <div id="impact-tab" class="about-tab-pane">
+                            <div class="achievements">
+                                <h3>Impact & Achievements</h3>
+                                <div class="achievements-grid">
+                                    <div class="achievement">
+                                        <h4>Founder Success</h4>
+                                        <p>Helped founders secure over $10M in funding through strategic planning and pitch refinement</p>
+                                    </div>
+                                    
+                                    <div class="achievement">
+                                        <h4>MBA Admissions</h4>
+                                        <p>Guided 200+ candidates to gain admission to top Master's and MBA programs including Kellogg, ESCP France, Ross, Chicago Booth, Wharton, NYU, and LBS</p>
+                                    </div>
+                                    
+                                    <div class="achievement">
+                                        <h4>Career Placement</h4>
+                                        <p>Mentored 500+ professionals to secure roles at Amazon, Google, Microsoft, Tesla, McKinsey, Blue Origin, Palantir, Capital One, Meta, Walmart, JP Morgan, and more</p>
+                                    </div>
+                                    
+                                    <div class="achievement">
+                                        <h4>Advisory Portfolio</h4>
+                                        <p>Advised startups across fintech, e-commerce, SaaS, healthtech, and edtech domains</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="about-cta">
+                    <a href="https://topmate.io/swati12" class="btn primary" target="_blank" rel="noopener noreferrer">Book a Free Consultation</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="pricing">
+        <div class="container">
+            <div class="section-header">
+                <h2>Service Options</h2>
+                <p>Flexible advisory options to match your needs</p>
+            </div>
+            
+            <div class="pricing-redirect">
+                <div class="redirect-content">
+                    <i class="fas fa-calendar-check"></i>
+                    <h3>View Service Options on Topmate</h3>
+                    <p>We offer a variety of service options to meet your specific needs, from quick consultations to comprehensive advisory packages.</p>
+                    <p>Visit our Topmate profile to view all available services, session durations, and booking options.</p>
+                    <a href="https://topmate.io/swati12" class="btn primary" target="_blank" rel="noopener">View Options on Topmate</a>
+                </div>
+                
+                <div class="service-categories">
+                    <div class="service-category">
+                        <i class="fas fa-rocket"></i>
+                        <h4>Startup Advisory</h4>
+                        <ul>
+                            <li>Idea validation</li>
+                            <li>Product strategy</li>
+                            <li>Growth planning</li>
+                            <li>Pitch preparation</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="service-category">
+                        <i class="fas fa-briefcase"></i>
+                        <h4>Career Advisory</h4>
+                        <ul>
+                            <li>Career transitions</li>
+                            <li>Resume review</li>
+                            <li>Interview preparation</li>
+                            <li>Negotiation strategy</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="service-category">
+                        <i class="fas fa-users"></i>
+                        <h4>Mentorship</h4>
+                        <ul>
+                            <li>One-time sessions</li>
+                            <li>Ongoing mentorship</li>
+                            <li>Group workshops</li>
+                            <li>Custom programs</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Booking Preview Section -->
+    <section id="booking" class="booking-preview">
+        <div class="container">
+            <div class="section-header">
+                <h2>Book a Session</h2>
+                <p>Get personalized guidance to accelerate your growth journey</p>
+            </div>
+            
+            <div class="booking-preview-content">
+                <div class="booking-preview-text">
+                    <h3>Why Book a Session?</h3>
+                    <p>Get direct access to expert guidance tailored to your specific challenges and goals. Whether you're a founder looking to scale your startup or a professional aiming to advance your career, our personalized sessions provide actionable insights and strategies.</p>
+                    
+                    <div class="booking-benefits">
+                        <div class="benefit">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Personalized advice for your specific situation</span>
+                        </div>
+                        <div class="benefit">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Clear, actionable strategies you can implement immediately</span>
+                        </div>
+                        <div class="benefit">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Direct feedback on your ideas, plans, or materials</span>
+                        </div>
+                        <div class="benefit">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Access to proven frameworks and methodologies</span>
+                        </div>
+                    </div>
+                    
+                    <div class="cta-buttons">
+                        <a onclick="Calendly.initPopupWidget({url: 'https://calendly.com/unstuckgrowth/30min'});return false;" class="btn primary">Book on Calendly</a>
+                        <a href="https://topmate.io/swati12" class="btn primary" target="_blank" rel="noopener">View All Sessions on Topmate</a>
+                    </div>
+                </div>
+                
+                <div class="booking-preview-widget">
+                    <h4>Featured Sessions</h4>
+                    <div class="featured-sessions">
+                        <div class="session-card">
+                            <div class="session-icon"><i class="fas fa-rocket"></i></div>
+                            <h5>Startup Strategy Session</h5>
+                            <p>Get clarity on your MVP, product roadmap, or growth strategy.</p>
+                            <span class="session-duration"><i class="far fa-clock"></i> 30 minutes</span>
+                            <a href="https://topmate.io/swati12" class="btn secondary btn-sm" target="_blank" rel="noopener">Learn More</a>
+                        </div>
+                        <div class="session-card">
+                            <div class="session-icon"><i class="fas fa-briefcase"></i></div>
+                            <h5>Career Advancement Call</h5>
+                            <p>Navigate your next career move with confidence and purpose.</p>
+                            <span class="session-duration"><i class="far fa-clock"></i> 45 minutes</span>
+                            <a href="https://topmate.io/swati12" class="btn secondary btn-sm" target="_blank" rel="noopener">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -402,7 +1779,149 @@
                 <p>Get in touch to discuss how we can help your business succeed</p>
             </div>
             
-            <!-- Include contact content from the original page -->
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h4>Location</h4>
+                            <p>New York, USA with remote advisory worldwide</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h4>Email</h4>
+                            <p><a href="mailto:unstuckgrowth@gmail.com">unstuckgrowth@gmail.com</a></p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <i class="fas fa-phone-alt"></i>
+                        <div>
+                            <h4>Phone</h4>
+                            <p><a href="tel:+12063561265">+1 206 356 1265</a></p>
+                        </div>
+                    </div>
+                    
+                    <div class="book-consultation">
+                        <h3>Need immediate assistance?</h3>
+                        <p>Book a 30-minute consultation to discuss your needs and explore how we can help.</p>
+                        <a href="https://calendly.com/unstuckgrowth/30min" class="btn primary" target="_blank" rel="noopener">Book a Consultation</a>
+                    </div>
+                </div>
+                
+                <div class="contact-form-container">
+                    <div class="contact-form">
+                        <h3>Send us a message</h3>
+                        <form id="contactForm" action="https://formspree.io/f/mldbggak" method="POST">
+                            <!-- Honeypot field to prevent spam -->
+                            <input type="text" name="_gotcha" style="display:none">
+                            
+                            <!-- Redirect after submission -->
+                            <input type="hidden" name="_next" value="https://hrithikjha07.github.io/theunstuckgrowth/thank-you.html">
+                            
+                            <div class="form-group">
+                                <label for="name">Your Name</label>
+                                <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="email">Email Address</label>
+                                <input type="email" id="email" name="email" placeholder="Enter your email address" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="phone">Phone Number</label>
+                                <input type="tel" id="phone" name="phone" placeholder="Enter your phone number">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="subject">Subject</label>
+                                <select id="subject" name="subject" required>
+                                    <option value="" disabled selected>Select reason for contact</option>
+                                    <option value="startup-advisory">Startup Advisory</option>
+                                    <option value="career-guidance">Career Guidance</option>
+                                    <option value="partnership">Partnership Opportunities</option>
+                                    <option value="general">General Inquiry</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="message">Message</label>
+                                <textarea id="message" name="message" rows="5" placeholder="Tell us about your needs or questions" required></textarea>
+                            </div>
+                            
+                            <div class="checkbox-group">
+                                <input type="checkbox" id="newsletter" name="newsletter" checked>
+                                <label for="newsletter">Subscribe to our newsletter for growth insights and resources</label>
+                            </div>
+                            
+                            <button type="submit" class="btn primary">Send Message</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Mobile Consultation Banner -->
+            <div class="consultation-banner">
+                <h3>Book your free consultation today</h3>
+                <p>Discuss your startup challenges or career goals with our experts</p>
+                <a onclick="Calendly.initPopupWidget({url: 'https://calendly.com/unstuckgrowth/30min'});return false;" class="btn primary">Book Now</a>
+            </div>
+            
+            <!-- Administrator Note -->
+            <div class="admin-note" style="margin-top: 30px; border-top: 1px solid #eee; padding-top: 20px; font-size: 0.9rem; color: #777; display: none;">
+                <h4 style="color: #555; margin-bottom: 10px;">📋 Form Configuration Instructions</h4>
+                <p>This website's contact form is configured to use Formspree for handling form submissions:</p>
+                <ol style="padding-left: 20px;">
+                    <li>The form uses Formspree (https://formspree.io) for handling submissions.</li>
+                    <li>Current Formspree endpoint: <code>https://formspree.io/f/mldbggak</code></li>
+                    <li>When a form is submitted:
+                        <ul style="margin-top: 5px;">
+                            <li>You'll receive an email notification at your configured email address</li>
+                            <li>Submissions are stored in your Formspree dashboard</li>
+                            <li>File uploads (resumes) are handled automatically</li>
+                        </ul>
+                    </li>
+                    <li>To change the destination email:
+                        <ul style="margin-top: 5px;">
+                            <li>Go to <a href="https://formspree.io" target="_blank" rel="noopener">Formspree.io</a> and log in</li>
+                            <li>Select your form and update the forwarding email</li>
+                        </ul>
+                    </li>
+                    <li>To create a new form:
+                        <ul style="margin-top: 5px;">
+                            <li>Sign up or log in at <a href="https://formspree.io" target="_blank" rel="noopener">Formspree.io</a></li>
+                            <li>Create a new form and get your unique endpoint</li>
+                            <li>Replace the current endpoint in both forms in the HTML file</li>
+                            <li>Update the endpoint in the JavaScript file for the Ajax submission</li>
+                        </ul>
+                    </li>
+                </ol>
+                
+                <h4 style="color: #555; margin: 20px 0 10px;">✅ Final Deployment Checklist</h4>
+                <ol style="padding-left: 20px;">
+                    <li><strong>Verify Formspree Setup:</strong>
+                        <ul>
+                            <li>Make sure the Formspree form ID is correct in all forms</li>
+                            <li>Confirm you're receiving email notifications</li>
+                            <li>Check that files are being uploaded correctly</li>
+                        </ul>
+                    </li>
+                    <li><strong>Test Form Submission:</strong>
+                        <ul>
+                            <li>Submit the main contact form with and without file uploads</li>
+                            <li>Test the newsletter subscription form</li>
+                            <li>Check that you receive email notifications</li>
+                            <li>Verify data appears in Formspree dashboard</li>
+                        </ul>
+                    </li>
+                </ol>
+                
+                <p><strong>To see these admin instructions:</strong> Press <kbd>Shift</kbd>+<kbd>Alt</kbd>+<kbd>A</kbd> to toggle this panel.</p>
+            </div>
         </div>
     </section>
 
@@ -414,27 +1933,26 @@
                     <h3>The Unstuck Growth</h3>
                     <p>Strategic advisory for founders and professionals ready to accelerate their growth.</p>
                     <div class="social-icons">
-                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.linkedin.com/in/swati-shukla-63327614/" target="_blank" rel="noopener"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://wa.me/12063561265" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i></a>
+                        <a href="mailto:unstuckgrowth@gmail.com"><i class="fas fa-envelope"></i></a>
                     </div>
                 </div>
                 
                 <div class="footer-links">
                     <div class="footer-column">
                         <h4>Services</h4>
-                        <a href="#startup-services">Startup Services</a>
-                        <a href="#service-packages">Advisory Packages</a>
+                        <a href="#services">All Services</a>
+                        <a href="#services">Startup Services</a>
                         <a href="#career-advisory">Career Advisory</a>
-                        <a href="#pricing">Pricing</a>
+                        <a href="https://topmate.io/swati12" target="_blank" rel="noopener">Book a Session</a>
                     </div>
                     
                     <div class="footer-column">
                         <h4>Company</h4>
                         <a href="#about">About Us</a>
-                        <a href="#testimonials">Testimonials</a>
-                        <a href="#success-stories">Success Stories</a>
+                        <a href="#knowledge-hub">Knowledge Hub</a>
+                        <a href="#client-stories">Client Stories</a>
                         <a href="#contact">Contact</a>
                     </div>
                 </div>
@@ -442,25 +1960,60 @@
                 <div class="footer-newsletter">
                     <h4>Subscribe to Our Newsletter</h4>
                     <p>Get the latest insights, tips, and resources for your growth journey.</p>
-                    <form>
-                        <input type="email" placeholder="Your email address" required>
-                        <button type="submit"><i class="fas fa-arrow-right"></i></button>
+                    <form action="https://formspree.io/f/mldbggak" method="POST">
+                        <!-- Honeypot field to prevent spam -->
+                        <input type="text" name="_gotcha" style="display:none">
+                        
+                        <input type="email" name="email" placeholder="Your email address" required>
+                        <input type="hidden" name="form_type" value="newsletter">
+                        <input type="hidden" name="subject" value="Newsletter Subscription">
+                        <button type="submit" title="Subscribe to newsletter"><i class="fas fa-arrow-right"></i></button>
                     </form>
                 </div>
             </div>
             
             <div class="copyright">
-                <p>&copy; 2023 The Unstuck Growth. All rights reserved.</p>
+                <p>&copy; 2024 The Unstuck Growth. All rights reserved.</p>
             </div>
         </div>
     </footer>
 
     <!-- Back to Top Button -->
-    <a href="#" class="back-to-top">
-        <i class="fas fa-arrow-up"></i>
-    </a>
+    <a href="#top" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
-    <!-- JavaScript -->
+    <!-- Mobile Quick Contact -->
+    <div class="mobile-quick-contact">
+        <p>Need help? Reach out!</p>
+        <div class="quick-actions">
+            <a href="tel:+12063561265" class="quick-action call">
+                <i class="fas fa-phone-alt"></i>
+                <span>Call</span>
+            </a>
+            <a href="mailto:unstuckgrowth@gmail.com" class="quick-action message">
+                <i class="fas fa-envelope"></i>
+                <span>Email</span>
+            </a>
+            <a href="https://topmate.io/swati12" class="quick-action calendar" target="_blank" rel="noopener">
+                <i class="fas fa-calendar-alt"></i>
+                <span>Book</span>
+            </a>
+        </div>
+    </div>
+
+    <!-- Template Main JS File -->
     <script src="script.js"></script>
+
+    <!-- Add this before the closing </body> tag -->
+    <script src="topmate-integration.js"></script>
+
+    <!-- Floating Book Now Button -->
+    <div class="floating-book-btn">
+        <a href="https://topmate.io/swati12" target="_blank" rel="noopener" class="btn book-now-btn">
+            <i class="fas fa-calendar-check"></i> Book a Session
+        </a>
+    </div>
+    
+    <!-- Metrics Fix Script -->
+    <script src="fix-metrics.js"></script>
 </body>
 </html> 

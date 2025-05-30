@@ -28,6 +28,9 @@ document.addEventListener('DOMContentLoaded', function() {
     // Initialize page navigation for mobile
     initPageNavigation();
     
+    // Initialize career pathways
+    initCareerPathways();
+    
     // Setup "View All Testimonials" button functionality
     const viewAllTestimonialsBtn = document.querySelector('.view-all-testimonials');
     if (viewAllTestimonialsBtn) {
@@ -39,11 +42,11 @@ document.addEventListener('DOMContentLoaded', function() {
             if (clientStoriesSection) {
                 clientStoriesSection.scrollIntoView({ behavior: 'smooth' });
                 
-                // Activate the testimonials tab
+                // Activate the reviews tab
                 setTimeout(() => {
-                    const testimonialTab = document.querySelector('.client-stories-tabs .tab-btn[data-tab="testimonials"]');
-                    if (testimonialTab) {
-                        testimonialTab.click();
+                    const reviewsTab = document.querySelector('.client-stories-tabs .tab-btn[data-tab="reviews"]');
+                    if (reviewsTab) {
+                        reviewsTab.click();
                     }
                 }, 500); // Wait for scrolling to finish
             }
@@ -362,14 +365,20 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // Initialize Read More buttons for testimonials
 function initReadMoreButtons() {
-    const readMoreButtons = document.querySelectorAll('.read-more-btn');
+    const readMoreBtns = document.querySelectorAll('.read-more-btn');
     
-    readMoreButtons.forEach(button => {
-        button.addEventListener('click', function() {
-            const testimonial = this.closest('.testimonial');
-            testimonial.classList.toggle('expanded');
+    readMoreBtns.forEach(btn => {
+        btn.addEventListener('click', function(e) {
+            e.preventDefault();
             
-            if (testimonial.classList.contains('expanded')) {
+            // Get the parent testimonial card
+            const card = this.closest('.testimonial-card');
+            
+            // Toggle the expanded class
+            card.classList.toggle('expanded');
+            
+            // Change button text
+            if (card.classList.contains('expanded')) {
                 this.textContent = 'Read Less';
             } else {
                 this.textContent = 'Read More';
@@ -724,30 +733,18 @@ document.addEventListener('DOMContentLoaded', function() {
 function initPageNavigation() {
     const sections = document.querySelectorAll('section[id]');
     const navSections = document.querySelectorAll('.nav-section');
-    const navProgress = document.querySelector('.nav-progress');
     
-    if (sections.length && navSections.length) {
-        // Track scroll position to update active section
-        window.addEventListener('scroll', function() {
-            // Get current scroll position
-            const scrollY = window.scrollY;
-            
-            // Calculate scroll progress for progress bar
-            const pageHeight = document.body.scrollHeight - window.innerHeight;
-            const scrollProgress = (scrollY / pageHeight) * 100;
-            
-            // Update progress bar width
-            if (navProgress) {
-                navProgress.style.width = scrollProgress + '%';
-            }
+    if (sections.length > 0 && navSections.length > 0) {
+        // Function to update active section
+        function updateActiveSection() {
+            let currentSection = '';
             
             // Find the current section
-            let currentSection = '';
             sections.forEach(section => {
-                const sectionTop = section.offsetTop - 100;
-                const sectionHeight = section.offsetHeight;
+                const sectionTop = section.offsetTop - 100; // Offset for header
+                const sectionBottom = sectionTop + section.offsetHeight;
                 
-                if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
+                if (window.scrollY >= sectionTop && window.scrollY < sectionBottom) {
                     currentSection = section.getAttribute('id');
                 }
             });
@@ -760,21 +757,27 @@ function initPageNavigation() {
                 if (navSection === currentSection || 
                     (navSection === 'home' && currentSection === '')) {
                     nav.classList.add('active');
-                    
-                    // Scroll the active section into view in the navigation bar
-                    nav.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'nearest',
-                        inline: 'center'
-                    });
                 }
             });
-        });
+        }
+        
+        // Update on scroll
+        window.addEventListener('scroll', updateActiveSection);
+        
+        // Update on page load
+        updateActiveSection();
         
         // Add click event listeners to navigation sections
         navSections.forEach(nav => {
             nav.addEventListener('click', function(e) {
                 e.preventDefault();
+                
+                // Remove active class from all nav sections
+                navSections.forEach(n => n.classList.remove('active'));
+                
+                // Add active class to clicked nav section
+                this.classList.add('active');
+                
                 const targetSection = document.querySelector(this.getAttribute('href'));
                 if (targetSection) {
                     window.scrollTo({
@@ -784,6 +787,42 @@ function initPageNavigation() {
                 }
             });
         });
+    }
+    
+    // Also update the header navigation links
+    const headerNavLinks = document.querySelectorAll('header .nav-links a');
+    if (headerNavLinks.length > 0) {
+        // Function to update active header link
+        function updateActiveHeaderLink() {
+            let currentSection = '';
+            
+            // Find the current section
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 100;
+                const sectionBottom = sectionTop + section.offsetHeight;
+                
+                if (window.scrollY >= sectionTop && window.scrollY < sectionBottom) {
+                    currentSection = section.getAttribute('id');
+                }
+            });
+            
+            // Update active header link
+            headerNavLinks.forEach(link => {
+                link.classList.remove('active');
+                
+                const href = link.getAttribute('href');
+                if (href === '#' + currentSection || 
+                    (href === '#top' && (currentSection === '' || !currentSection))) {
+                    link.classList.add('active');
+                }
+            });
+        }
+        
+        // Update on scroll
+        window.addEventListener('scroll', updateActiveHeaderLink);
+        
+        // Update on page load
+        updateActiveHeaderLink();
     }
 }
 
@@ -962,13 +1001,26 @@ function initKnowledgeHubTabs() {
 
 // Initialize Impact Metrics
 function initImpactMetrics() {
-    // Get the metrics data
-    const data = window.metricsData;
+    const impactValues = document.querySelectorAll('.impact-value');
     
-    // Update the UI with the data
-    updateMetricsDisplay(data);
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const value = entry.target;
+                const targetValue = parseInt(value.getAttribute('data-value'));
+                animateValue(value, 0, targetValue, 2000);
+                observer.unobserve(value);
+            }
+        });
+    }, {
+        threshold: 0.5
+    });
     
-    // Function to animate counting up
+    impactValues.forEach(value => {
+        observer.observe(value);
+    });
+}
+
     function animateValue(element, start, end, duration) {
         let startTimestamp = null;
         const step = (timestamp) => {
@@ -978,47 +1030,9 @@ function initImpactMetrics() {
             element.textContent = currentValue;
             if (progress < 1) {
                 window.requestAnimationFrame(step);
-            } else {
-                element.textContent = end;
             }
         };
         window.requestAnimationFrame(step);
-    }
-    
-    // Update metrics display
-    function updateMetricsDisplay(data) {
-        // Update metric values with animation
-        const metrics = data.metrics;
-        
-        // Minutes mentored
-        updateMetricWithAnimation('minutes', metrics.minutes);
-            
-        // Bookings
-        updateMetricWithAnimation('bookings', metrics.bookings);
-            
-        // Countries
-        updateMetricWithAnimation('countries', metrics.countries);
-    }
-    
-    // Update a single metric with animation
-    function updateMetricWithAnimation(metricName, newValue) {
-        const element = document.querySelector(`[data-metric="${metricName}"]`);
-        if (!element) return;
-        
-        // Add updating animation
-        element.classList.add('updating');
-        
-        // Current value
-        const currentValue = parseInt(element.textContent, 10);
-        
-        // Animate to new value
-        animateValue(element, currentValue, newValue, 1000);
-        
-        // Remove animation class after animation completes
-        setTimeout(() => {
-            element.classList.remove('updating');
-        }, 1200);
-    }
 }
 
 // Admin Panel Toggle
@@ -1054,3 +1068,63 @@ function initBookingModal() {
         });
     });
 }
+
+// Initialize Career Pathways
+function initCareerPathways() {
+    const pathButtons = document.querySelectorAll('.path-btn');
+    const pathSections = document.querySelectorAll('.path-section');
+    
+    if (pathButtons.length > 0 && pathSections.length > 0) {
+        pathButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                // Remove active class from all buttons
+                pathButtons.forEach(btn => btn.classList.remove('active'));
+                
+                // Add active class to clicked button
+                this.classList.add('active');
+                
+                // Get the tab to show
+                const pathId = this.getAttribute('data-tab');
+                const pathSelector = `#${pathId}-path`;
+                
+                // Hide all path sections
+                pathSections.forEach(section => {
+                    section.classList.remove('active');
+                });
+                
+                // Show the selected path section
+                const activeSection = document.querySelector(pathSelector);
+                if (activeSection) {
+                    activeSection.classList.add('active');
+                }
+            });
+        });
+    }
+}
+
+// Update active navigation link based on scroll position
+function updateActiveNavLink() {
+    const sections = document.querySelectorAll('section[id]');
+    const scrollPosition = window.scrollY + 100; // Adding offset for better highlighting
+
+    sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.offsetHeight;
+        const sectionId = section.getAttribute('id');
+        const navLink = document.querySelector(`.nav-links a[href="#${sectionId}"]`);
+        
+        if (navLink && scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+            document.querySelectorAll('.nav-links a').forEach(link => {
+                link.classList.remove('active');
+            });
+            navLink.classList.add('active');
+        }
+    });
+}
+
+// Add scroll event listener for navigation highlighting
+window.addEventListener('scroll', function() {
+    updateActiveNavLink();
+    
+    // ... existing scroll event code ...
+});

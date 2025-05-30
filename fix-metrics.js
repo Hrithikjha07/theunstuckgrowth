@@ -4,54 +4,50 @@ document.addEventListener('DOMContentLoaded', function() {
     function fixMetrics() {
         console.log('Checking and fixing metrics display...');
         
-        // Fix NaN or empty values in metric-value spans
-        const metricValues = document.querySelectorAll('.metric-value');
-        metricValues.forEach(function(metric) {
-            const value = metric.textContent.trim();
+        // Fix story metrics
+        const storyCards = document.querySelectorAll('.story-card');
+        storyCards.forEach(function(card) {
+            const storyId = card.dataset.storyId;
+            if (storyId && window.storyMetrics && window.storyMetrics[storyId]) {
+                const metrics = card.querySelectorAll('.metric-value');
+                const storyData = window.storyMetrics[storyId];
+                
+                metrics.forEach(function(metric, index) {
             const nextElement = metric.nextElementSibling;
             const metricType = nextElement ? nextElement.textContent.trim() : '';
             
-            // Check if value is NaN, undefined, empty, or contains placeholder text
-            if (value === 'NaN' || value === 'undefined' || value === '' || value.includes('{{')) {
-                console.log('Found invalid metric:', value, 'for', metricType);
-                
-                // Apply appropriate fix based on the metric type
-                if (metricType.includes('Growth') || metricType.includes('Increase') || metricType.includes('Reduction')) {
-                    metric.textContent = '150%';
-                } else if (metricType.includes('Funding') || metricType.includes('Revenue')) {
-                    metric.textContent = '$750K';
-                } else if (metricType.includes('Markets') || metricType.includes('Locations')) {
-                    metric.textContent = '5';
-                } else if (metricType.includes('Users') || metricType.includes('Customers')) {
-                    metric.textContent = '2500+';
-                } else if (metricType.includes('Cost')) {
-                    metric.textContent = '-25%';
-                } else {
-                    // Default value for other metric types
-                    metric.textContent = '100%';
-                }
-                
-                console.log('Fixed metric to:', metric.textContent);
-            }
-        });
-        
-        // Make sure percentage signs are properly displayed
-        metricValues.forEach(function(metric) {
-            const value = metric.textContent.trim();
-            const nextElement = metric.nextElementSibling;
-            const metricType = nextElement ? nextElement.textContent.trim() : '';
-            
-            // If the metric type suggests a percentage but doesn't have one
-            if ((metricType.includes('Growth') || 
-                metricType.includes('Increase') || 
-                metricType.includes('Reduction') ||
-                metricType.includes('Rate') ||
-                metricType.includes('Retention')) && 
-                !value.includes('%') && 
-                !isNaN(parseFloat(value))) {
-                
-                metric.textContent = value + '%';
-                console.log('Added % to metric:', metric.textContent);
+                    // Match metric type to story data
+                    let value = null;
+                    if (metricType.includes('Growth') || metricType.includes('User')) {
+                        value = storyData.userGrowth;
+                    } else if (metricType.includes('Funding')) {
+                        value = storyData.fundingSecured;
+                    } else if (metricType.includes('Cost') && metricType.includes('Reduction')) {
+                        value = storyData.costReduction;
+                    } else if (metricType.includes('Markets')) {
+                        value = storyData.newMarkets;
+                    } else if (metricType.includes('Digital')) {
+                        value = storyData.digitalAdoption;
+                    } else if (metricType.includes('Cost') && metricType.includes('Savings')) {
+                        value = storyData.costSavings;
+                    } else if (metricType.includes('Users')) {
+                        value = storyData.activeUsers;
+                    } else if (metricType.includes('Series')) {
+                        value = storyData.seriesA;
+                    } else if (metricType.includes('Salary')) {
+                        value = storyData.salaryIncrease;
+                    } else if (metricType.includes('Months')) {
+                        value = storyData.transitionMonths;
+                    } else if (metricType.includes('ARR')) {
+                        value = storyData.arrGrowth;
+                    } else if (metricType.includes('Churn')) {
+                        value = storyData.churnReduction;
+                    }
+                    
+                    if (value) {
+                        metric.textContent = value;
+                    }
+                });
             }
         });
         
@@ -60,4 +56,85 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Run metrics fix
     fixMetrics();
+    
+    // Run metrics fix again after a short delay to ensure all content is loaded
+    setTimeout(fixMetrics, 1000);
+});
+
+// Fix for Impact Metrics Animation
+document.addEventListener('DOMContentLoaded', function() {
+    // Get metrics data from metrics-data.js if available
+    const metricsData = window.metricsData || {
+        metrics: {
+            minutes: 5000,
+            bookings: 200,
+            countries: 15
+        },
+        lastUpdated: "May 2025"
+    };
+    
+    // Function to animate counting up
+    function animateValue(obj, start, end, duration) {
+        let startTimestamp = null;
+        const step = (timestamp) => {
+            if (!startTimestamp) startTimestamp = timestamp;
+            const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+            obj.innerHTML = Math.floor(progress * (end - start) + start);
+            if (progress < 1) {
+                window.requestAnimationFrame(step);
+            }
+        };
+        window.requestAnimationFrame(step);
+    }
+    
+    // Function to check if element is in viewport
+    function isInViewport(element) {
+        const rect = element.getBoundingClientRect();
+        return (
+            rect.top >= 0 &&
+            rect.left >= 0 &&
+            rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+            rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+        );
+    }
+    
+    // Get all metric elements
+    const metricElements = document.querySelectorAll('.impact-value');
+    
+    // Function to animate metrics when they come into view
+    function checkAndAnimateMetrics() {
+        metricElements.forEach((metric, index) => {
+            if (isInViewport(metric) && !metric.dataset.animated) {
+                metric.dataset.animated = "true";
+                
+                // Determine which metric to animate
+                let targetValue = 0;
+                if (metric.dataset.value) {
+                    // Use the data-value attribute if available
+                    targetValue = parseInt(metric.dataset.value);
+                } else if (index === 0) {
+                    targetValue = metricsData.metrics.minutes;
+                } else if (index === 1) {
+                    targetValue = metricsData.metrics.bookings;
+                } else if (index === 2) {
+                    targetValue = metricsData.metrics.countries;
+                }
+                
+                // Animate the metric
+                animateValue(metric, 0, targetValue, 2000);
+            }
+        });
+    }
+    
+    // Check on scroll and on load
+    window.addEventListener('scroll', checkAndAnimateMetrics);
+    checkAndAnimateMetrics(); // Check on initial load
+    
+    // Update the "last updated" text if elements exist
+    const lastUpdatedElements = document.querySelectorAll('.metrics-last-updated');
+    if (lastUpdatedElements.length > 0) {
+        lastUpdatedElements.forEach(element => {
+            element.textContent = metricsData.lastUpdated;
+        });
+    }
 }); 

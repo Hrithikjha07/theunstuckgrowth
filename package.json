@@ -2,14 +2,33 @@
   "name": "theunstuckgrowth",
   "version": "1.0.0",
   "description": "The Unstuck Growth Website",
-  "main": "index.html",
+  "main": "server.js",
   "scripts": {
-    "start": "serve .",
+    "start": "node simple-server.js",
+    "dev": "nodemon simple-server.js",
+    "frontend": "serve .",
     "build": "echo 'Building site...'",
     "deploy": "gh-pages -d ."
   },
   "dependencies": {
+    "@formbricks/js": "^1.6.5",
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "express-rate-limit": "^7.1.5",
+    "express-session": "^1.17.3",
+    "gh-pages": "^6.1.1",
+    "helmet": "^7.1.0",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^7.5.0",
+    "morgan": "^1.10.0",
+    "nodemailer": "^6.9.7",
     "serve": "^14.2.0",
-    "gh-pages": "^6.1.1"
+    "validator": "^13.11.0",
+    "xss-clean": "^0.1.4"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
   }
 }

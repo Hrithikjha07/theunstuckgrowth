@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard - The Unstuck Growth</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <link rel="stylesheet" href="../styles.css">
+  <style>
+    :root {
+      --primary-color: #333;
+      --secondary-color: #555;
+      --accent-color: #f0f0f0;
+      --text-color: #333;
+      --text-light: #777;
+      --border-color: #ddd;
+      --bg-light: #f9f9f9;
+      --bg-dark: #333;
+      --success-color: #28a745;
+      --danger-color: #dc3545;
+      --warning-color: #ffc107;
+      --info-color: #17a2b8;
+    }
+    
+    body {
+      font-family: 'Arial', sans-serif;
+      line-height: 1.6;
+      color: var(--text-color);
+      background-color: var(--bg-light);
+      margin: 0;
+      padding: 0;
+    }
+    
+    .admin-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+    
+    .admin-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 2rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid var(--border-color);
+    }
+    
+    .admin-title {
+      font-size: 1.8rem;
+      margin: 0;
+    }
+    
+    .admin-nav {
+      display: flex;
+      gap: 1rem;
+    }
+    
+    .admin-nav-item {
+      padding: 0.5rem 1rem;
+      border-radius: 4px;
+      text-decoration: none;
+      color: var(--text-color);
+      background-color: var(--bg-light);
+      border: 1px solid var(--border-color);
+      transition: all 0.3s ease;
+    }
+    
+    .admin-nav-item:hover,
+    .admin-nav-item.active {
+      background-color: var(--primary-color);
+      color: white;
+    }
+    
+    .admin-content {
+      background-color: white;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      padding: 2rem;
+    }
+    
+    .admin-section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1.5rem;
+    }
+    
+    .admin-section-title {
+      font-size: 1.4rem;
+      margin: 0;
+    }
+    
+    .admin-filters {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    
+    .admin-filter {
+      padding: 0.5rem 1rem;
+      border-radius: 4px;
+      border: 1px solid var(--border-color);
+      background-color: white;
+      cursor: pointer;
+    }
+    
+    .admin-filter.active {
+      background-color: var(--primary-color);
+      color: white;
+    }
+    
+    .admin-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    
+    .admin-table th,
+    .admin-table td {
+      padding: 1rem;
+      text-align: left;
+      border-bottom: 1px solid var(--border-color);
+    }
+    
+    .admin-table th {
+      background-color: var(--bg-light);
+      font-weight: 600;
+    }
+    
+    .admin-table tr:hover {
+      background-color: rgba(0, 0, 0, 0.02);
+    }
+    
+    .admin-table .actions {
+      display: flex;
+      gap: 0.5rem;
+    }
+    
+    .admin-table .action-btn {
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-size: 1rem;
+      color: var(--text-light);
+      transition: color 0.3s ease;
+    }
+    
+    .admin-table .action-btn:hover {
+      color: var(--primary-color);
+    }
+    
+    .admin-table .action-btn.view:hover {
+      color: var(--info-color);
+    }
+    
+    .admin-table .action-btn.delete:hover {
+      color: var(--danger-color);
+    }
+    
+    .admin-pagination {
+      display: flex;
+      justify-content: center;
+      margin-top: 2rem;
+      gap: 0.5rem;
+    }
+    
+    .admin-pagination-item {
+      width: 36px;
+      height: 36px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 4px;
+      border: 1px solid var(--border-color);
+      background-color: white;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    
+    .admin-pagination-item:hover,
+    .admin-pagination-item.active {
+      background-color: var(--primary-color);
+      color: white;
+    }
+    
+    /* Modal */
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      z-index: 1000;
+      overflow: auto;
+    }
+    
+    .modal-content {
+      background-color: white;
+      margin: 10% auto;
+      padding: 2rem;
+      border-radius: 8px;
+      max-width: 600px;
+      position: relative;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    }
+    
+    .modal-close {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      font-size: 1.5rem;
+      cursor: pointer;
+      color: var(--text-light);
+    }
+    
+    .modal-close:hover {
+      color: var(--danger-color);
+    }
+    
+    .modal-header {
+      margin-bottom: 1.5rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid var(--border-color);
+    }
+    
+    .modal-title {
+      font-size: 1.4rem;
+      margin: 0;
+    }
+    
+    .modal-body {
+      margin-bottom: 1.5rem;
+    }
+    
+    .submission-details {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 1rem;
+    }
+    
+    .submission-label {
+      font-weight: 600;
+      color: var(--text-light);
+    }
+    
+    .submission-value {
+      word-break: break-word;
+    }
+    
+    .modal-footer {
+      display: flex;
+      justify-content: flex-end;
+      gap: 1rem;
+      padding-top: 1rem;
+      border-top: 1px solid var(--border-color);
+    }
+    
+    .modal-btn {
+      padding: 0.5rem 1rem;
+      border-radius: 4px;
+      border: 1px solid var(--border-color);
+      background-color: white;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    
+    .modal-btn.primary {
+      background-color: var(--primary-color);
+      color: white;
+      border-color: var(--primary-color);
+    }
+    
+    .modal-btn.danger {
+      background-color: var(--danger-color);
+      color: white;
+      border-color: var(--danger-color);
+    }
+    
+    .modal-btn:hover {
+      opacity: 0.9;
+    }
+    
+    /* Loader */
+    .loader {
+      display: none;
+      text-align: center;
+      padding: 2rem;
+    }
+    
+    .loader i {
+      font-size: 2rem;
+      color: var(--primary-color);
+      animation: spin 1s linear infinite;
+    }
+    
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    
+    /* Empty state */
+    .empty-state {
+      text-align: center;
+      padding: 3rem;
+      color: var(--text-light);
+    }
+    
+    .empty-state i {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+    
+    .empty-state h3 {
+      margin-bottom: 0.5rem;
+    }
+    
+    /* Responsive */
+    @media (max-width: 768px) {
+      .admin-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+      }
+      
+      .admin-filters {
+        flex-wrap: wrap;
+      }
+      
+      .admin-table th:nth-child(3),
+      .admin-table td:nth-child(3) {
+        display: none;
+      }
+      
+      .submission-details {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="admin-container">
+    <header class="admin-header">
+      <h1 class="admin-title">The Unstuck Growth - Admin Dashboard</h1>
+      <nav class="admin-nav">
+        <a href="#" class="admin-nav-item active" data-type="all">All Submissions</a>
+        <a href="#" class="admin-nav-item" data-type="client-story">Client Stories</a>
+        <a href="#" class="admin-nav-item" data-type="contact">Contact Forms</a>
+        <a href="#" class="admin-nav-item" data-type="newsletter">Newsletter Signups</a>
+      </nav>
+    </header>
+    
+    <div class="admin-content">
+      <div class="admin-section-header">
+        <h2 class="admin-section-title">Form Submissions</h2>
+        <div class="admin-section-actions">
+          <button id="refresh-btn" class="admin-filter">
+            <i class="fas fa-sync-alt"></i> Refresh
+          </button>
+        </div>
+      </div>
+      
+      <div class="admin-filters">
+        <button class="admin-filter active" data-filter="all">All</button>
+        <button class="admin-filter" data-filter="recent">Recent (7 days)</button>
+        <button class="admin-filter" data-filter="newsletter">Newsletter Subscribers</button>
+      </div>
+      
+      <div class="loader">
+        <i class="fas fa-spinner"></i>
+        <p>Loading submissions...</p>
+      </div>
+      
+      <div class="empty-state" style="display: none;">
+        <i class="fas fa-inbox"></i>
+        <h3>No submissions found</h3>
+        <p>There are no form submissions matching your current filters.</p>
+      </div>
+      
+      <table class="admin-table">
+        <thead>
+          <tr>
+            <th>Date</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Subject</th>
+            <th>Form Type</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody id="submissions-table-body">
+          <!-- Submissions will be populated here -->
+        </tbody>
+      </table>
+      
+      <div class="admin-pagination" id="pagination">
+        <!-- Pagination will be populated here -->
+      </div>
+    </div>
+  </div>
+  
+  <!-- Submission Detail Modal -->
+  <div id="submission-modal" class="modal">
+    <div class="modal-content">
+      <span class="modal-close">&times;</span>
+      <div class="modal-header">
+        <h2 class="modal-title">Submission Details</h2>
+      </div>
+      <div class="modal-body">
+        <div class="submission-details" id="submission-details">
+          <!-- Submission details will be populated here -->
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="modal-btn" id="modal-close-btn">Close</button>
+        <button class="modal-btn danger" id="delete-submission-btn">Delete</button>
+      </div>
+    </div>
+  </div>
+  
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Elements
+      const tableBody = document.getElementById('submissions-table-body');
+      const paginationContainer = document.getElementById('pagination');
+      const loader = document.querySelector('.loader');
+      const emptyState = document.querySelector('.empty-state');
+      const modal = document.getElementById('submission-modal');
+      const modalClose = document.querySelector('.modal-close');
+      const modalCloseBtn = document.getElementById('modal-close-btn');
+      const deleteSubmissionBtn = document.getElementById('delete-submission-btn');
+      const submissionDetails = document.getElementById('submission-details');
+      const refreshBtn = document.getElementById('refresh-btn');
+      const navItems = document.querySelectorAll('.admin-nav-item');
+      const filterBtns = document.querySelectorAll('.admin-filters .admin-filter');
+      
+      // State
+      let currentPage = 1;
+      let totalPages = 1;
+      let itemsPerPage = 10;
+      let submissions = [];
+      let currentSubmissionId = null;
+      let currentFormType = 'all';
+      let currentFilter = 'all';
+      
+      // Fetch submissions
+      async function fetchSubmissions() {
+        try {
+          showLoader();
+          
+          let url = '/api/forms';
+          if (currentFormType !== 'all') {
+            url = `/api/forms/type/${currentFormType}`;
+          }
+          
+          const response = await fetch(url);
+          const data = await response.json();
+          
+          if (response.ok) {
+            submissions = data.data.submissions || [];
+            
+            // Apply filters
+            if (currentFilter === 'recent') {
+              const sevenDaysAgo = new Date();
+              sevenDaysAgo.setDate(sevenDaysAgo.getDate() - 7);
+              submissions = submissions.filter(sub => new Date(sub.createdAt) >= sevenDaysAgo);
+            } else if (currentFilter === 'newsletter') {
+              submissions = submissions.filter(sub => sub.newsletter === true);
+            }
+            
+            // Update pagination
+            totalPages = Math.ceil(submissions.length / itemsPerPage);
+            
+            // Render table and pagination
+            renderTable();
+            renderPagination();
+          } else {
+            console.error('Error fetching submissions:', data.message);
+            showEmptyState();
+          }
+        } catch (error) {
+          console.error('Error fetching submissions:', error);
+          showEmptyState();
+        } finally {
+          hideLoader();
+        }
+      }
+      
+      // Render table
+      function renderTable() {
+        if (submissions.length === 0) {
+          showEmptyState();
+          return;
+        }
+        
+        hideEmptyState();
+        
+        const start = (currentPage - 1) * itemsPerPage;
+        const end = start + itemsPerPage;
+        const paginatedSubmissions = submissions.slice(start, end);
+        
+        tableBody.innerHTML = '';
+        
+        paginatedSubmissions.forEach(submission => {
+          const row = document.createElement('tr');
+          
+          const date = new Date(submission.createdAt).toLocaleDateString();
+          
+          row.innerHTML = `
+            <td>${date}</td>
+            <td>${submission.name}</td>
+            <td>${submission.email}</td>
+            <td>${submission.subject || 'N/A'}</td>
+            <td>${submission.formType}</td>
+            <td class="actions">
+              <button class="action-btn view" data-id="${submission._id}" title="View Details">
+                <i class="fas fa-eye"></i>
+              </button>
+              <button class="action-btn delete" data-id="${submission._id}" title="Delete">
+                <i class="fas fa-trash"></i>
+              </button>
+            </td>
+          `;
+          
+          tableBody.appendChild(row);
+        });
+        
+        // Add event listeners to action buttons
+        document.querySelectorAll('.action-btn.view').forEach(btn => {
+          btn.addEventListener('click', () => {
+            const id = btn.getAttribute('data-id');
+            viewSubmission(id);
+          });
+        });
+        
+        document.querySelectorAll('.action-btn.delete').forEach(btn => {
+          btn.addEventListener('click', () => {
+            const id = btn.getAttribute('data-id');
+            if (confirm('Are you sure you want to delete this submission?')) {
+              deleteSubmission(id);
+            }
+          });
+        });
+      }
+      
+      // Render pagination
+      function renderPagination() {
+        paginationContainer.innerHTML = '';
+        
+        if (totalPages <= 1) {
+          return;
+        }
+        
+        // Previous button
+        const prevBtn = document.createElement('button');
+        prevBtn.className = 'admin-pagination-item';
+        prevBtn.innerHTML = '<i class="fas fa-chevron-left"></i>';
+        prevBtn.disabled = currentPage === 1;
+        prevBtn.addEventListener('click', () => {
+          if (currentPage > 1) {
+            currentPage--;
+            renderTable();
+            renderPagination();
+          }
+        });
+        paginationContainer.appendChild(prevBtn);
+        
+        // Page numbers
+        const maxPages = 5;
+        let startPage = Math.max(1, currentPage - Math.floor(maxPages / 2));
+        let endPage = Math.min(totalPages, startPage + maxPages - 1);
+        
+        if (endPage - startPage + 1 < maxPages) {
+          startPage = Math.max(1, endPage - maxPages + 1);
+        }
+        
+        for (let i = startPage; i <= endPage; i++) {
+          const pageBtn = document.createElement('button');
+          pageBtn.className = `admin-pagination-item ${i === currentPage ? 'active' : ''}`;
+          pageBtn.textContent = i;
+          pageBtn.addEventListener('click', () => {
+            currentPage = i;
+            renderTable();
+            renderPagination();
+          });
+          paginationContainer.appendChild(pageBtn);
+        }
+        
+        // Next button
+        const nextBtn = document.createElement('button');
+        nextBtn.className = 'admin-pagination-item';
+        nextBtn.innerHTML = '<i class="fas fa-chevron-right"></i>';
+        nextBtn.disabled = currentPage === totalPages;
+        nextBtn.addEventListener('click', () => {
+          if (currentPage < totalPages) {
+            currentPage++;
+            renderTable();
+            renderPagination();
+          }
+        });
+        paginationContainer.appendChild(nextBtn);
+      }
+      
+      // View submission details
+      async function viewSubmission(id) {
+        try {
+          const response = await fetch(`/api/forms/${id}`);
+          const data = await response.json();
+          
+          if (response.ok) {
+            const submission = data.data.submission;
+            currentSubmissionId = submission._id;
+            
+            // Populate modal
+            submissionDetails.innerHTML = '';
+            
+            const fields = [
+              { label: 'Name', value: submission.name },
+              { label: 'Email', value: submission.email },
+              { label: 'Phone', value: submission.phone || 'N/A' },
+              { label: 'Subject', value: submission.subject || 'N/A' },
+              { label: 'Message', value: submission.message },
+              { label: 'Form Type', value: submission.formType },
+              { label: 'Newsletter', value: submission.newsletter ? 'Yes' : 'No' },
+              { label: 'Date', value: new Date(submission.createdAt).toLocaleString() }
+            ];
+            
+            fields.forEach(field => {
+              const row = document.createElement('div');
+              row.innerHTML = `
+                <div class="submission-label">${field.label}:</div>
+                <div class="submission-value">${field.value}</div>
+              `;
+              submissionDetails.appendChild(row);
+            });
+            
+            // Show modal
+            modal.style.display = 'block';
+          } else {
+            console.error('Error fetching submission details:', data.message);
+            alert('Could not load submission details. Please try again.');
+          }
+        } catch (error) {
+          console.error('Error fetching submission details:', error);
+          alert('Could not load submission details. Please try again.');
+        }
+      }
+      
+      // Delete submission
+      async function deleteSubmission(id) {
+        try {
+          const response = await fetch(`/api/forms/${id}`, {
+            method: 'DELETE'
+          });
+          
+          if (response.ok) {
+            // Remove from local array
+            submissions = submissions.filter(sub => sub._id !== id);
+            
+            // Update pagination
+            totalPages = Math.ceil(submissions.length / itemsPerPage);
+            if (currentPage > totalPages && totalPages > 0) {
+              currentPage = totalPages;
+            }
+            
+            // Re-render
+            renderTable();
+            renderPagination();
+            
+            // Close modal if open
+            if (currentSubmissionId === id) {
+              modal.style.display = 'none';
+            }
+            
+            alert('Submission deleted successfully.');
+          } else {
+            const data = await response.json();
+            console.error('Error deleting submission:', data.message);
+            alert('Could not delete submission. Please try again.');
+          }
+        } catch (error) {
+          console.error('Error deleting submission:', error);
+          alert('Could not delete submission. Please try again.');
+        }
+      }
+      
+      // Show loader
+      function showLoader() {
+        loader.style.display = 'block';
+        document.querySelector('.admin-table').style.display = 'none';
+      }
+      
+      // Hide loader
+      function hideLoader() {
+        loader.style.display = 'none';
+        document.querySelector('.admin-table').style.display = 'table';
+      }
+      
+      // Show empty state
+      function showEmptyState() {
+        emptyState.style.display = 'block';
+        document.querySelector('.admin-table').style.display = 'none';
+        paginationContainer.style.display = 'none';
+      }
+      
+      // Hide empty state
+      function hideEmptyState() {
+        emptyState.style.display = 'none';
+        document.querySelector('.admin-table').style.display = 'table';
+        paginationContainer.style.display = 'flex';
+      }
+      
+      // Event listeners
+      refreshBtn.addEventListener('click', fetchSubmissions);
+      
+      modalClose.addEventListener('click', () => {
+        modal.style.display = 'none';
+      });
+      
+      modalCloseBtn.addEventListener('click', () => {
+        modal.style.display = 'none';
+      });
+      
+      deleteSubmissionBtn.addEventListener('click', () => {
+        if (currentSubmissionId && confirm('Are you sure you want to delete this submission?')) {
+          deleteSubmission(currentSubmissionId);
+        }
+      });
+      
+      // Close modal when clicking outside
+      window.addEventListener('click', (event) => {
+        if (event.target === modal) {
+          modal.style.display = 'none';
+        }
+      });
+      
+      // Nav item click
+      navItems.forEach(item => {
+        item.addEventListener('click', (e) => {
+          e.preventDefault();
+          
+          // Update active state
+          navItems.forEach(nav => nav.classList.remove('active'));
+          item.classList.add('active');
+          
+          // Update form type
+          currentFormType = item.getAttribute('data-type');
+          currentPage = 1;
+          
+          // Fetch submissions
+          fetchSubmissions();
+        });
+      });
+      
+      // Filter button click
+      filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          // Update active state
+          filterBtns.forEach(filter => filter.classList.remove('active'));
+          btn.classList.add('active');
+          
+          // Update filter
+          currentFilter = btn.getAttribute('data-filter');
+          currentPage = 1;
+          
+          // Fetch submissions
+          fetchSubmissions();
+        });
+      });
+      
+      // Initial fetch
+      fetchSubmissions();
+    });
+  </script>
+</body>
+</html> 

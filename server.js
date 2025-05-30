@@ -1,9 +1,11 @@
 require('dotenv').config();
 const express = require('express');
+const mongoose = require('mongoose');
+const cors = require('cors');
+const morgan = require('morgan');
 const path = require('path');
 const bodyParser = require('body-parser');
 const session = require('express-session');
-const cors = require('cors');
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs');
 const nodemailer = require('nodemailer');
@@ -19,8 +21,44 @@ const xss = require('xss-clean');
 const crypto = require('crypto');
 const validator = require('validator');
 
+// Initialize Express
 const app = express();
 const PORT = process.env.PORT || 3000;
+
+// Middleware
+app.use(morgan('dev'));
+app.use(cors());
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
+// Serve static files
+app.use(express.static('./'));
+
+// MongoDB Connection
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/unstuckgrowth', {
+  useNewUrlParser: true,
+  useUnifiedTopology: true
+})
+.then(() => console.log('MongoDB connected'))
+.catch(err => console.error('MongoDB connection error:', err));
+
+// Create directory structure
+const dir = './backend/routes';
+if (!fs.existsSync('./backend')) {
+  fs.mkdirSync('./backend');
+}
+if (!fs.existsSync(dir)) {
+  fs.mkdirSync(dir, { recursive: true });
+}
+if (!fs.existsSync('./backend/models')) {
+  fs.mkdirSync('./backend/models', { recursive: true });
+}
+
+// Import routes
+const formRoutes = require('./backend/routes/formRoutes');
+
+// Use routes
+app.use('/api/forms', formRoutes);
 
 // In-memory storage for users (in a production environment, use a proper database)
 const users = [];
@@ -40,9 +78,6 @@ const fileAttachments = [];
 // Set security HTTP headers
 app.use(helmet());
 
-// Enable CORS
-app.use(cors());
-
 // Rate limiting
 if (process.env.ENABLE_RATE_LIMIT === 'true') {
   const limiter = rateLimit({
@@ -52,26 +87,6 @@ if (process.env.ENABLE_RATE_LIMIT === 'true') {
   });
   app.use('/api/', limiter);
 }
-
-// Body parser, reading data from body
-app.use(express.json({ 
-  limit: '10kb',
-  strict: true,
-  // Add custom error handler for JSON parsing errors
-  verify: (req, res, buf, encoding) => {
-    try {
-      JSON.parse(buf);
-    } catch (e) {
-      console.error('JSON parsing error:', e.message);
-      res.status(400).json({ 
-        error: 'Invalid JSON in request body', 
-        details: e.message 
-      });
-      throw new Error('Invalid JSON');
-    }
-  }
-}));
-app.use(express.urlencoded({ extended: true, limit: '10kb' }));
 
 // Additional middleware to log request bodies for debugging
 app.use((req, res, next) => {
@@ -83,9 +98,6 @@ app.use((req, res, next) => {
 
 // Data sanitization against XSS
 app.use(xss());
-
-// Serve static files
-app.use(express.static(path.join(__dirname, '/')));
 
 // Session configuration
 app.use(session({
@@ -990,6 +1002,7 @@ async function startServer() {
   // Start server
   app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
+    console.log(`Frontend available at http://localhost:${PORT}`);
   });
 }
 

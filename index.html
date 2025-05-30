@@ -188,6 +188,8 @@
     <link rel="stylesheet" href="button-direct-fix.css">
     <link rel="stylesheet" href="hero-background-fix.css">
     <link rel="stylesheet" href="story-modal.css">
+    <link rel="stylesheet" href="nav-fix.css">
+    <link rel="stylesheet" href="testimonial-fix.css">
     
     <!-- Immediate inline fix for hero buttons -->
     <script>
@@ -196,26 +198,77 @@
             // Create a style element
             var style = document.createElement('style');
             
-            // Add button visibility styles
+            // Add button styles
             style.innerHTML = `
-                .hero .cta-buttons .btn.secondary[href*="calendly.com"],
-                .hero .cta-buttons .btn.secondary[href*="topmate.io"] {
-                    display: inline-block !important;
-                    visibility: visible !important;
-                    opacity: 1 !important;
-                    background-color: #333 !important;
-                    color: white !important;
-                    border: none !important;
-                    font-weight: 600 !important;
-                    text-shadow: none !important;
-                    box-shadow: none !important;
-                    z-index: 100 !important;
-                    position: relative !important;
+                .hero-buttons {
+                    display: flex;
+                    gap: 1rem;
+                    margin-top: 2rem;
                 }
             `;
             
-            // Append the style to the head
+            // Append the style element to the head
             document.head.appendChild(style);
+        })();
+    </script>
+    
+    <!-- Immediate inline fix for testimonials -->
+    <script>
+        // This script runs immediately as the page loads
+        (function() {
+            // Create a style element for testimonials
+            var testimonialStyle = document.createElement('style');
+            
+            // Add testimonial styles with !important to override any conflicting styles
+            testimonialStyle.innerHTML = `
+                .testimonial-short {
+                    display: block !important;
+                    margin-bottom: 1rem !important;
+                }
+                
+                .testimonial-full {
+                    display: none !important;
+                    opacity: 0 !important;
+                    margin-bottom: 1rem !important;
+                    transition: opacity 0.3s ease !important;
+                }
+                
+                .testimonial.expanded .testimonial-short {
+                    display: none !important;
+                }
+                
+                .testimonial.expanded .testimonial-full {
+                    display: block !important;
+                    opacity: 1 !important;
+                }
+                
+                .read-more-btn {
+                    cursor: pointer !important;
+                }
+            `;
+            
+            // Append the style element to the head
+            document.head.appendChild(testimonialStyle);
+            
+            // Add immediate event listener setup
+            document.addEventListener('DOMContentLoaded', function() {
+                var readMoreButtons = document.querySelectorAll('.read-more-btn');
+                
+                readMoreButtons.forEach(function(button) {
+                    button.addEventListener('click', function() {
+                        var testimonial = this.closest('.testimonial');
+                        if (testimonial) {
+                            testimonial.classList.toggle('expanded');
+                            
+                            if (testimonial.classList.contains('expanded')) {
+                                this.textContent = 'Read Less';
+                            } else {
+                                this.textContent = 'Read More';
+                            }
+                        }
+                    });
+                });
+            });
         })();
     </script>
     
@@ -282,20 +335,28 @@
     <!-- Header -->
     <header>
         <div class="container">
-            <nav class="navbar">
-                <ul class="nav-menu">
-                    <li><a href="#home" class="active">Home</a></li>
-                    <li><a href="#services">Services</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#client-stories">Client Stories</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                </ul>
-                <div class="hamburger">
-                    <span class="bar"></span>
-                    <span class="bar"></span>
-                    <span class="bar"></span>
+            <div class="header-content">
+                <div class="logo">
+                    <a href="index.html">
+                        <h1>The Unstuck Growth</h1>
+                    </a>
                 </div>
-            </nav>
+                <nav class="navbar">
+                    <ul class="nav-menu">
+                        <li><a href="#home" class="active">Home</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#knowledge-hub">Knowledge Hub</a></li>
+                        <li><a href="#client-stories">Client Stories</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                    <div class="hamburger">
+                        <span class="bar"></span>
+                        <span class="bar"></span>
+                        <span class="bar"></span>
+                    </div>
+                </nav>
+            </div>
         </div>
     </header>
 
@@ -3121,5 +3182,12 @@
             console.log("Emergency fix for story modal applied");
         })();
     </script>
+
+    <!-- Scripts -->
+    <script src="script.js"></script>
+    <script src="nav-fix.js"></script>
+    <script src="testimonial-fix.js"></script>
+    <script src="debug-testimonials.js"></script>
+    <script src="testimonial-direct-fix.js"></script>
 </body>
 </html> 
