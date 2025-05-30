@@ -190,6 +190,7 @@
     <link rel="stylesheet" href="story-modal.css">
     <link rel="stylesheet" href="nav-fix.css">
     <link rel="stylesheet" href="testimonial-fix.css">
+    <link rel="stylesheet" href="fix-mobile-navigation.css">
     
     <!-- Immediate inline fix for hero buttons -->
     <script>
@@ -269,6 +270,75 @@
                     });
                 });
             });
+        })();
+    </script>
+    
+    <!-- Immediate inline fix for mobile navigation and floating button -->
+    <script>
+        // This script runs immediately as the page loads
+        (function() {
+            // Create a style element for mobile navigation fixes
+            var mobileNavStyle = document.createElement('style');
+            
+            // Add mobile navigation styles with !important to override any conflicting styles
+            mobileNavStyle.innerHTML = `
+                @media screen and (max-width: 768px) {
+                    /* Fix floating button position to avoid overlapping with navigation tabs */
+                    .floating-book-btn {
+                        bottom: 80px !important;
+                        right: 50% !important;
+                        transform: translateX(50%) !important;
+                        z-index: 999 !important;
+                    }
+                    
+                    /* Style the button itself */
+                    .floating-book-btn .book-now-btn {
+                        padding: 10px 20px !important;
+                        border-radius: 30px !important;
+                        font-size: 14px !important;
+                        display: flex !important;
+                        align-items: center !important;
+                        justify-content: center !important;
+                        gap: 8px !important;
+                    }
+                    
+                    /* Ensure navigation tabs are visible and clickable */
+                    .page-navigation {
+                        z-index: 998 !important;
+                        background-color: rgba(255, 255, 255, 0.95) !important;
+                        box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1) !important;
+                        position: fixed !important;
+                        bottom: 0 !important;
+                        left: 0 !important;
+                        right: 0 !important;
+                        width: 100% !important;
+                    }
+                    
+                    /* Add padding to the bottom of the page */
+                    body {
+                        padding-bottom: 70px !important;
+                    }
+                    
+                    /* Make the navigation tabs more easily clickable */
+                    .nav-section {
+                        padding: 12px 8px !important;
+                        min-width: 60px !important;
+                        text-align: center !important;
+                        font-size: 14px !important;
+                    }
+                    
+                    /* Ensure the nav sections container is properly spaced */
+                    .nav-sections {
+                        display: flex !important;
+                        justify-content: space-around !important;
+                        width: 100% !important;
+                        padding: 5px 0 !important;
+                    }
+                }
+            `;
+            
+            // Append the style element to the head
+            document.head.appendChild(mobileNavStyle);
         })();
     </script>
     
@@ -3189,5 +3259,6 @@
     <script src="testimonial-fix.js"></script>
     <script src="debug-testimonials.js"></script>
     <script src="testimonial-direct-fix.js"></script>
+    <script src="fix-mobile-floating-button.js"></script>
 </body>
 </html> 
