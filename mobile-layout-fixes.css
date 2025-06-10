@@ -1,0 +1,133 @@
+/* Additional mobile layout fixes for smartphones */
+
+/* Fix for content overflow on mobile */
+@media screen and (max-width: 480px) {
+    /* Make sure no content overflows the viewport */
+    html, body {
+        overflow-x: hidden !important;
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+    
+    /* Fix for grid layouts on mobile */
+    .grid, [class*="grid-"], [class*="col-"] {
+        display: block !important;
+        width: 100% !important;
+        padding-left: 15px !important;
+        padding-right: 15px !important;
+    }
+    
+    /* Fix images and media on mobile */
+    img, video, iframe {
+        max-width: 100% !important;
+        height: auto !important;
+    }
+    
+    /* Make tables responsive */
+    table {
+        display: block !important;
+        overflow-x: auto !important;
+        max-width: 100% !important;
+    }
+    
+    /* Improve card layouts */
+    .card, .box, .container, .wrapper {
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+    
+    /* Fix for stacked elements */
+    .stack, .stack-vertical {
+        margin-bottom: 20px !important;
+    }
+    
+    /* Better spacing between elements */
+    section, .section {
+        padding-top: 30px !important;
+        padding-bottom: 30px !important;
+    }
+    
+    /* Fix button groups on mobile */
+    .button-group, .btn-group {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 10px !important;
+        width: 100% !important;
+    }
+    
+    /* Fix scroll issues with sticky elements */
+    .sticky, .fixed, [style*="position: sticky"], [style*="position: fixed"] {
+        position: relative !important;
+    }
+    
+    /* Only allow specific elements to remain fixed */
+    header, .navbar, .mobile-quick-contact, .back-to-top, .floating-book-btn {
+        position: fixed !important;
+    }
+    
+    /* Fix for CLS (Content Layout Shift) with fonts */
+    body {
+        text-size-adjust: 100% !important;
+        -webkit-text-size-adjust: 100% !important;
+    }
+    
+    /* Improve accordion and collapse elements */
+    .accordion, .collapse {
+        width: 100% !important;
+    }
+    
+    /* Impact metrics on mobile */
+    .impact-stats, .impact-metrics {
+        grid-template-columns: 1fr !important;
+        gap: 15px !important;
+    }
+}
+
+/* Ensure proper handling of modal dialogs on mobile */
+@media screen and (max-width: 480px) {
+    .modal, .popup, .dialog {
+        width: 95% !important;
+        left: 2.5% !important;
+        right: 2.5% !important;
+        top: 50% !important;
+        transform: translateY(-50%) !important;
+        max-height: 90vh !important;
+        overflow-y: auto !important;
+    }
+}
+
+/* Fix for iOS input zoom */
+@media screen and (max-width: 480px) {
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    input[type="number"],
+    input[type="url"],
+    input[type="password"],
+    select,
+    textarea {
+        font-size: 16px !important;
+    }
+}
+
+/* Fix for floating button and navigation overlap */
+@media screen and (max-width: 480px) {
+    .floating-book-btn {
+        bottom: 80px !important;
+    }
+    
+    .page-navigation {
+        z-index: 998 !important;
+    }
+}
+
+/* Fix for iOS safe areas */
+@supports (padding: max(0px)) {
+    @media screen and (max-width: 480px) {
+        .page-navigation {
+            padding-bottom: max(10px, env(safe-area-inset-bottom)) !important;
+        }
+    }
+} 

@@ -1,0 +1,130 @@
+/* Enhanced JotForm mobile styling */
+
+/* General form improvements for mobile */
+@media screen and (max-width: 480px) {
+    /* JotForm containers */
+    .jotform-form,
+    .form-all {
+        width: 100% !important;
+        min-width: 100% !important;
+        max-width: 100% !important;
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+    
+    /* Improve form field spacing */
+    .form-line {
+        padding: 10px 0 !important;
+        margin: 0 !important;
+    }
+    
+    /* Better inputs and selects */
+    .form-textbox,
+    .form-dropdown,
+    .form-textarea {
+        width: 100% !important;
+        max-width: 100% !important;
+        padding: 12px !important;
+        font-size: 16px !important; /* Prevents iOS zoom */
+        border-radius: 8px !important;
+    }
+    
+    /* Form field labels */
+    .form-label {
+        font-size: 16px !important;
+        margin-bottom: 6px !important;
+    }
+    
+    /* Submit button */
+    .form-submit-button {
+        width: 100% !important;
+        min-height: 48px !important;
+        font-size: 16px !important;
+        padding: 12px 20px !important;
+        border-radius: 8px !important;
+        margin-top: 15px !important;
+    }
+    
+    /* Radio buttons and checkboxes */
+    .form-radio-item, 
+    .form-checkbox-item {
+        margin: 10px 0 !important;
+        display: flex !important;
+        align-items: center !important;
+    }
+    
+    /* Improve touch target size for radio/checkbox */
+    .form-radio-item label, 
+    .form-checkbox-item label {
+        padding: 8px 0 !important;
+        display: flex !important;
+        align-items: center !important;
+        font-size: 16px !important;
+    }
+    
+    /* Error messages */
+    .form-error-message {
+        padding: 10px !important;
+        margin-top: 5px !important;
+        border-radius: 6px !important;
+        font-size: 14px !important;
+    }
+    
+    /* Header and subheader */
+    .form-header-group {
+        padding: 5px 0 !important;
+        margin-bottom: 10px !important;
+    }
+    
+    /* Input focus state */
+    .form-textbox:focus,
+    .form-dropdown:focus,
+    .form-textarea:focus {
+        outline: 2px solid #333 !important;
+        outline-offset: 0 !important;
+    }
+}
+
+/* iPhone SE and other very small screens */
+@media screen and (max-width: 375px) {
+    /* Further reduce padding */
+    .form-line {
+        padding: 8px 0 !important;
+    }
+    
+    /* Smaller text for labels */
+    .form-label {
+        font-size: 15px !important;
+    }
+    
+    /* Reduce padding on inputs */
+    .form-textbox,
+    .form-dropdown,
+    .form-textarea {
+        padding: 10px !important;
+    }
+}
+
+/* Landscape mode */
+@media screen and (max-height: 500px) and (orientation: landscape) {
+    /* More compact layout for landscape */
+    .form-line {
+        padding: 6px 0 !important;
+    }
+    
+    /* Reduce button height in landscape */
+    .form-submit-button {
+        min-height: 44px !important;
+    }
+    
+    /* Header and subheader */
+    .form-header-group {
+        margin-bottom: 5px !important;
+    }
+    
+    /* Fix scroll issues in landscape */
+    .jotform-form {
+        overflow-y: auto !important;
+        max-height: 90vh !important;
+    }
+} 

@@ -193,18 +193,15 @@
     <link rel="stylesheet" href="fix-mobile-navigation.css">
     <link rel="stylesheet" href="jotform-custom.css">
     <link rel="stylesheet" href="mobile-form-fix.css">
+    <link rel="stylesheet" href="smartphone-optimization.css">
+    <link rel="stylesheet" href="mobile-jotform-enhancements.css">
+    <link rel="stylesheet" href="mobile-layout-fixes.css">
     
     <!-- Early loading contact tab fix -->
     <script src="force-contact-redirect.js"></script>
     <script src="direct-contact-fix.js"></script>
     <script src="tab-handler.js"></script>
-    <script src="contact-tab-fix.js"></script>
-    
-    <!-- Mobile interface fixes -->
-    <link rel="stylesheet" href="mobile-interface-fix.css">
-    <link rel="stylesheet" href="contact-cards-fix.css">
-    <script src="mobile-navigation-fix.js"></script>
-    <script src="contact-ui-fix.js"></script>
+    <script src="smartphone-fixes.js"></script>
     
     <!-- Immediate inline fix for hero buttons -->
     <script>
@@ -3293,52 +3290,6 @@
     <script src="testimonial-direct-fix.js"></script>
     <script src="fix-mobile-floating-button.js"></script>
     <script src="hamburger-fix.js"></script>
-    
-    <!-- Final mobile interface fix -->
-    <script>
-        // Apply direct contact tab fix on page load
-        document.addEventListener('DOMContentLoaded', function() {
-            // Fix contact tab styling
-            const tabs = document.querySelectorAll('.client-stories-tabs .tab-btn');
-            const contactTab = document.querySelector('.client-stories-tabs .tab-btn[data-tab="contact"]');
-            
-            if (contactTab && tabs.length) {
-                // Force style to match other tabs
-                contactTab.style.display = "inline-block";
-                contactTab.style.background = "#f0f0f0";
-                contactTab.style.color = "#333";
-                contactTab.style.padding = "8px 15px";
-                contactTab.style.borderRadius = "20px";
-                contactTab.style.margin = "0 5px 10px 0";
-                contactTab.style.border = "none";
-                contactTab.style.fontWeight = "500";
-                
-                // Fix contact tab content display
-                contactTab.addEventListener('click', function() {
-                    const contactTabContent = document.getElementById('contact-tab');
-                    if (contactTabContent) {
-                        // Hide other tabs
-                        document.querySelectorAll('.tab-pane').forEach(pane => {
-                            pane.style.display = 'none';
-                            pane.classList.remove('active');
-                        });
-                        
-                        // Show contact tab
-                        contactTabContent.style.display = 'block';
-                        contactTabContent.classList.add('active');
-                    }
-                });
-            }
-            
-            // Check URL for contact parameter
-            if (window.location.hash.includes('contact')) {
-                // Click the contact tab
-                if (contactTab) {
-                    setTimeout(() => contactTab.click(), 300);
-                }
-            }
-        });
-    </script>
     
     <!-- Contact Tab Script -->
     <script>
