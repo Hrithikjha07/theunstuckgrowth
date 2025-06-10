@@ -1,0 +1,100 @@
+/* Mobile Form Improvements */
+
+/* Make the client stories tabs more mobile friendly */
+@media screen and (max-width: 767px) {
+    /* Better tab navigation for small screens */
+    .client-stories-tabs .tab-nav {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 5px;
+    }
+    
+    .client-stories-tabs .tab-btn {
+        padding: 10px 12px;
+        font-size: 14px;
+        margin: 0;
+        flex-grow: 1;
+        text-align: center;
+        min-width: 0;
+        white-space: nowrap;
+    }
+    
+    /* Ensure contact form has proper spacing */
+    .contact-form-container {
+        padding: 10px;
+    }
+    
+    .contact-form h3 {
+        font-size: 20px;
+        margin-bottom: 15px;
+    }
+    
+    /* Make scrolling to sections smoother */
+    html {
+        scroll-behavior: smooth;
+    }
+    
+    /* Improve touch targets */
+    button, 
+    .btn,
+    input[type="submit"],
+    a.btn {
+        min-height: 44px;
+        padding: 12px 20px;
+    }
+    
+    /* Improve form field spacing on mobile */
+    .form-group {
+        margin-bottom: 18px;
+    }
+    
+    .form-group label {
+        margin-bottom: 6px;
+        display: block;
+    }
+    
+    /* Fix focus states for better accessibility */
+    input:focus,
+    textarea:focus,
+    select:focus,
+    button:focus {
+        outline: 2px solid #333;
+        outline-offset: 2px;
+    }
+}
+
+/* Extra small screens */
+@media screen and (max-width: 480px) {
+    .client-stories-tabs .tab-nav {
+        flex-direction: column;
+    }
+    
+    .client-stories-tabs .tab-btn {
+        width: 100%;
+        margin-bottom: 5px;
+    }
+    
+    /* Improve spacing for JotForm on very small screens */
+    iframe[id^="JotFormIFrame"] {
+        min-height: 680px !important;
+    }
+    
+    /* Ensure elements don't overflow */
+    .contact-form-container {
+        max-width: 100%;
+        margin: 0;
+        padding: 10px;
+    }
+}
+
+/* Fix for landscape mode on mobile */
+@media screen and (max-height: 500px) and (orientation: landscape) {
+    .contact-form-container {
+        padding: 10px;
+    }
+    
+    iframe[id^="JotFormIFrame"] {
+        height: 450px !important;
+    }
+} 

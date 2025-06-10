@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Back to Top Button Demo</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="back-to-top.css">
+    <link rel="stylesheet" href="scroll-fix.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+        
+        header {
+            background-color: #4a67e8;
+            color: white;
+            padding: 1rem;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+        
+        header h1 {
+            text-align: center;
+        }
+        
+        .section {
+            min-height: 100vh;
+            padding: 80px 20px 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+        
+        .section h2 {
+            margin-bottom: 1rem;
+            font-size: 2rem;
+        }
+        
+        .section p {
+            max-width: 800px;
+            margin-bottom: 1rem;
+        }
+        
+        .section:nth-child(odd) {
+            background-color: #f5f5f5;
+        }
+        
+        .section:nth-child(even) {
+            background-color: #e9e9e9;
+        }
+        
+        .section button {
+            background-color: #4a67e8;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 1rem;
+        }
+        
+        .section button:hover {
+            background-color: #3a57d8;
+        }
+        
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Back to Top Button Demo</h1>
+    </header>
+
+    <div class="section" id="section1">
+        <h2>Section 1</h2>
+        <p>Scroll down to see more sections. The back-to-top button will appear after scrolling past this section.</p>
+        <p>This demo shows a clean implementation of a back-to-top button with smooth scrolling.</p>
+    </div>
+
+    <div class="section" id="section2">
+        <h2>Section 2</h2>
+        <p>As you continue scrolling, the back-to-top button appears in the bottom-right corner.</p>
+        <p>The button uses CSS transitions for smooth appearance and hover effects.</p>
+    </div>
+
+    <div class="section" id="section3">
+        <h2>Section 3</h2>
+        <p>The back-to-top button works across all modern browsers.</p>
+        <p>It includes fallbacks for browsers that don't support smooth scrolling natively.</p>
+    </div>
+
+    <div class="section" id="section4">
+        <h2>Section 4</h2>
+        <p>The implementation is lightweight and doesn't interfere with other page elements.</p>
+        <p>It's responsively designed to work well on all device sizes.</p>
+    </div>
+
+    <div class="section" id="section5">
+        <h2>Section 5</h2>
+        <p>You can also navigate to specific sections using the buttons below:</p>
+        <button onclick="scrollToSection('section1')">Go to Section 1</button>
+        <button onclick="scrollToSection('section2')">Go to Section 2</button>
+        <button onclick="scrollToSection('section3')">Go to Section 3</button>
+        <button onclick="scrollToSection('section4')">Go to Section 4</button>
+    </div>
+
+    <footer>
+        <p>&copy; 2023 Back to Top Button Demo</p>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="back-to-top" class="back-to-top" title="Back to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+    
+    <script src="back-to-top.js"></script>
+    <script>
+        // Additional function for the section navigation buttons
+        function scrollToSection(sectionId) {
+            const section = document.getElementById(sectionId);
+            if (!section) return;
+            
+            const headerHeight = document.querySelector('header').offsetHeight;
+            const sectionPosition = section.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+            
+            window.scrollTo({
+                top: sectionPosition,
+                behavior: 'smooth'
+            });
+        }
+    </script>
+</body>
+</html> 

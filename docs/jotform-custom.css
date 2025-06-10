@@ -1,0 +1,98 @@
+/* JotForm Custom Styles */
+.jotform-frame {
+  border-radius: 12px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
+}
+
+/* Custom CSS for JotForm iframes */
+iframe[id^="JotFormIFrame"] {
+  border-radius: 12px !important;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1) !important;
+  background-color: #fff !important;
+  transition: all 0.3s ease !important;
+}
+
+/* Container styling for form */
+.contact-form-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #fefefe;
+  border-radius: 12px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+}
+
+.contact-form {
+  padding: 15px;
+}
+
+.contact-form h3 {
+  text-align: center;
+  margin-bottom: 25px;
+  color: #333;
+  font-weight: 600;
+}
+
+/* Improve JotForm mobile responsiveness */
+@media (max-width: 767px) {
+  iframe[id^="JotFormIFrame"] {
+    min-height: 600px !important; /* Ensure enough space on mobile */
+  }
+  
+  .contact-form-container {
+    padding: 10px;
+    margin: 0 10px;
+  }
+  
+  .contact-form h3 {
+    font-size: 20px;
+  }
+}
+
+/* Ultra small screens */
+@media (max-width: 400px) {
+  iframe[id^="JotFormIFrame"] {
+    min-height: 650px !important; /* Even more space for tiny screens */
+  }
+}
+
+/* JotForm customization script to inject custom styles */
+.jf-custom-css {
+  --primary-color: #333333;
+  --secondary-color: #555555;
+  --text-color: #333333;
+  --button-color: #333333;
+  --button-text-color: #ffffff;
+  --border-radius: 8px;
+  --font-family: 'Inter', sans-serif;
+}
+
+/* Animation for form loading */
+@keyframes formFadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+iframe[id^="JotFormIFrame"] {
+  animation: formFadeIn 0.5s ease-out forwards;
+}
+
+/* Add specific styling for contact tab in client stories */
+#client-stories-tab .contact-form-container {
+  background-color: #f9f9f9;
+  border: 1px solid #eaeaea;
+}
+
+#client-stories-tab .contact-form h3 {
+  color: #222;
+  border-bottom: 2px solid #333;
+  padding-bottom: 10px;
+  margin-bottom: 30px;
+} 

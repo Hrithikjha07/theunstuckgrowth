@@ -1,0 +1,25 @@
+<svg width="300" height="80" viewBox="0 0 300 80" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background grid lines -->
+  <line x1="0" y1="60" x2="300" y2="60" stroke="#e2e8f0" stroke-width="1" />
+  <line x1="0" y1="40" x2="300" y2="40" stroke="#e2e8f0" stroke-width="1" />
+  <line x1="0" y1="20" x2="300" y2="20" stroke="#e2e8f0" stroke-width="1" />
+  
+  <!-- Line chart -->
+  <path d="M10,50 C20,50 25,25 35,25 C45,25 50,60 60,60 C70,60 75,60 85,60 
+           C95,60 100,60 110,60 C120,60 125,40 135,20 C145,10 150,30 160,30 
+           C170,30 175,60 185,60 C195,60 200,45 210,15 C220,10 225,25 235,25 
+           C245,25 250,10 260,10 C270,10 275,25 285,25 C295,25" 
+        fill="none" stroke="#6366f1" stroke-width="2" />
+  
+  <!-- Data points -->
+  <circle cx="35" cy="25" r="3" fill="#6366f1" />
+  <circle cx="60" cy="60" r="3" fill="#6366f1" />
+  <circle cx="110" cy="60" r="3" fill="#6366f1" />
+  <circle cx="135" cy="20" r="3" fill="#6366f1" />
+  <circle cx="160" cy="30" r="3" fill="#6366f1" />
+  <circle cx="185" cy="60" r="3" fill="#6366f1" />
+  <circle cx="210" cy="15" r="3" fill="#6366f1" />
+  <circle cx="235" cy="25" r="3" fill="#6366f1" />
+  <circle cx="260" cy="10" r="3" fill="#6366f1" />
+  <circle cx="285" cy="25" r="3" fill="#6366f1" />
+</svg> 

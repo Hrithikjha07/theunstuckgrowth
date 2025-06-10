@@ -1,0 +1,54 @@
+/* CTA Buttons Fix */
+.hero .cta-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    width: 100%;
+}
+
+.hero .cta-buttons .btn {
+    display: inline-block;
+    opacity: 1;
+    visibility: visible;
+    min-width: 150px;
+    text-align: center;
+}
+
+/* Make sure buttons are visible on mobile */
+@media screen and (max-width: 768px) {
+    .hero .cta-buttons {
+        flex-direction: column;
+        width: 100%;
+    }
+    
+    .hero .cta-buttons .btn {
+        width: 100%;
+        margin-bottom: 0.5rem;
+        display: block;
+        opacity: 1;
+        visibility: visible;
+    }
+}
+
+/* Fix for Calendly button */
+.hero .cta-buttons .btn[onclick*="Calendly"] {
+    cursor: pointer;
+    display: inline-block !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+/* Fix for Topmate button */
+.hero .cta-buttons .btn[href*="topmate.io"] {
+    display: inline-block !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+/* Make sure all buttons in the hero section are visible */
+.hero .btn {
+    display: inline-block !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+} 

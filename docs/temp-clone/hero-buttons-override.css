@@ -1,0 +1,54 @@
+/* Emergency override for hero buttons */
+.hero .cta-buttons {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 1rem !important;
+    margin-bottom: 2rem !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    pointer-events: auto !important;
+}
+
+/* Override for all buttons */
+.hero .cta-buttons .btn {
+    display: inline-block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    pointer-events: auto !important;
+    z-index: 100 !important;
+    position: relative !important;
+}
+
+/* Calendly button - emergency override */
+.hero .cta-buttons [href*="calendly.com"] {
+    display: inline-block !important;
+    background-color: #333 !important;
+    color: white !important;
+    border: none !important;
+    padding: 0.75rem 1.5rem !important;
+    border-radius: 4px !important;
+    text-decoration: none !important;
+    font-weight: 600 !important;
+    margin-right: 10px !important;
+    cursor: pointer !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    text-shadow: none !important;
+    box-shadow: none !important;
+}
+
+/* Topmate button - emergency override */
+.hero .cta-buttons [href*="topmate.io"] {
+    display: inline-block !important;
+    background-color: #333 !important;
+    color: white !important;
+    border: none !important;
+    padding: 0.75rem 1.5rem !important;
+    border-radius: 4px !important;
+    text-decoration: none !important;
+    font-weight: 600 !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    text-shadow: none !important;
+    box-shadow: none !important;
+} 

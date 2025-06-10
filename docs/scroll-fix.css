@@ -1,0 +1,62 @@
+/**
+ * Scroll Fixing CSS
+ * Essential styles to ensure smooth scrolling works properly site-wide
+ */
+
+/* Core scrolling fixes for the entire document */
+html, body {
+    height: auto !important;
+    overflow-y: auto !important;
+    position: relative !important;
+    scroll-behavior: smooth !important;
+    overscroll-behavior: auto !important;
+    touch-action: auto !important;
+}
+
+/* Ensure all containers are scrollable */
+main, section, div, .container {
+    overflow: visible !important;
+    height: auto !important;
+    transform: none !important;
+    transition: none !important;
+}
+
+/* Reset any fixed positioning that might prevent scrolling (except for allowed elements) */
+.fixed, .sticky, [class*="fixed"], [class*="sticky"] {
+    position: static !important;
+}
+
+/* Exceptions to the reset rule - elements that SHOULD be fixed */
+header, 
+.back-to-top, 
+#back-to-top, 
+.mobile-quick-contact, 
+.mobile-menu-btn {
+    position: fixed !important;
+}
+
+/* Disable interfering animations */
+* {
+    animation-play-state: paused !important;
+    animation: none !important;
+}
+
+/* Prevent card transforms from causing scroll issues */
+.service-card, .pricing-card, .team-card {
+    transform: none !important;
+    transition: none !important;
+}
+
+/* Mobile fixes */
+@media (max-width: 768px) {
+    .container, section, div {
+        width: auto !important;
+        max-width: 100% !important;
+        overflow-x: hidden !important;
+    }
+    
+    /* Adjust content padding to prevent header overlap */
+    body > *:first-of-type:not(header) {
+        padding-top: 80px !important;
+    }
+} 

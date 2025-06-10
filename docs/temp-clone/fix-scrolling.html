@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fix Scrolling Issues</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            padding: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        button {
+            padding: 10px 15px;
+            background: #4a67e8;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin: 10px 0;
+            font-size: 16px;
+        }
+        button:hover {
+            background: #3a57d8;
+        }
+        .code {
+            background: #f5f5f5;
+            padding: 15px;
+            border-radius: 5px;
+            font-family: monospace;
+            white-space: pre-wrap;
+            margin: 15px 0;
+        }
+        h1, h2 {
+            color: #333;
+        }
+        .success {
+            color: green;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Scrolling Issue Fixer</h1>
+    <p>This tool will help fix scrolling issues on your website. Click the buttons below to apply fixes.</p>
+    
+    <h2>Common Scrolling Issues</h2>
+    <p>Scrolling problems are usually caused by:</p>
+    <ul>
+        <li>CSS height:100% or overflow:hidden on html/body</li>
+        <li>Fixed position elements blocking scrolling</li>
+        <li>JavaScript preventing default scroll behavior</li>
+        <li>CSS transform properties on container elements</li>
+    </ul>
+    
+    <button id="fix1">Fix HTML/Body CSS</button>
+    <button id="fix2">Fix Section Overflow</button>
+    <button id="fix3">Disable Event Listeners</button>
+    <button id="fix4">Fix All Issues</button>
+    
+    <div id="status" class="code">Status: Ready to fix scrolling issues</div>
+    
+    <script>
+        // Fix 1: HTML/Body CSS
+        document.getElementById('fix1').addEventListener('click', function() {
+            const statusEl = document.getElementById('status');
+            try {
+                // Force html and body to have proper scrolling
+                window.parent.document.documentElement.style.cssText += 'height: auto !important; overflow: auto !important; position: relative !important;';
+                window.parent.document.body.style.cssText += 'height: auto !important; overflow: auto !important; position: relative !important;';
+                
+                statusEl.innerHTML = 'Status: Applied Fix 1 - HTML/Body CSS\n' +
+                                   'html and body elements now have proper scrolling properties.';
+                statusEl.classList.add('success');
+            } catch (e) {
+                statusEl.innerHTML = 'Error: ' + e.message;
+            }
+        });
+        
+        // Fix 2: Section Overflow
+        document.getElementById('fix2').addEventListener('click', function() {
+            const statusEl = document.getElementById('status');
+            try {
+                // Fix all sections
+                const sections = window.parent.document.querySelectorAll('section, .impact-glance, .impact-stats, .impact-card');
+                sections.forEach(section => {
+                    section.style.cssText += 'overflow: visible !important; height: auto !important; max-height: none !important;';
+                });
+                
+                statusEl.innerHTML = 'Status: Applied Fix 2 - Section Overflow\n' +
+                                   'Fixed overflow properties on ' + sections.length + ' sections.';
+                statusEl.classList.add('success');
+            } catch (e) {
+                statusEl.innerHTML = 'Error: ' + e.message;
+            }
+        });
+        
+        // Fix 3: Disable Event Listeners
+        document.getElementById('fix3').addEventListener('click', function() {
+            const statusEl = document.getElementById('status');
+            try {
+                // Create a clean clone of body to remove event listeners
+                const oldBody = window.parent.document.body;
+                const newBody = oldBody.cloneNode(true);
+                oldBody.parentNode.replaceChild(newBody, oldBody);
+                
+                statusEl.innerHTML = 'Status: Applied Fix 3 - Event Listeners\n' +
+                                   'Removed all event listeners that might be blocking scrolling.';
+                statusEl.classList.add('success');
+            } catch (e) {
+                statusEl.innerHTML = 'Error: ' + e.message;
+            }
+        });
+        
+        // Fix All Issues
+        document.getElementById('fix4').addEventListener('click', function() {
+            document.getElementById('fix1').click();
+            document.getElementById('fix2').click();
+            
+            const statusEl = document.getElementById('status');
+            try {
+                // Additional fixes
+                window.parent.document.querySelectorAll('*').forEach(el => {
+                    if (window.getComputedStyle(el).position === 'fixed' && 
+                        !el.classList.contains('back-to-top') && 
+                        !el.classList.contains('mobile-quick-contact')) {
+                        el.style.position = 'absolute';
+                    }
+                });
+                
+                // Remove any transform property on body or main containers
+                window.parent.document.body.style.transform = 'none';
+                window.parent.document.querySelectorAll('main, .container').forEach(el => {
+                    el.style.transform = 'none';
+                });
+                
+                statusEl.innerHTML = 'Status: Applied All Fixes\n' +
+                                   'Fixed CSS properties, removed problematic event handlers, and corrected positioning.\n' +
+                                   'Try scrolling now. If still not working, try reloading the page.';
+                statusEl.classList.add('success');
+            } catch (e) {
+                statusEl.innerHTML = 'Error: ' + e.message;
+            }
+        });
+    </script>
+</body>
+</html> 

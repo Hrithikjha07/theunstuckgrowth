@@ -1,0 +1,75 @@
+/* Direct fix for hero section buttons */
+.hero .cta-buttons {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 1rem !important;
+    margin-bottom: 2rem !important;
+}
+
+/* Primary button (Explore Services) */
+.hero .cta-buttons a.btn.primary {
+    display: inline-block !important;
+    background-color: #333 !important;
+    color: white !important;
+    padding: 0.75rem 1.5rem !important;
+    border-radius: 4px !important;
+    text-decoration: none !important;
+    font-weight: 600 !important;
+    margin-right: 10px !important;
+}
+
+/* Calendly button - direct fix */
+.hero .cta-buttons a.btn.secondary[href*="calendly.com"] {
+    display: inline-block !important;
+    background-color: #333 !important;
+    color: white !important;
+    border: none !important;
+    padding: 0.75rem 1.5rem !important;
+    border-radius: 4px !important;
+    text-decoration: none !important;
+    font-weight: 600 !important;
+    margin-right: 10px !important;
+    cursor: pointer !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    text-shadow: none !important;
+    box-shadow: none !important;
+}
+
+/* Topmate button - direct fix */
+.hero .cta-buttons a.btn.secondary[href*="topmate.io"] {
+    display: inline-block !important;
+    background-color: #333 !important;
+    color: white !important;
+    border: none !important;
+    padding: 0.75rem 1.5rem !important;
+    border-radius: 4px !important;
+    text-decoration: none !important;
+    font-weight: 600 !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    text-shadow: none !important;
+    box-shadow: none !important;
+}
+
+/* Hover states for better interaction */
+.hero .cta-buttons a.btn.secondary:hover {
+    background-color: #444 !important;
+    transform: translateY(-2px) !important;
+    transition: all 0.3s ease !important;
+}
+
+/* Mobile styles */
+@media screen and (max-width: 768px) {
+    .hero .cta-buttons {
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        width: 100% !important;
+    }
+    
+    .hero .cta-buttons a.btn {
+        width: 100% !important;
+        margin-bottom: 10px !important;
+        text-align: center !important;
+    }
+} 

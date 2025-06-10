@@ -1,0 +1,1062 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Sign Up | The Unstuck Growth</title>
+    <meta name="description" content="Join The Unstuck Growth community to access tailored resources, mentorship, and growth opportunities for your professional journey.">
+    <meta name="keywords" content="signup, entrepreneur, product manager, career development, business growth, mentorship, startup, career change, MBA application">
+    <meta name="author" content="Swati Shukla">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://theunstuckgrowth.com/signup">
+    <meta property="og:title" content="Sign Up | The Unstuck Growth">
+    <meta property="og:description" content="Join The Unstuck Growth community to access tailored resources, mentorship, and growth opportunities.">
+    <meta property="og:image" content="images/og-image.jpg">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://theunstuckgrowth.com/signup">
+    <meta property="twitter:title" content="Sign Up | The Unstuck Growth">
+    <meta property="twitter:description" content="Join The Unstuck Growth community to access tailored resources, mentorship, and growth opportunities.">
+    <meta property="twitter:image" content="images/twitter-image.jpg">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=DM+Serif+Display&display=swap" rel="stylesheet">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="styles.css">
+    
+    <style>
+        /* Additional styles for password strength indicator */
+        .password-strength {
+            margin-top: 5px;
+            display: none;
+        }
+        
+        .strength-meter {
+            height: 5px;
+            background-color: #f5f5f5;
+            border-radius: 3px;
+            margin-top: 5px;
+            position: relative;
+        }
+        
+        .strength-meter-fill {
+            height: 100%;
+            border-radius: 3px;
+            width: 0%;
+            transition: width 0.3s ease;
+        }
+        
+        .very-weak { background-color: #ff4d4d; width: 20%; }
+        .weak { background-color: #ffa64d; width: 40%; }
+        .medium { background-color: #ffff4d; width: 60%; }
+        .strong { background-color: #4dd24d; width: 80%; }
+        .very-strong { background-color: #33cc33; width: 100%; }
+        
+        .strength-text {
+            font-size: 12px;
+            margin-top: 5px;
+        }
+        
+        .persona-indicator {
+            display: inline-block;
+            padding: 4px 10px;
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: 20px;
+            font-size: 14px;
+            margin-bottom: 15px;
+        }
+        
+        .form-tabs {
+            display: flex;
+            margin-bottom: 20px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .form-tab {
+            padding: 10px 20px;
+            cursor: pointer;
+            position: relative;
+            font-weight: 500;
+        }
+        
+        .form-tab.active {
+            color: var(--primary-color);
+        }
+        
+        .form-tab.active:after {
+            content: '';
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: var(--primary-color);
+        }
+        
+        /* Hide profile-specific form sections initially */
+        .profile-section {
+            display: none;
+        }
+        
+        /* Display only the relevant profile section */
+        .profile-section.active {
+            display: block;
+        }
+    </style>
+</head>
+<body id="top">
+    <!-- Page Navigation (Mobile) -->
+    <div class="page-navigation">
+        <div class="nav-indicator">
+            <div class="nav-bar">
+                <div class="nav-progress"></div>
+            </div>
+        </div>
+        <div class="nav-sections">
+            <a href="index.html#top" class="nav-section" data-section="home">Home</a>
+            <a href="index.html#services" class="nav-section" data-section="services">Services</a>
+            <a href="index.html#knowledge-hub" class="nav-section" data-section="knowledge-hub">Knowledge Hub</a>
+            <a href="index.html#client-stories" class="nav-section" data-section="client-stories">Client Stories</a>
+            <a href="index.html#about" class="nav-section" data-section="about">About</a>
+            <a href="index.html#contact" class="nav-section" data-section="contact">Contact</a>
+        </div>
+    </div>
+    
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav>
+                <a href="index.html#top" class="logo">The Unstuck Growth</a>
+                <div class="nav-links">
+                    <a href="index.html#top">Home</a>
+                    <a href="index.html#services">Services</a>
+                    <a href="index.html#about">About</a>
+                    <a href="index.html#knowledge-hub">Knowledge Hub</a>
+                    <a href="index.html#client-stories">Client Stories</a>
+                    <a href="index.html#pricing">Pricing</a>
+                    <a href="index.html#contact">Contact</a>
+                </div>
+                <button class="mobile-menu-btn" title="Toggle mobile menu"><i class="fas fa-bars"></i></button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Create Your Account</h1>
+                <h2 id="persona-title">Join our community of ambitious professionals</h2>
+                <p id="persona-description">Get exclusive access to resources, mentorship, and growth strategies tailored specifically for your professional journey.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sign Up Section -->
+    <section id="signup" class="contact">
+        <div class="container">
+            <div class="section-header">
+                <h2>Get Started</h2>
+                <p>Begin your growth journey with The Unstuck Growth</p>
+            </div>
+            
+            <div class="contact-content">
+                <div class="contact-form-container">
+                    <div class="form-tabs">
+                        <div class="form-tab active" data-tab="signup">Sign Up</div>
+                        <div class="form-tab" data-tab="login">Already have an account?</div>
+                    </div>
+                    
+                    <form id="signup-form" class="contact-form" action="/api/register" method="POST">
+                        <div id="persona-badge" class="persona-indicator">Profile: <span id="selected-persona">Professional</span></div>
+                        
+                        <h3>Personal Information</h3>
+                        
+                        <div class="form-group">
+                            <label for="full-name">Full Name *</label>
+                            <input type="text" id="full-name" name="fullName" placeholder="Your full name" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Email Address *</label>
+                            <input type="email" id="email" name="email" placeholder="Your email address" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="phone">Phone Number *</label>
+                            <input type="tel" id="phone" name="phone" placeholder="Your phone number" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="password">Password *</label>
+                            <input type="password" id="password" name="password" placeholder="Create a password" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="confirm-password">Confirm Password *</label>
+                            <input type="password" id="confirm-password" name="confirm-password" placeholder="Confirm your password" required>
+                        </div>
+                        
+                        <h3>Professional Profile</h3>
+                        
+                        <!-- Common fields for all profiles -->
+                        <div class="form-group">
+                            <label for="experience">Years of Experience *</label>
+                            <select id="experience" name="experience" required>
+                                <option value="" disabled selected>Select your experience level</option>
+                                <option value="student">Student/No professional experience</option>
+                                <option value="0-2">0-2 years</option>
+                                <option value="3-5">3-5 years</option>
+                                <option value="6-10">6-10 years</option>
+                                <option value="10+">10+ years</option>
+                            </select>
+                        </div>
+                        
+                        <!-- Young Entrepreneur Section -->
+                        <div id="young-entrepreneur-fields" class="profile-section">
+                            <div class="form-group">
+                                <label for="business-stage">Current Business Stage *</label>
+                                <select id="business-stage" name="businessStage" required>
+                                    <option value="" disabled selected>Select your current stage</option>
+                                    <option value="idea">Just an idea</option>
+                                    <option value="planning">Planning phase</option>
+                                    <option value="early-startup">Early-stage startup</option>
+                                    <option value="growing">Growing business</option>
+                                    <option value="established">Established business</option>
+                                    <option value="none">No business yet</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="industry-entrepreneur">Industry/Sector *</label>
+                                <select id="industry-entrepreneur" name="industry" required>
+                                    <option value="" disabled selected>Select your industry</option>
+                                    <option value="technology">Technology/Software</option>
+                                    <option value="ecommerce">E-Commerce</option>
+                                    <option value="health">Health/Wellness</option>
+                                    <option value="education">Education</option>
+                                    <option value="finance">Finance/FinTech</option>
+                                    <option value="media">Media/Entertainment</option>
+                                    <option value="food">Food/Beverage</option>
+                                    <option value="service">Professional Services</option>
+                                    <option value="manufacturing">Manufacturing</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="entrepreneur-goals">Your Top Entrepreneurial Goals *</label>
+                                <textarea id="entrepreneur-goals" name="goals" rows="3" placeholder="What are your main goals as a young entrepreneur?" required></textarea>
+                            </div>
+                        </div>
+                        
+                        <!-- Startup Founder Section -->
+                        <div id="startup-founder-fields" class="profile-section">
+                            <div class="form-group">
+                                <label for="company-stage">Company Stage *</label>
+                                <select id="company-stage" name="companyStage" required>
+                                    <option value="" disabled selected>Select your company's stage</option>
+                                    <option value="pre-seed">Pre-seed</option>
+                                    <option value="seed">Seed</option>
+                                    <option value="series-a">Series A</option>
+                                    <option value="series-b+">Series B+</option>
+                                    <option value="profitable">Profitable</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="team-size">Team Size *</label>
+                                <select id="team-size" name="teamSize" required>
+                                    <option value="" disabled selected>Select your team size</option>
+                                    <option value="solo">Solo founder</option>
+                                    <option value="2-5">2-5 employees</option>
+                                    <option value="6-20">6-20 employees</option>
+                                    <option value="21-50">21-50 employees</option>
+                                    <option value="50+">50+ employees</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="funding-needs">Funding Needs *</label>
+                                <select id="funding-needs" name="fundingNeeds" required>
+                                    <option value="" disabled selected>Select your funding status</option>
+                                    <option value="not-seeking">Not currently seeking funding</option>
+                                    <option value="pre-seed">Seeking pre-seed funding</option>
+                                    <option value="seed">Seeking seed funding</option>
+                                    <option value="series-a">Seeking Series A</option>
+                                    <option value="series-b+">Seeking Series B+</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <!-- Product Manager Section -->
+                        <div id="product-manager-fields" class="profile-section">
+                            <div class="form-group">
+                                <label for="pm-level">Product Management Level *</label>
+                                <select id="pm-level" name="pmLevel" required>
+                                    <option value="" disabled selected>Select your current PM level</option>
+                                    <option value="aspiring">Aspiring PM (not yet in role)</option>
+                                    <option value="associate">Associate/Junior PM</option>
+                                    <option value="product-manager">Product Manager</option>
+                                    <option value="senior">Senior PM</option>
+                                    <option value="lead">Lead PM/Director</option>
+                                    <option value="vp">VP of Product</option>
+                                    <option value="cpo">CPO/Executive</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="pm-industry">Industry *</label>
+                                <select id="pm-industry" name="pmIndustry" required>
+                                    <option value="" disabled selected>Select your industry</option>
+                                    <option value="b2c-apps">B2C Apps/Software</option>
+                                    <option value="b2b-saas">B2B SaaS</option>
+                                    <option value="e-commerce">E-Commerce</option>
+                                    <option value="fintech">Fintech</option>
+                                    <option value="healthtech">Healthtech</option>
+                                    <option value="enterprise">Enterprise Software</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="pm-goals">Career Goals *</label>
+                                <textarea id="pm-goals" name="pmGoals" rows="3" placeholder="What are your primary career goals as a Product Manager?" required></textarea>
+                            </div>
+                        </div>
+                        
+                        <!-- Career Changer Section -->
+                        <div id="career-changer-fields" class="profile-section">
+                            <div class="form-group">
+                                <label for="current-field">Current Field/Industry *</label>
+                                <input type="text" id="current-field" name="currentField" placeholder="Your current field or industry" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="target-field">Target Field/Industry *</label>
+                                <input type="text" id="target-field" name="targetField" placeholder="Your target field or industry" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="transition-timeline">Transition Timeline *</label>
+                                <select id="transition-timeline" name="transitionTimeline" required>
+                                    <option value="" disabled selected>When do you plan to transition?</option>
+                                    <option value="immediate">As soon as possible</option>
+                                    <option value="3-months">Within 3 months</option>
+                                    <option value="6-months">Within 6 months</option>
+                                    <option value="1-year">Within 1 year</option>
+                                    <option value="exploring">Just exploring options</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <!-- MBA Applicant Section -->
+                        <div id="mba-applicant-fields" class="profile-section">
+                            <div class="form-group">
+                                <label for="target-schools">Target Schools *</label>
+                                <textarea id="target-schools" name="targetSchools" rows="2" placeholder="List your target MBA programs" required></textarea>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="application-timeline">Application Timeline *</label>
+                                <select id="application-timeline" name="applicationTimeline" required>
+                                    <option value="" disabled selected>When are you applying?</option>
+                                    <option value="current">Current application cycle</option>
+                                    <option value="next-round">Next application round</option>
+                                    <option value="next-year">Next year</option>
+                                    <option value="exploring">Just exploring options</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="application-stage">Application Stage *</label>
+                                <select id="application-stage" name="applicationStage" required>
+                                    <option value="" disabled selected>Where are you in the process?</option>
+                                    <option value="research">Researching schools</option>
+                                    <option value="gmat">Preparing for GMAT/GRE</option>
+                                    <option value="essays">Working on essays</option>
+                                    <option value="interviews">Preparing for interviews</option>
+                                    <option value="waitlist">On waitlist</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <!-- Common fields to finish the form -->
+                        <div class="form-group">
+                            <label for="referral">How did you hear about us?</label>
+                            <select id="referral" name="referral">
+                                <option value="" disabled selected>Select an option</option>
+                                <option value="search">Search Engine</option>
+                                <option value="social">Social Media</option>
+                                <option value="friend">Friend/Colleague</option>
+                                <option value="event">Event/Conference</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        
+                        <div class="checkbox-group">
+                            <input type="checkbox" id="newsletter" name="newsletter" checked>
+                            <label for="newsletter">Subscribe to our newsletter for tips, resources, and updates</label>
+                        </div>
+                        
+                        <div class="checkbox-group">
+                            <input type="checkbox" id="terms" name="terms" required>
+                            <label for="terms">I agree to the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a> *</label>
+                        </div>
+                        
+                        <div id="signup-error" class="alert-box error" style="display: none;"></div>
+                        <div id="signup-success" class="alert-box success" style="display: none;"></div>
+                        
+                        <button type="submit" class="btn primary" title="Create account">Create My Account</button>
+                        
+                        <p class="form-login-link">Already have an account? <a href="login.html">Log in here</a></p>
+                    </form>
+                    
+                    <!-- Login Form (initially hidden) -->
+                    <form id="login-form" class="contact-form" action="/api/login" method="POST" style="display: none;">
+                        <div class="form-group">
+                            <label for="login-email">Email Address *</label>
+                            <input type="email" id="login-email" name="email" placeholder="Your email address" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="login-password">Password *</label>
+                            <input type="password" id="login-password" name="password" placeholder="Your password" required>
+                        </div>
+                        
+                        <div class="checkbox-group">
+                            <input type="checkbox" id="remember" name="remember">
+                            <label for="remember">Remember me</label>
+                        </div>
+                        
+                        <div id="login-error" class="alert-box error" style="display: none;"></div>
+                        <div id="login-success" class="alert-box success" style="display: none;"></div>
+                        
+                        <button type="submit" class="btn primary" title="Login">Log In</button>
+                        
+                        <p class="form-login-link"><a href="#" id="forgot-password-link">Forgot your password?</a></p>
+                        
+                        <!-- Forgot Password Form (initially hidden) -->
+                        <div id="forgot-password-form" style="display: none;">
+                            <h3>Reset Password</h3>
+                            <p>Enter your email address below. We'll send you a link to reset your password.</p>
+                            
+                            <div class="form-group">
+                                <label for="reset-email">Email Address *</label>
+                                <input type="email" id="reset-email" name="email" placeholder="Your email address" required>
+                            </div>
+                            
+                            <div id="reset-error" class="alert-box error" style="display: none;"></div>
+                            <div id="reset-success" class="alert-box success" style="display: none;"></div>
+                            
+                            <button type="button" id="send-reset-link" class="btn primary" title="Send Reset Link">Send Reset Link</button>
+                            <button type="button" id="back-to-login" class="btn secondary" title="Back to Login">Back to Login</button>
+                        </div>
+                    </form>
+                </div>
+                
+                <div class="contact-info">
+                    <div class="why-join">
+                        <h3>Why Join The Unstuck Growth Community?</h3>
+                        <ul class="benefits-list">
+                            <li>
+                                <i class="fas fa-check-circle"></i>
+                                <div>
+                                    <h4>Expert Mentorship</h4>
+                                    <p>Connect with seasoned professionals from McKinsey, Amazon, and other top companies</p>
+                                </div>
+                            </li>
+                            <li>
+                                <i class="fas fa-check-circle"></i>
+                                <div>
+                                    <h4>Personalized Guidance</h4>
+                                    <p>Receive tailored advice specific to your professional profile and goals</p>
+                                </div>
+                            </li>
+                            <li>
+                                <i class="fas fa-check-circle"></i>
+                                <div>
+                                    <h4>Exclusive Resources</h4>
+                                    <p>Access templates, frameworks, and guides customized for your journey</p>
+                                </div>
+                            </li>
+                            <li>
+                                <i class="fas fa-check-circle"></i>
+                                <div>
+                                    <h4>Community Network</h4>
+                                    <p>Connect with like-minded professionals for collaboration and support</p>
+                                </div>
+                            </li>
+                            <li>
+                                <i class="fas fa-check-circle"></i>
+                                <div>
+                                    <h4>Growth Tracking</h4>
+                                    <p>Tools to measure progress and celebrate milestones on your professional journey</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-branding">
+                    <h3 class="footer-logo">The Unstuck Growth</h3>
+                    <p class="footer-tagline">Guiding ambitious professionals to sustainable growth and success</p>
+                    <div class="social-links">
+                        <a href="#" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" title="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" title="YouTube"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-link-group">
+                        <h4>Navigation</h4>
+                        <ul>
+                            <li><a href="index.html#top">Home</a></li>
+                            <li><a href="index.html#services">Services</a></li>
+                            <li><a href="index.html#about">About</a></li>
+                            <li><a href="index.html#contact">Contact</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-link-group">
+                        <h4>Resources</h4>
+                        <ul>
+                            <li><a href="signup.html">Sign Up</a></li>
+                            <li><a href="login.html">Login</a></li>
+                            <li><a href="#">Blog</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-link-group">
+                        <h4>Legal</h4>
+                        <ul>
+                            <li><a href="#">Privacy Policy</a></li>
+                            <li><a href="#">Terms of Service</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 The Unstuck Growth. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="back-to-top" title="Back to top"><i class="fas fa-arrow-up"></i></button>
+    
+    <!-- JS -->
+    <script src="script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Handle persona from URL parameter
+            const urlParams = new URLSearchParams(window.location.search);
+            const persona = urlParams.get('persona') || 'default';
+            
+            // Update UI based on selected persona
+            updatePersonaUI(persona);
+            
+            // Add password strength meter functionality
+            initPasswordStrengthMeter();
+            
+            // Set up form tab switching
+            initFormTabs();
+            
+            // Set up forgot password flow
+            initForgotPasswordFlow();
+            
+            // Add form submission handling
+            initSignupForm();
+            initLoginForm();
+        });
+        
+        function updatePersonaUI(persona) {
+            // Store persona for form submission
+            document.getElementById('signup-form').dataset.persona = persona;
+            
+            // Update persona badge
+            const selectedPersonaElement = document.getElementById('selected-persona');
+            
+            // Update UI based on persona
+            const titles = {
+                'young-entrepreneur': 'Young Entrepreneur',
+                'startup-founder': 'Startup Founder',
+                'product-manager': 'Product Manager',
+                'career-changer': 'Career Changer',
+                'mba-applicant': 'MBA Applicant',
+                'default': 'Professional'
+            };
+            
+            const descriptions = {
+                'young-entrepreneur': 'Get exclusive access to resources and mentorship to launch and grow your first venture.',
+                'startup-founder': 'Access tailored guidance to scale your business, refine your strategy, and secure funding.',
+                'product-manager': 'Elevate your product management career with specialized resources and expert coaching.',
+                'career-changer': 'Navigate your career transition with confidence through targeted advice and resources.',
+                'mba-applicant': 'Strengthen your MBA applications with personalized guidance and insider knowledge.',
+                'default': 'Get exclusive access to resources, mentorship, and growth strategies tailored for your professional journey.'
+            };
+            
+            // Update page title and description
+            document.getElementById('persona-title').textContent = `Join our community of ambitious ${titles[persona].toLowerCase()+'s'}`;
+            document.getElementById('persona-description').textContent = descriptions[persona];
+            
+            // Update selected persona badge
+            selectedPersonaElement.textContent = titles[persona];
+            
+            // Show relevant profile section
+            const profileSections = document.querySelectorAll('.profile-section');
+            profileSections.forEach(section => section.classList.remove('active'));
+            
+            if (persona !== 'default') {
+                const activeSection = document.getElementById(`${persona}-fields`);
+                if (activeSection) {
+                    activeSection.classList.add('active');
+                }
+            } else {
+                // For default, show young entrepreneur as fallback
+                document.getElementById('young-entrepreneur-fields').classList.add('active');
+            }
+        }
+        
+        function initPasswordStrengthMeter() {
+            const passwordInput = document.getElementById('password');
+            
+            // Create strength meter elements
+            const strengthMeterContainer = document.createElement('div');
+            strengthMeterContainer.className = 'password-strength';
+            strengthMeterContainer.style.display = 'none';
+            
+            const strengthMeter = document.createElement('div');
+            strengthMeter.className = 'strength-meter';
+            
+            const strengthMeterFill = document.createElement('div');
+            strengthMeterFill.className = 'strength-meter-fill';
+            
+            const strengthText = document.createElement('div');
+            strengthText.className = 'strength-text';
+            strengthText.innerHTML = 'Password strength: <span id="strength-text">Very Weak</span>';
+            
+            // Append elements
+            strengthMeter.appendChild(strengthMeterFill);
+            strengthMeterContainer.appendChild(strengthMeter);
+            strengthMeterContainer.appendChild(strengthText);
+            
+            // Add after password input
+            passwordInput.parentNode.insertBefore(strengthMeterContainer, passwordInput.nextSibling);
+            
+            // Add event listener for password input
+            passwordInput.addEventListener('input', function() {
+                const password = this.value;
+                
+                if (password.length > 0) {
+                    strengthMeterContainer.style.display = 'block';
+                    
+                    // Calculate password strength
+                    let strength = 0;
+                    
+                    // Length check (8+ characters)
+                    if (password.length >= 8) strength += 1;
+                    
+                    // Lowercase letter check
+                    if (/[a-z]/.test(password)) strength += 1;
+                    
+                    // Uppercase letter check
+                    if (/[A-Z]/.test(password)) strength += 1;
+                    
+                    // Number check
+                    if (/[0-9]/.test(password)) strength += 1;
+                    
+                    // Special character check
+                    if (/[^A-Za-z0-9]/.test(password)) strength += 1;
+                    
+                    // Update UI based on strength
+                    strengthMeterFill.className = 'strength-meter-fill';
+                    const strengthTextSpan = document.getElementById('strength-text');
+                    
+                    switch(strength) {
+                        case 1:
+                            strengthMeterFill.style.width = '20%';
+                            strengthMeterFill.style.backgroundColor = '#ff4d4d';
+                            strengthTextSpan.textContent = 'Very Weak';
+                            break;
+                        case 2:
+                            strengthMeterFill.style.width = '40%';
+                            strengthMeterFill.style.backgroundColor = '#ffa64d';
+                            strengthTextSpan.textContent = 'Weak';
+                            break;
+                        case 3:
+                            strengthMeterFill.style.width = '60%';
+                            strengthMeterFill.style.backgroundColor = '#ffff4d';
+                            strengthTextSpan.textContent = 'Medium';
+                            break;
+                        case 4:
+                            strengthMeterFill.style.width = '80%';
+                            strengthMeterFill.style.backgroundColor = '#4dd24d';
+                            strengthTextSpan.textContent = 'Strong';
+                            break;
+                        case 5:
+                            strengthMeterFill.style.width = '100%';
+                            strengthMeterFill.style.backgroundColor = '#33cc33';
+                            strengthTextSpan.textContent = 'Very Strong';
+                            break;
+                        default:
+                            strengthMeterFill.style.width = '20%';
+                            strengthMeterFill.style.backgroundColor = '#ff4d4d';
+                            strengthTextSpan.textContent = 'Very Weak';
+                    }
+                } else {
+                    strengthMeterContainer.style.display = 'none';
+                }
+            });
+        }
+        
+        function initFormTabs() {
+            const tabs = document.querySelectorAll('.form-tab');
+            const signupForm = document.getElementById('signup-form');
+            const loginForm = document.getElementById('login-form');
+            
+            tabs.forEach(tab => {
+                tab.addEventListener('click', function() {
+                    // Update active tab
+                    tabs.forEach(t => t.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    // Show appropriate form
+                    const tabType = this.getAttribute('data-tab');
+                    if (tabType === 'signup') {
+                        signupForm.style.display = 'block';
+                        loginForm.style.display = 'none';
+                    } else if (tabType === 'login') {
+                        signupForm.style.display = 'none';
+                        loginForm.style.display = 'block';
+                    }
+                    
+                    // Hide any error/success messages
+                    document.querySelectorAll('.alert-box').forEach(box => {
+                        box.style.display = 'none';
+                    });
+                });
+            });
+        }
+        
+        function initForgotPasswordFlow() {
+            const forgotPasswordLink = document.getElementById('forgot-password-link');
+            const backToLoginBtn = document.getElementById('back-to-login');
+            const loginForm = document.getElementById('login-form');
+            const forgotPasswordForm = document.getElementById('forgot-password-form');
+            const sendResetLinkBtn = document.getElementById('send-reset-link');
+            
+            // Toggle forgot password form
+            forgotPasswordLink.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                // Hide login form fields and show forgot password form
+                Array.from(loginForm.querySelectorAll(':scope > *:not(#forgot-password-form)')).forEach(el => {
+                    el.style.display = 'none';
+                });
+                forgotPasswordForm.style.display = 'block';
+            });
+            
+            // Back to login
+            backToLoginBtn.addEventListener('click', function() {
+                // Show login form fields and hide forgot password form
+                Array.from(loginForm.querySelectorAll(':scope > *:not(#forgot-password-form)')).forEach(el => {
+                    el.style.display = '';
+                });
+                forgotPasswordForm.style.display = 'none';
+                
+                // Clear any messages
+                document.getElementById('reset-error').style.display = 'none';
+                document.getElementById('reset-success').style.display = 'none';
+            });
+            
+            // Send reset link
+            sendResetLinkBtn.addEventListener('click', function() {
+                const email = document.getElementById('reset-email').value;
+                const resetErrorDiv = document.getElementById('reset-error');
+                const resetSuccessDiv = document.getElementById('reset-success');
+                
+                // Clear previous messages
+                resetErrorDiv.style.display = 'none';
+                resetSuccessDiv.style.display = 'none';
+                
+                // Show loading state
+                const originalButtonText = this.textContent;
+                this.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+                this.disabled = true;
+                
+                // Submit to API
+                fetch('/api/request-password-reset', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ email })
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.error) {
+                        // Show error message
+                        resetErrorDiv.textContent = data.error;
+                        resetErrorDiv.style.display = 'block';
+                        sendResetLinkBtn.textContent = originalButtonText;
+                        sendResetLinkBtn.disabled = false;
+                    } else {
+                        // Show success message
+                        resetSuccessDiv.textContent = data.message || 'If an account with that email exists, a password reset link has been sent';
+                        resetSuccessDiv.style.display = 'block';
+                        
+                        // Disable form fields
+                        document.getElementById('reset-email').disabled = true;
+                        sendResetLinkBtn.disabled = true;
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    resetErrorDiv.textContent = 'An unexpected error occurred. Please try again later.';
+                    resetErrorDiv.style.display = 'block';
+                    sendResetLinkBtn.textContent = originalButtonText;
+                    sendResetLinkBtn.disabled = false;
+                });
+            });
+        }
+        
+        function initSignupForm() {
+            const form = document.getElementById('signup-form');
+            const errorDiv = document.getElementById('signup-error');
+            const successDiv = document.getElementById('signup-success');
+            
+            // Prevent duplicate form submissions
+            let isSubmitting = false;
+            
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // If already submitting, prevent duplicate submissions
+                if (isSubmitting) {
+                    return;
+                }
+                
+                // Clear previous error messages
+                errorDiv.style.display = 'none';
+                errorDiv.textContent = '';
+                
+                // Client-side validation
+                const fullName = document.getElementById('full-name').value.trim();
+                const email = document.getElementById('email').value.trim();
+                const phone = document.getElementById('phone').value.trim();
+                const password = document.getElementById('password').value;
+                const confirmPassword = document.getElementById('confirm-password').value;
+                const terms = document.getElementById('terms').checked;
+                
+                // Basic validation
+                if (!fullName || !email || !phone || !password || !confirmPassword) {
+                    errorDiv.textContent = 'Please fill in all required fields';
+                    errorDiv.style.display = 'block';
+                    return;
+                }
+                
+                // Password validation
+                if (password !== confirmPassword) {
+                    errorDiv.textContent = 'Passwords do not match. Please try again.';
+                    errorDiv.style.display = 'block';
+                    return;
+                }
+                
+                // Validate terms
+                if (!terms) {
+                    errorDiv.textContent = 'You must agree to the Terms of Service and Privacy Policy.';
+                    errorDiv.style.display = 'block';
+                    return;
+                }
+                
+                // Mark as submitting to prevent duplicates
+                isSubmitting = true;
+                
+                // Show loading state
+                const submitButton = this.querySelector('button[type="submit"]');
+                const originalButtonText = submitButton.textContent;
+                submitButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Creating Account...';
+                submitButton.disabled = true;
+                
+                // Build form data based on selected persona
+                const persona = form.dataset.persona || 'default';
+                console.log('Preparing to submit signup form with persona:', persona);
+                
+                // Basic user data for all personas
+                const formData = {
+                    fullName,
+                    email,
+                    phone,
+                    password,
+                    persona,
+                    experience: document.getElementById('experience').value,
+                    newsletter: document.getElementById('newsletter').checked,
+                    referral: document.getElementById('referral').value || ''
+                };
+                
+                console.log('Active profile section:', persona, document.getElementById(`${persona}-fields`)?.classList.contains('active'));
+                
+                // Add profile-specific fields
+                try {
+                    if (persona === 'young-entrepreneur' && document.getElementById('young-entrepreneur-fields').classList.contains('active')) {
+                        formData.businessStage = document.getElementById('business-stage').value;
+                        formData.industry = document.getElementById('industry-entrepreneur').value;
+                        formData.goals = document.getElementById('entrepreneur-goals').value;
+                    } else if (persona === 'startup-founder' && document.getElementById('startup-founder-fields').classList.contains('active')) {
+                        formData.companyStage = document.getElementById('company-stage').value;
+                        formData.teamSize = document.getElementById('team-size').value;
+                        formData.fundingNeeds = document.getElementById('funding-needs').value;
+                    } else if (persona === 'product-manager' && document.getElementById('product-manager-fields').classList.contains('active')) {
+                        formData.pmLevel = document.getElementById('pm-level').value;
+                        formData.pmIndustry = document.getElementById('pm-industry').value;
+                        formData.pmGoals = document.getElementById('pm-goals').value;
+                    } else if (persona === 'career-changer' && document.getElementById('career-changer-fields').classList.contains('active')) {
+                        formData.currentField = document.getElementById('current-field').value;
+                        formData.targetField = document.getElementById('target-field').value;
+                        formData.transitionTimeline = document.getElementById('transition-timeline').value;
+                    } else if (persona === 'mba-applicant' && document.getElementById('mba-applicant-fields').classList.contains('active')) {
+                        formData.targetSchools = document.getElementById('target-schools').value;
+                        formData.applicationTimeline = document.getElementById('application-timeline').value;
+                        formData.applicationStage = document.getElementById('application-stage').value;
+                    }
+                } catch (e) {
+                    console.error('Error gathering persona-specific fields:', e);
+                }
+                
+                console.log('Submitting registration data:', formData);
+                
+                // Submit data to API
+                fetch('/api/register', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(formData)
+                })
+                .then(response => {
+                    console.log('Registration response status:', response.status);
+                    return response.json();
+                })
+                .then(data => {
+                    console.log('Registration response data:', data);
+                    
+                    if (data.error) {
+                        // Show error message
+                        errorDiv.textContent = data.error;
+                        errorDiv.style.display = 'block';
+                        submitButton.textContent = originalButtonText;
+                        submitButton.disabled = false;
+                        isSubmitting = false;
+                    } else {
+                        // Save token to localStorage
+                        localStorage.setItem('authToken', data.token);
+                        localStorage.setItem('user', JSON.stringify(data.user));
+                        
+                        // Show success message
+                        successDiv.textContent = 'Account created successfully! Redirecting to your dashboard...';
+                        successDiv.style.display = 'block';
+                        
+                        // Redirect to dashboard
+                        setTimeout(() => {
+                            window.location.href = 'dashboard.html';
+                        }, 1500);
+                    }
+                })
+                .catch(error => {
+                    console.error('Registration fetch error:', error);
+                    errorDiv.textContent = 'An unexpected error occurred. Please try again later.';
+                    errorDiv.style.display = 'block';
+                    submitButton.textContent = originalButtonText;
+                    submitButton.disabled = false;
+                    isSubmitting = false;
+                });
+            });
+        }
+        
+        function initLoginForm() {
+            const form = document.getElementById('login-form');
+            const errorDiv = document.getElementById('login-error');
+            const successDiv = document.getElementById('login-success');
+            
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Clear previous error messages
+                errorDiv.style.display = 'none';
+                errorDiv.textContent = '';
+                
+                // Show loading state
+                const submitButton = this.querySelector('button[type="submit"]');
+                const originalButtonText = submitButton.textContent;
+                submitButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Logging In...';
+                submitButton.disabled = true;
+                
+                // Collect form data
+                const formData = {
+                    email: document.getElementById('login-email').value,
+                    password: document.getElementById('login-password').value
+                };
+                
+                // Submit data to API
+                fetch('/api/login', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(formData)
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.error) {
+                        // Show error message
+                        errorDiv.textContent = data.error;
+                        errorDiv.style.display = 'block';
+                        submitButton.textContent = originalButtonText;
+                        submitButton.disabled = false;
+                    } else {
+                        // Save token to localStorage
+                        localStorage.setItem('authToken', data.token);
+                        localStorage.setItem('user', JSON.stringify(data.user));
+                        
+                        // Show success message
+                        successDiv.textContent = 'Login successful! Redirecting...';
+                        successDiv.style.display = 'block';
+                        
+                        // Redirect to dashboard
+                        setTimeout(() => {
+                            window.location.href = 'dashboard.html';
+                        }, 1500);
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    errorDiv.textContent = 'An unexpected error occurred. Please try again later.';
+                    errorDiv.style.display = 'block';
+                    submitButton.textContent = originalButtonText;
+                    submitButton.disabled = false;
+                });
+            });
+        }
+    </script>
+</body>
+</html> 

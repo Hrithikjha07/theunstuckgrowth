@@ -1,0 +1,109 @@
+/* 
+ * Testimonial Fix CSS
+ * Styles for the testimonial read more functionality
+ */
+
+/* Testimonial Read More Improvements */
+.testimonial {
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.testimonial:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.testimonial-short {
+    display: block;
+    margin-bottom: 1rem;
+    transition: opacity 0.3s ease;
+}
+
+.testimonial-full {
+    display: none;
+    opacity: 0;
+    margin-bottom: 1rem;
+    transition: opacity 0.3s ease;
+}
+
+.testimonial.expanded {
+    z-index: 10;
+}
+
+.testimonial.expanded .testimonial-short {
+    display: none !important;
+}
+
+.testimonial.expanded .testimonial-full {
+    display: block !important;
+    opacity: 1 !important;
+    animation: fadeIn 0.4s ease-in-out;
+}
+
+.read-more-btn {
+    background: none;
+    border: none;
+    color: #3498db;
+    font-weight: 600;
+    cursor: pointer;
+    padding: 0;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    display: inline-block;
+    position: relative;
+    text-decoration: none;
+}
+
+.read-more-btn:hover {
+    color: #2980b9;
+}
+
+.read-more-btn:after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    bottom: -2px;
+    left: 0;
+    background-color: currentColor;
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.read-more-btn:hover:after {
+    transform: scaleX(1);
+}
+
+/* Animation for testimonial expansion */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Ensure testimonials have proper spacing */
+.testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+/* Make sure the quote container has proper styling */
+.testimonial .quote {
+    position: relative;
+    padding: 1.5rem;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+}
+
+/* Style the quote icon */
+.testimonial .quote i.fa-quote-left {
+    color: #3498db;
+    opacity: 0.2;
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    display: block;
+} 

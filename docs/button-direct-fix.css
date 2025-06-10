@@ -1,0 +1,53 @@
+/* Emergency direct fix for hero buttons */
+
+/* Target all buttons in the hero section */
+body#top .hero .cta-buttons a.btn,
+body#top .hero .cta-buttons a.btn.primary,
+body#top .hero .cta-buttons a.btn.secondary,
+body#top .hero .cta-buttons a.btn[href="#services"],
+body#top .hero .cta-buttons a.btn[href*="calendly.com"],
+body#top .hero .cta-buttons a.btn[href*="topmate.io"] {
+    display: inline-block !important;
+    background-color: #333 !important;
+    color: white !important;
+    border: none !important;
+    padding: 0.75rem 1.5rem !important;
+    border-radius: 4px !important;
+    text-decoration: none !important;
+    font-weight: 600 !important;
+    margin-right: 10px !important;
+    cursor: pointer !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    text-shadow: none !important;
+    box-shadow: none !important;
+    position: relative !important;
+    z-index: 100 !important;
+}
+
+/* Ensure buttons are properly spaced */
+body#top .hero .cta-buttons {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 1rem !important;
+    margin-bottom: 2rem !important;
+}
+
+/* Extra specificity for problematic buttons */
+html body#top .hero .cta-buttons a.btn.secondary[href*="calendly.com"],
+html body#top .hero .cta-buttons a.btn.secondary[href*="topmate.io"] {
+    background-color: #333 !important;
+    color: white !important;
+    border: none !important;
+    display: inline-block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
+/* Hover states */
+body#top .hero .cta-buttons a.btn:hover,
+body#top .hero .cta-buttons a.btn.primary:hover,
+body#top .hero .cta-buttons a.btn.secondary:hover {
+    background-color: #444 !important;
+    color: white !important;
+} 

@@ -1,0 +1,64 @@
+/**
+ * Back to Top Button Styling
+ * Clean, responsive styling for the back-to-top button
+ */
+
+/* Main button styling */
+.back-to-top, 
+#back-to-top {
+    position: fixed !important;
+    bottom: 30px !important;
+    right: 30px !important;
+    z-index: 9999 !important;
+    width: 50px !important;
+    height: 50px !important;
+    border-radius: 50% !important;
+    background-color: #4a67e8 !important;
+    color: white !important;
+    border: none !important;
+    cursor: pointer !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    font-size: 20px !important;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.2s ease !important;
+    text-decoration: none !important;
+    outline: none !important;
+}
+
+/* Visible state */
+.back-to-top.visible, 
+#back-to-top.visible {
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+/* Hover effect */
+.back-to-top:hover, 
+#back-to-top:hover {
+    background-color: #3a57d8 !important;
+    transform: scale(1.05) !important;
+}
+
+/* Active/focus state */
+.back-to-top:active,
+#back-to-top:active,
+.back-to-top:focus,
+#back-to-top:focus {
+    background-color: #3a57d8 !important;
+    outline: none !important;
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+    .back-to-top, 
+    #back-to-top {
+        bottom: 70px !important; /* Keep away from quick actions bar */
+        right: 20px !important;
+        width: 40px !important;
+        height: 40px !important;
+        font-size: 16px !important;
+    }
+} 

@@ -1,0 +1,345 @@
+/* Make sure body and html can scroll properly */
+html, body {
+    height: auto !important;
+    overflow-y: auto !important;
+    position: relative !important;
+    min-height: 100%;
+    overflow-x: hidden !important;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+/* Prevent content from getting cut off */
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+    position: relative;
+    overflow: visible;
+}
+
+/* Impact at a glance section */
+.impact-glance {
+    background-color: #f8f9fa;
+    border-radius: 12px;
+    padding: 30px;
+    margin: 40px 0;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    overflow: visible !important;
+    height: auto !important;
+    width: auto !important;
+    max-width: 100% !important;
+    position: relative;
+}
+
+.impact-glance .section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+}
+
+.impact-glance h3 {
+    font-size: 22px;
+    font-weight: 600;
+    color: #1a202c;
+    margin: 0 0 10px 0;
+}
+
+.btn-share {
+    display: flex;
+    align-items: center;
+    color: #3b82f6;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.btn-share i {
+    margin-right: 5px;
+}
+
+.impact-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    position: relative;
+    overflow: visible;
+}
+
+.impact-card {
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 24px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease;
+    position: relative;
+    overflow: visible;
+    height: auto !important;
+}
+
+.impact-card:hover {
+    transform: translateY(-5px);
+}
+
+.impact-number {
+    font-size: 42px;
+    font-weight: 700;
+    color: #6366f1;
+    margin-bottom: 5px;
+}
+
+.impact-card:nth-child(1) .impact-number {
+    color: #6366f1; /* Purple */
+}
+
+.impact-card:nth-child(2) .impact-number {
+    color: #6366f1; /* Purple */
+}
+
+.impact-card:nth-child(3) .impact-number {
+    color: #f97316; /* Orange */
+}
+
+.impact-label {
+    font-size: 18px;
+    font-weight: 600;
+    color: #1a202c;
+    margin-bottom: 8px;
+}
+
+.impact-monthly {
+    font-size: 14px;
+    color: #64748b;
+    margin-bottom: 24px;
+}
+
+.impact-chart {
+    width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: visible;
+}
+
+.chart-image {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+.chart-labels {
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+    color: #64748b;
+}
+
+.countries-list {
+    margin-top: 24px;
+    overflow: visible;
+}
+
+.country-item {
+    display: flex;
+    align-items: center;
+    padding: 8px 0;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.country-item:last-child {
+    border-bottom: none;
+}
+
+.country-code {
+    width: 30px;
+    font-weight: 600;
+    color: #64748b;
+}
+
+.country-name {
+    flex: 1;
+    color: #1a202c;
+}
+
+.country-count {
+    font-weight: 600;
+    color: #1a202c;
+}
+
+/* Career Advisory Services Integrated Section */
+.career-advisory-services {
+    margin: 40px 0;
+    padding: 30px;
+    background-color: #f8f9fa;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    position: relative;
+    overflow: visible;
+    height: auto !important;
+}
+
+.career-advisory-services h3 {
+    font-size: 24px;
+    font-weight: 600;
+    color: #1a202c;
+    margin-bottom: 10px;
+}
+
+.career-advisory-services p {
+    color: #4a5568;
+    margin-bottom: 24px;
+}
+
+.career-advisory-services .advisory-intro h4 {
+    font-size: 18px;
+    font-weight: 600;
+    color: #1a202c;
+    margin-bottom: 8px;
+}
+
+.career-advisory-services .path-buttons-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 24px;
+}
+
+.career-advisory-services .path-btn {
+    padding: 8px 16px;
+    background-color: #e2e8f0;
+    border: none;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #4a5568;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.career-advisory-services .path-btn.active {
+    background-color: #6366f1;
+    color: white;
+}
+
+.service-summary {
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 24px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.service-summary p {
+    margin-bottom: 16px;
+}
+
+/* Fix for mobile */
+@media (max-width: 768px) {
+    .impact-stats {
+        grid-template-columns: 1fr;
+    }
+    
+    .career-advisory-services .path-buttons-group {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .career-advisory-services .path-btn {
+        margin-bottom: 8px;
+    }
+    
+    .impact-glance .section-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    /* Fix for shaking on mobile */
+    html, body, .container, section, div {
+        transform: none !important;
+    }
+    
+    .impact-card:hover {
+        transform: none !important;
+    }
+}
+
+/* Section styling to ensure visibility */
+section {
+    position: relative;
+    overflow: visible !important;
+    height: auto !important;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Prevent fixed position elements from breaking scroll */
+.fixed, [style*="position: fixed"] {
+    position: absolute !important;
+    z-index: 100;
+}
+
+/* Impact Metrics Vertical Layout */
+@media screen and (min-width: 768px) {
+  .impact-metrics {
+    position: relative;
+  }
+  
+  .impact-grid {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 250px;
+    z-index: 100;
+    margin-top: -120px; /* Adjust as needed */
+  }
+  
+  .impact-card {
+    margin-bottom: 10px;
+    background-color: #000;
+    color: #fff;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  }
+  
+  .impact-value {
+    color: #fff;
+    font-weight: bold;
+  }
+  
+  .impact-label {
+    color: #fff;
+  }
+  
+  .impact-context {
+    color: #ccc;
+    font-size: 0.8em;
+  }
+  
+  .section-header {
+    margin-right: 270px;
+  }
+}
+
+/* For mobile, revert to horizontal layout */
+@media screen and (max-width: 767px) {
+  .impact-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+  
+  .impact-card {
+    margin-bottom: 20px;
+    background-color: #000;
+    color: #fff;
+    padding: 15px;
+    border-radius: 8px;
+  }
+} 
