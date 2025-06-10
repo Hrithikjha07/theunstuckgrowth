@@ -46,11 +46,10 @@
                 button.style.visibility = 'visible';
                 button.style.opacity = '1';
                 
-                // Add unlock icon if it's a "Join to Unlock" button
+                // We're no longer adding emoji here as it's handled by CSS
                 if (button.textContent.trim() === 'Join to Unlock') {
-                    if (!button.getAttribute('data-icon-added')) {
-                        button.innerHTML = '🔓 ' + button.innerHTML;
-                        button.setAttribute('data-icon-added', 'true');
+                    if (!button.getAttribute('data-processed')) {
+                        button.setAttribute('data-processed', 'true');
                     }
                 }
             });
