@@ -144,4 +144,72 @@ function showErrorMessage(form, errorMsg) {
     setTimeout(() => {
         errorMessage.remove();
     }, 5000);
-} 
+}
+
+/**
+ * JotForm Integration - Client Stories
+ * 
+ * This script loads the JotForm iframe and handles any content security policy issues
+ * that might occur when deploying to different platforms like GitHub Pages or Netlify.
+ */
+
+document.addEventListener('DOMContentLoaded', function() {
+  const formContainer = document.getElementById('client-story-form-container');
+  
+  if (!formContainer) {
+    console.error('Form container not found');
+    return;
+  }
+  
+  // Check if we're running on Netlify by looking for Netlify-specific headers
+  const isNetlify = window.location.hostname.includes('netlify.app') || 
+                   document.querySelector('meta[name="netlify"]') !== null;
+  
+  // Standard JotForm iframe embed
+  const standardEmbed = `
+    <iframe
+      id="client-story-form"
+      title="Client Story Form"
+      src="https://form.jotform.com/232735220350346"
+      frameborder="0"
+      style="width: 100%; min-height: 900px; border: none;"
+      scrolling="no"
+    ></iframe>
+  `;
+  
+  // Alternative JotForm embed with script approach (for Netlify)
+  const scriptEmbed = `
+    <script type="text/javascript" src="https://form.jotform.com/jsform/232735220350346"></script>
+  `;
+  
+  // Use the appropriate embed code based on the platform
+  formContainer.innerHTML = isNetlify ? scriptEmbed : standardEmbed;
+  
+  // Listen for messages from the JotForm iframe
+  window.addEventListener('message', function(event) {
+    if (event.origin === 'https://form.jotform.com') {
+      // Handle JotForm height changes
+      if (event.data.action === 'setHeight') {
+        const form = document.getElementById('client-story-form');
+        if (form) {
+          form.style.height = event.data.height + 'px';
+        }
+      }
+    }
+  });
+  
+  // Add alternative loading message in case iframe fails to load
+  setTimeout(function() {
+    const iframe = document.getElementById('client-story-form');
+    if (iframe && !iframe.contentWindow) {
+      formContainer.innerHTML = `
+        <div style="text-align: center; padding: 50px; border: 1px solid #eee; border-radius: 8px;">
+          <h3>Form Loading Issue Detected</h3>
+          <p>If you don't see the form, please try one of these options:</p>
+          <p><a href="https://form.jotform.com/232735220350346" target="_blank" class="btn primary">Open Form in New Window</a></p>
+          <p style="margin-top: 20px;">Or contact us directly at: <a href="mailto:unstuckgrowth@gmail.com">unstuckgrowth@gmail.com</a></p>
+        </div>
+      `;
+    }
+  }, 5000);
+}); 
