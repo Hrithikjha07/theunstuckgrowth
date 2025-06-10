@@ -281,4 +281,65 @@ section {
 .fixed, [style*="position: fixed"] {
     position: absolute !important;
     z-index: 100;
+}
+
+/* Impact Metrics Vertical Layout */
+@media screen and (min-width: 768px) {
+  .impact-metrics {
+    position: relative;
+  }
+  
+  .impact-grid {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 250px;
+    z-index: 100;
+    margin-top: -120px; /* Adjust as needed */
+  }
+  
+  .impact-card {
+    margin-bottom: 10px;
+    background-color: #000;
+    color: #fff;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  }
+  
+  .impact-value {
+    color: #fff;
+    font-weight: bold;
+  }
+  
+  .impact-label {
+    color: #fff;
+  }
+  
+  .impact-context {
+    color: #ccc;
+    font-size: 0.8em;
+  }
+  
+  .section-header {
+    margin-right: 270px;
+  }
+}
+
+/* For mobile, revert to horizontal layout */
+@media screen and (max-width: 767px) {
+  .impact-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+  
+  .impact-card {
+    margin-bottom: 20px;
+    background-color: #000;
+    color: #fff;
+    padding: 15px;
+    border-radius: 8px;
+  }
 } 
