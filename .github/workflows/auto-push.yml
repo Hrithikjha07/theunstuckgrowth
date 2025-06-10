@@ -1,11 +1,7 @@
-name: Auto Push Changes
+name: Auto Push Changes [DISABLED]
 
 on:
-  push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
-  workflow_dispatch:
+  workflow_dispatch:  # Only manual trigger now, not on push
 
 jobs:
   auto-push:
