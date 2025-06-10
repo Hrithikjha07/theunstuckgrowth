@@ -1,0 +1,150 @@
+/* Contact Information Section Fix */
+
+/* Base styles for contact info sections */
+.contact-info-section {
+  margin: 15px 0;
+  padding: 20px;
+  border-radius: 12px;
+  background-color: #fff;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+/* Contact section headers */
+.contact-info-section h3 {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+/* Contact info content */
+.contact-info-content {
+  margin-top: 5px;
+  font-size: 16px;
+  color: #555;
+}
+
+/* Icon container */
+.contact-icon-container {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: #f5f5f5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 15px;
+  float: left;
+}
+
+/* Icon styling */
+.contact-icon {
+  font-size: 22px;
+  color: #333;
+}
+
+/* Layout for larger screens */
+@media (min-width: 768px) {
+  .contact-info-section {
+    display: flex;
+    align-items: center;
+  }
+  
+  .contact-icon-container {
+    margin-bottom: 0;
+  }
+  
+  .contact-info-content {
+    flex: 1;
+  }
+}
+
+/* Mobile-specific fixes */
+@media (max-width: 767px) {
+  /* Comprehensive fixing of layout */
+  .contact-info-section {
+    clear: both;
+    position: relative;
+    padding: 20px 15px;
+    margin: 15px 10px;
+    overflow: hidden;
+  }
+  
+  /* Fix specific location card sizing */
+  #location-section .contact-info-content {
+    min-height: 40px;
+  }
+  
+  /* Fix the Book a Session button to match screenshot */
+  .book-session-btn {
+    background-color: #333 !important;
+    color: white !important;
+    padding: 12px 24px !important;
+    border-radius: 50px !important;
+    font-weight: bold !important;
+    text-decoration: none !important;
+    display: inline-block !important;
+    margin-top: 20px !important;
+    margin-bottom: 20px !important;
+    text-align: center !important;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2) !important;
+    font-size: 16px !important;
+  }
+  
+  /* Get the spacing right between sections */
+  #email-section,
+  #phone-section {
+    margin-top: 20px !important;
+  }
+  
+  /* Fix the Need help section */
+  .need-help-section {
+    padding: 15px;
+    margin: 25px 10px;
+    text-align: center;
+  }
+  
+  .need-help-section h2 {
+    font-size: 22px;
+    margin-bottom: 15px;
+  }
+  
+  /* Better fixed navigation */
+  .footer-navigation {
+    height: 60px;
+    background-color: #fff;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Make sure form icon displays correctly */
+  .contact-form .contact-icon {
+    text-align: center;
+    display: block;
+    margin-bottom: 10px;
+  }
+}
+
+/* Special style for contact-specific page */
+.contact-page-container {
+  padding: 0 15px;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Contact form icon container in JotForm */
+.jotform-icon-container {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.jotform-icon {
+  font-size: 40px;
+  color: #333;
+  background-color: #f5f5f5;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+} 
