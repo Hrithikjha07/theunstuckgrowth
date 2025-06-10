@@ -1,0 +1,166 @@
+/**
+ * Section Headings Fix
+ * Ensures proper alignment and styling of section headings across different screen sizes
+ */
+
+/* Base section styles */
+section {
+    padding: 5rem 0;
+    position: relative;
+}
+
+/* Section header styles */
+.section-header {
+    text-align: center;
+    margin-bottom: 3.5rem;
+    position: relative;
+    z-index: 2;
+}
+
+.section-header h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    line-height: 1.2;
+    color: #333;
+    position: relative;
+    display: inline-block;
+}
+
+/* Underline effect for section headers */
+.section-header h2::after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 3px;
+    background-color: #333;
+    margin: 1rem auto 0;
+    border-radius: 2px;
+}
+
+.section-header p {
+    font-size: 1.1rem;
+    max-width: 700px;
+    margin: 0 auto;
+    color: #666;
+    line-height: 1.6;
+}
+
+/* Specific section header adjustments */
+#impact .section-header,
+#about .section-header,
+#services .section-header {
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Desktop layout adjustments */
+@media screen and (min-width: 1200px) {
+    .section-header h2 {
+        font-size: 2.75rem;
+    }
+    
+    .section-header p {
+        font-size: 1.15rem;
+    }
+    
+    section {
+        padding: 6rem 0;
+    }
+}
+
+/* Tablet layout adjustments */
+@media screen and (max-width: 991px) {
+    .section-header h2 {
+        font-size: 2.25rem;
+    }
+    
+    .section-header p {
+        font-size: 1.05rem;
+        max-width: 600px;
+    }
+    
+    section {
+        padding: 4.5rem 0;
+    }
+    
+    .section-header {
+        margin-bottom: 3rem;
+    }
+}
+
+/* Mobile layout adjustments */
+@media screen and (max-width: 767px) {
+    .section-header h2 {
+        font-size: 1.85rem;
+    }
+    
+    .section-header p {
+        font-size: 1rem;
+        max-width: 100%;
+    }
+    
+    section {
+        padding: 4rem 0;
+    }
+    
+    .section-header {
+        margin-bottom: 2.5rem;
+    }
+    
+    .section-header h2::after {
+        width: 60px;
+        margin-top: 0.75rem;
+    }
+}
+
+/* Small mobile layout adjustments */
+@media screen and (max-width: 479px) {
+    .section-header h2 {
+        font-size: 1.65rem;
+    }
+    
+    .section-header p {
+        font-size: 0.95rem;
+    }
+    
+    section {
+        padding: 3.5rem 0;
+    }
+    
+    .section-header {
+        margin-bottom: 2rem;
+    }
+}
+
+/* Fix for specific sections that need more space */
+#impact, 
+#client-stories,
+#knowledge-hub {
+    padding-top: 6rem;
+}
+
+@media screen and (max-width: 767px) {
+    #impact, 
+    #client-stories,
+    #knowledge-hub {
+        padding-top: 5rem;
+    }
+}
+
+/* Fix for section spacing when they follow each other */
+section + section {
+    padding-top: 0;
+}
+
+/* Fix for first section after header */
+section:first-of-type {
+    padding-top: 6rem;
+}
+
+@media screen and (max-width: 767px) {
+    section:first-of-type {
+        padding-top: 5rem;
+    }
+} 

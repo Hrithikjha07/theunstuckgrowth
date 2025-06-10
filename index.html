@@ -193,15 +193,18 @@
     <link rel="stylesheet" href="fix-mobile-navigation.css">
     <link rel="stylesheet" href="jotform-custom.css">
     <link rel="stylesheet" href="mobile-form-fix.css">
-    <link rel="stylesheet" href="mobile-nav-fix.css">
-    <link rel="stylesheet" href="contact-info-fix.css">
     
     <!-- Early loading contact tab fix -->
     <script src="force-contact-redirect.js"></script>
     <script src="direct-contact-fix.js"></script>
     <script src="tab-handler.js"></script>
-    <script src="mobile-footer-fix.js"></script>
-    <script src="contact-layout-fix.js"></script>
+    <script src="contact-tab-fix.js"></script>
+    
+    <!-- Mobile interface fixes -->
+    <link rel="stylesheet" href="mobile-interface-fix.css">
+    <link rel="stylesheet" href="contact-cards-fix.css">
+    <script src="mobile-navigation-fix.js"></script>
+    <script src="contact-ui-fix.js"></script>
     
     <!-- Immediate inline fix for hero buttons -->
     <script>
@@ -422,21 +425,21 @@
                         <h1>The Unstuck Growth</h1>
                     </a>
                 </div>
-                <nav class="navbar">
-                    <ul class="nav-menu">
-                        <li><a href="#home" class="active">Home</a></li>
-                        <li><a href="#services">Services</a></li>
-                        <li><a href="#about">About</a></li>
+            <nav class="navbar">
+                <ul class="nav-menu">
+                    <li><a href="#home" class="active">Home</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#about">About</a></li>
                         <li><a href="#knowledge-hub">Knowledge Hub</a></li>
-                        <li><a href="#client-stories">Client Stories</a></li>
+                    <li><a href="#client-stories">Client Stories</a></li>
                         <li><a href="#client-stories" class="contact-link" onclick="openContactTab(event)">Contact</a></li>
-                    </ul>
-                    <div class="hamburger">
-                        <span class="bar"></span>
-                        <span class="bar"></span>
-                        <span class="bar"></span>
-                    </div>
-                </nav>
+                </ul>
+                <div class="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </nav>
             </div>
         </div>
     </header>
@@ -522,8 +525,8 @@
                     <div class="mission-block">
                         <h3>Our Mission</h3>
                         <p>Build a platform that combines real-world product work, strategic advisory, and collaborative insight-sharing to transform how individuals and teams grow in the product world—from ideation to traction.</p>
-                    </div>
-                    
+                </div>
+                
                     <div class="vision-block">
                         <h3>Our Vision</h3>
                         <p>To democratize product development by creating a transparent, inclusive, and user-centric ecosystem. Empowering aspiring product managers, startup teams, and contributors to build impactful products and careers without traditional gatekeeping.</p>
@@ -533,7 +536,7 @@
                 <div class="problem-block">
                     <h3>The Problem We Solve</h3>
                     <p>Great ideas often fall short—not because they're flawed, but because founders feel lost in the chaos of product strategy, stakeholder noise, and go-to-market pressure. Similarly, professionals find themselves at crossroads, craving clarity and support as they navigate pivotal career moments. We step in when momentum stalls—helping you realign, refocus, and move forward with confidence.</p>
-                </div>
+                            </div>
                 
                 <div class="audience-block">
                     <h3>Who We Help</h3>
@@ -541,11 +544,11 @@
                         <div class="audience-item">
                             <h4><i class="fas fa-rocket"></i> Early-Stage Founders</h4>
                             <p>Turning vision into product-market fit</p>
-                        </div>
+                            </div>
                         <div class="audience-item">
                             <h4><i class="fas fa-lightbulb"></i> Product Managers Seeking Growth</h4>
                             <p>Accelerating careers with strategic advice</p>
-                        </div>
+                            </div>
                         <div class="audience-item">
                             <h4><i class="fas fa-briefcase"></i> Career Transitioners</h4>
                             <p>Navigating pivots with confidence</p>
@@ -564,7 +567,7 @@
                             <li style="margin-bottom: 10px;"><strong>Marketing & Messaging:</strong> Positioning, storytelling, and channel fit</li>
                             <li style="margin-bottom: 10px;"><strong>Go-To-Market (GTM) & User Traction:</strong> Funnel design, launch checklists, and early user growth</li>
                             <li style="margin-bottom: 10px;"><strong>Overcoming Growth Barriers:</strong> Identifying and addressing blockers to scale</li>
-                        </ul>
+                    </ul>
                     </div>
                     
                     <div class="focus-area-section" style="background-color: #000; color: #fff; padding: 20px; border-radius: 8px;">
@@ -3290,6 +3293,52 @@
     <script src="testimonial-direct-fix.js"></script>
     <script src="fix-mobile-floating-button.js"></script>
     <script src="hamburger-fix.js"></script>
+    
+    <!-- Final mobile interface fix -->
+    <script>
+        // Apply direct contact tab fix on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            // Fix contact tab styling
+            const tabs = document.querySelectorAll('.client-stories-tabs .tab-btn');
+            const contactTab = document.querySelector('.client-stories-tabs .tab-btn[data-tab="contact"]');
+            
+            if (contactTab && tabs.length) {
+                // Force style to match other tabs
+                contactTab.style.display = "inline-block";
+                contactTab.style.background = "#f0f0f0";
+                contactTab.style.color = "#333";
+                contactTab.style.padding = "8px 15px";
+                contactTab.style.borderRadius = "20px";
+                contactTab.style.margin = "0 5px 10px 0";
+                contactTab.style.border = "none";
+                contactTab.style.fontWeight = "500";
+                
+                // Fix contact tab content display
+                contactTab.addEventListener('click', function() {
+                    const contactTabContent = document.getElementById('contact-tab');
+                    if (contactTabContent) {
+                        // Hide other tabs
+                        document.querySelectorAll('.tab-pane').forEach(pane => {
+                            pane.style.display = 'none';
+                            pane.classList.remove('active');
+                        });
+                        
+                        // Show contact tab
+                        contactTabContent.style.display = 'block';
+                        contactTabContent.classList.add('active');
+                    }
+                });
+            }
+            
+            // Check URL for contact parameter
+            if (window.location.hash.includes('contact')) {
+                // Click the contact tab
+                if (contactTab) {
+                    setTimeout(() => contactTab.click(), 300);
+                }
+            }
+        });
+    </script>
     
     <!-- Contact Tab Script -->
     <script>
