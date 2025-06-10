@@ -1,7 +1,7 @@
-name: Deploy to GitHub Pages [DISABLED]
+name: Deploy to GitHub Pages
 
 on:
-  workflow_dispatch:  # Only manual trigger now, disabled automatic deploy
+  workflow_dispatch:  # Manual trigger for deployment
 
 permissions:
   contents: read
