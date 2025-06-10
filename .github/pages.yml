@@ -1,0 +1,34 @@
+# GitHub Pages Configuration
+name: The Unstuck Growth
+description: Strategic Advisory for Growth-Focused Leaders
+url: https://hrithikjha07.github.io/theunstuckgrowth
+baseurl: /theunstuckgrowth
+repository: Hrithikjha07/theunstuckgrowth
+branch: main
+
+# Build settings
+source: .
+destination: _site
+permalink: /:title/
+exclude:
+  - .git/
+  - .github/
+  - node_modules/
+  - README.md
+  - package.json
+  - package-lock.json
+  - full-deploy.ps1
+  - sync-repo.bat
+
+# Jekyll settings (if using Jekyll)
+markdown: kramdown
+highlighter: rouge
+
+# Custom settings for GitHub Pages
+show_downloads: false
+theme: jekyll-theme-cayman
+
+# Site plugins
+plugins:
+  - jekyll-seo-tag
+  - jekyll-sitemap 
