@@ -11,6 +11,9 @@
         
         console.log("Contact tab function triggered");
         
+        // Use the URL parameter approach for more reliable navigation
+        window.location.href = "#client-stories?tab=contact";
+        
         // First scroll to the client stories section
         const clientStoriesSection = document.getElementById('client-stories');
         if (clientStoriesSection) {
@@ -48,6 +51,7 @@
         const allTabPanes = document.querySelectorAll('.client-stories-tabs .tab-content .tab-pane');
         allTabPanes.forEach(pane => {
             pane.classList.remove('active');
+            pane.style.display = 'none';
         });
         
         // Show contact tab pane
@@ -85,11 +89,13 @@
             // Add our direct navigation function
             newLink.addEventListener('click', function(e) {
                 e.preventDefault();
-                openContactTab(e);
+                // Use the hash approach directly
+                window.location.href = "#client-stories?tab=contact";
+                setTimeout(openContactTab, 100);
             });
             
             // Update href to be consistent
-            newLink.href = "#client-stories";
+            newLink.href = "#client-stories?tab=contact";
             newLink.classList.add('contact-link');
             
             console.log("Fixed contact link:", newLink);
@@ -109,18 +115,19 @@
             
             // Add direct tab switching
             newButton.addEventListener('click', function() {
+                // Get tab ID
+                const tabId = newButton.getAttribute('data-tab');
+                console.log("Tab clicked:", tabId);
+                
                 // Remove active class from all buttons
                 tabButtons.forEach(btn => {
-                    if (btn !== newButton) { // Don't remove from this button
+                    if (btn !== newButton && btn.parentNode) { // Don't remove from this button
                         btn.classList.remove('active');
                     }
                 });
                 
                 // Add active class to this button
                 newButton.classList.add('active');
-                
-                // Get tab ID
-                const tabId = newButton.getAttribute('data-tab');
                 
                 // Hide all tab panes
                 const allTabPanes = document.querySelectorAll('.client-stories-tabs .tab-content .tab-pane');
@@ -134,9 +141,8 @@
                 if (selectedPane) {
                     selectedPane.classList.add('active');
                     selectedPane.style.display = 'block';
+                    console.log("Tab pane activated:", tabId + '-tab');
                 }
-                
-                console.log("Tab switched to:", tabId);
             });
         });
     }

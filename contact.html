@@ -4,161 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Us - The Unstuck Growth</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="client-story-form.css">
-    <link rel="stylesheet" href="jotform-custom.css">
-    <!-- Font Awesome for icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <meta http-equiv="refresh" content="0;url=index.html#client-stories?tab=contact">
+    <script>
+        // Force redirection with JavaScript as well
+        window.location.href = "index.html#client-stories?tab=contact";
+        
+        // Execute when page loads (fallback)
+        window.onload = function() {
+            window.location.href = "index.html#client-stories?tab=contact";
+        }
+    </script>
 </head>
 <body>
-    <!-- Header section with navigation -->
-    <header class="header">
-        <div class="container">
-            <div class="header-content">
-                <div class="logo">
-                    <a href="index.html">
-                        <h1>The Unstuck Growth</h1>
-                    </a>
-                </div>
-                <nav class="navbar">
-                    <ul class="nav-menu">
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="index.html#services">Services</a></li>
-                        <li><a href="index.html#about">About</a></li>
-                        <li><a href="index.html#client-stories">Client Stories</a></li>
-                        <li><a href="contact.html" class="active">Contact</a></li>
-                    </ul>
-                    <div class="hamburger">
-                        <span class="bar"></span>
-                        <span class="bar"></span>
-                        <span class="bar"></span>
-                    </div>
-                </nav>
-            </div>
-        </div>
-    </header>
-
-    <!-- Main content -->
-    <main>
-        <section class="contact-section">
-            <div class="container">
-                <h1>Get in Touch</h1>
-                <p>Have a question or want to work together? Fill out the form below and we'll get back to you shortly.</p>
-                
-                <div class="form-container">
-                    <!-- JotForm embed code -->
-                    <iframe
-                      id="JotFormIFrame-251483052301445"
-                      title="Contact"
-                      onload="window.parent.scrollTo(0,0)"
-                      allowtransparency="true"
-                      allow="geolocation; microphone; camera; fullscreen; payment"
-                      src="https://form.jotform.com/251483052301445"
-                      frameborder="0"
-                      class="jotform-frame"
-                      style="min-width:100%;max-width:100%;height:600px;border:none;border-radius:12px;"
-                      scrolling="no"
-                    >
-                    </iframe>
-                    <script src='https://cdn.jotfor.ms/s/umd/latest/for-form-embed-handler.js'></script>
-                    <script>
-                      window.jotformEmbedHandler("iframe[id='JotFormIFrame-251483052301445']", "https://form.jotform.com/");
-                      
-                      // Custom JotForm styling
-                      document.addEventListener('DOMContentLoaded', function() {
-                        const jotformIframe = document.getElementById('JotFormIFrame-251483052301445');
-                        if (jotformIframe) {
-                          jotformIframe.onload = function() {
-                            try {
-                              // Add custom CSS to JotForm
-                              const iframeDoc = jotformIframe.contentDocument || jotformIframe.contentWindow.document;
-                              const customStyles = document.createElement('style');
-                              customStyles.textContent = `
-                                body, .form-all {
-                                  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important; 
-                                  background-color: #ffffff !important;
-                                  border-radius: 12px !important;
-                                }
-                                .form-line {
-                                  padding: 12px 20px !important;
-                                  margin-bottom: 10px !important;
-                                }
-                                .form-label {
-                                  font-weight: 600 !important;
-                                  color: #333333 !important;
-                                }
-                                .form-textbox, .form-textarea, .form-dropdown {
-                                  padding: 12px 15px !important;
-                                  border-radius: 8px !important;
-                                  border: 1px solid #e0e0e0 !important;
-                                  box-shadow: none !important;
-                                  transition: border-color 0.3s ease !important;
-                                }
-                                .form-textbox:focus, .form-textarea:focus, .form-dropdown:focus {
-                                  border-color: #333333 !important;
-                                  outline: none !important;
-                                }
-                                .form-submit-button {
-                                  background-color: #333333 !important;
-                                  color: #ffffff !important;
-                                  padding: 12px 25px !important;
-                                  border-radius: 6px !important;
-                                  font-weight: 600 !important;
-                                  border: none !important;
-                                  cursor: pointer !important;
-                                  transition: background-color 0.3s ease !important;
-                                }
-                                .form-submit-button:hover {
-                                  background-color: #555555 !important;
-                                }
-                              `;
-                              iframeDoc.head.appendChild(customStyles);
-                            } catch (err) {
-                              console.log('Error applying custom styles to JotForm:', err);
-                            }
-                          };
-                        }
-                      });
-                    </script>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <!-- Footer section -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-logo">
-                    <h2>The Unstuck Growth</h2>
-                    <p>Strategic Advisory Platform</p>
-                </div>
-                <div class="footer-links">
-                    <h3>Quick Links</h3>
-                    <ul>
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="index.html#services">Services</a></li>
-                        <li><a href="index.html#about">About</a></li>
-                        <li><a href="index.html#client-stories">Client Stories</a></li>
-                        <li><a href="contact.html">Contact</a></li>
-                    </ul>
-                </div>
-                <div class="footer-social">
-                    <h3>Connect With Us</h3>
-                    <div class="social-icons">
-                        <a href="#"><i class="fab fa-linkedin"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2024 The Unstuck Growth. All Rights Reserved.</p>
-            </div>
-        </div>
-    </footer>
-
-    <!-- Scripts -->
-    <script src="script.js"></script>
+    <p>Redirecting to contact form...</p>
 </body>
 </html> 
