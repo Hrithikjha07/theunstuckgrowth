@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <title>The Unstuck Growth | Strategic Advisory for Businesses & Professionals</title>
-    <meta name="description" content="Strategic advisory platform for ambitious founders and professionals. Expert guidance in product strategy, marketing, and career development from McKinsey & Amazon alumni.">
+    <title>The Unstuck Growth | Strategic Advisory for Growth-Focused Leaders</title>
+    <meta name="description" content="The Unstuck Growth is a modern startup advisory and career coaching platform built for ambitious founders, product managers, and professionals navigating their next big leap.">
     <meta name="keywords" content="startup advisor, product strategy, career mentorship, MBA consulting, business growth, McKinsey, Amazon, leadership">
     <meta name="author" content="Swati Shukla">
     
@@ -191,6 +191,11 @@
     <link rel="stylesheet" href="nav-fix.css">
     <link rel="stylesheet" href="testimonial-fix.css">
     <link rel="stylesheet" href="fix-mobile-navigation.css">
+    <link rel="stylesheet" href="jotform-custom.css">
+    <link rel="stylesheet" href="mobile-form-fix.css">
+    
+    <!-- Early loading contact tab fix -->
+    <script src="direct-contact-fix.js"></script>
     
     <!-- Immediate inline fix for hero buttons -->
     <script>
@@ -398,7 +403,7 @@
             <a href="#services" class="nav-section" data-section="services">Services</a>
             <a href="#knowledge-hub" class="nav-section" data-section="knowledge-hub">Knowledge Hub</a>
             <a href="#client-stories" class="nav-section" data-section="client-stories">Client Stories</a>
-            <a href="contact.html">Contact</a>
+            <a href="#client-stories" class="contact-link">Contact</a>
         </div>
     </div>
     
@@ -418,7 +423,7 @@
                         <li><a href="#about">About</a></li>
                         <li><a href="#knowledge-hub">Knowledge Hub</a></li>
                         <li><a href="#client-stories">Client Stories</a></li>
-                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="#client-stories" class="contact-link" onclick="openContactTab(event)">Contact</a></li>
                     </ul>
                     <div class="hamburger">
                         <span class="bar"></span>
@@ -448,7 +453,10 @@
                 </div>
                 
                 <div class="social-icons">
-                    <a href="https://www.linkedin.com/in/swati-shukla-63327614/" target="_blank" rel="noopener"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="https://www.linkedin.com/company/the-unstuck-growth/" target="_blank" rel="noopener"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" target="_blank" rel="noopener"><i class="fab fa-twitter"></i></a>
+                    <a href="#" target="_blank" rel="noopener"><i class="fab fa-instagram"></i></a>
+                    <a href="#" target="_blank" rel="noopener"><i class="fab fa-reddit"></i></a>
                     <a href="https://wa.me/12063561265" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i></a>
                     <a href="mailto:unstuckgrowth@gmail.com"><i class="fas fa-envelope"></i></a>
                 </div>
@@ -467,29 +475,29 @@
             <div class="impact-grid">
                 <div class="impact-card">
                     <div class="impact-icon">
-                        <i class="fas fa-clock"></i>
+                        <i class="fas fa-users"></i>
                 </div>
-                    <div class="impact-value" data-value="5000">5000+</div>
-                    <div class="impact-label">Minutes Mentored</div>
-                    <div class="impact-context">Since launch in 2023</div>
+                    <div class="impact-value" data-value="148">148+</div>
+                    <div class="impact-label">People Supported</div>
+                    <div class="impact-context">Individuals we've partnered with through career and startup journeys</div>
                     </div>
                 
                 <div class="impact-card">
                     <div class="impact-icon">
-                        <i class="fas fa-handshake"></i>
+                        <i class="fas fa-lightbulb"></i>
                 </div>
-                    <div class="impact-value" data-value="200">200+</div>
-                    <div class="impact-label">1:1 Bookings</div>
-                    <div class="impact-context">Across 15+ countries</div>
+                    <div class="impact-value" data-value="2905">2905+</div>
+                    <div class="impact-label">Breakthrough Sessions</div>
+                    <div class="impact-context">Powerful moments of clarity, strategy, and decision-making</div>
                     </div>
                 
                 <div class="impact-card">
                     <div class="impact-icon">
                         <i class="fas fa-globe"></i>
                     </div>
-                    <div class="impact-value" data-value="15">15+</div>
+                    <div class="impact-value" data-value="19">19</div>
                     <div class="impact-label">Countries Reached</div>
-                    <div class="impact-context">Global impact</div>
+                    <div class="impact-context">A global community built through honest, outcome-driven advisory</div>
                 </div>
             </div>
         </div>
@@ -539,48 +547,27 @@
                     </div>
                 </div>
                 
-                <div class="about-home-text">
-                    <p>The Unstuck Growth is a modern startup advisory and career guidance platform built for ambitious founders, product managers, and professionals navigating their next big leap.</p>
-                    <p>Whether you're launching your first MVP, scaling a product strategy, or transitioning into a new product management role—we provide the frameworks, tools, and expert support to help you grow with confidence.</p>
-                </div>
-                
-                <div class="what-we-do">
-                    <h3>What We Do</h3>
-                    <p>We partner with early-stage startups and career-focused individuals to:</p>
-                    <ul class="what-we-do-list">
-                        <li><i class="fas fa-check-circle"></i> Find product-market fit</li>
-                        <li><i class="fas fa-check-circle"></i> Unlock user traction</li>
-                        <li><i class="fas fa-check-circle"></i> Overcome growth barriers</li>
-                        <li><i class="fas fa-check-circle"></i> Navigate career pivots</li>
-                        <li><i class="fas fa-check-circle"></i> Build standout resumes and portfolios</li>
-                    </ul>
-                </div>
-                
                 <div class="focus-areas">
                     <h3>Our Focus Areas</h3>
-                    <ul class="focus-areas-list">
-                        <li>
-                            <div class="focus-icon"><i class="fas fa-lightbulb"></i></div>
-                            <div class="focus-content">
-                                <h4>Product Strategy</h4>
-                                <p>MVP planning, roadmaps, and 0→1 execution</p>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="focus-icon"><i class="fas fa-bullhorn"></i></div>
-                            <div class="focus-content">
-                                <h4>Marketing & Messaging</h4>
-                                <p>Positioning, copy, and channel fit</p>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="focus-icon"><i class="fas fa-rocket"></i></div>
-                            <div class="focus-content">
-                                <h4>Go-To-Market (GTM)</h4>
-                                <p>Funnel strategy, launch checklists, and conversions</p>
-                            </div>
-                        </li>
-                    </ul>
+                    <p>We offer strategic advisory for both early-stage startups and career-focused individuals—tailored to growth, clarity, and real outcomes.</p>
+                    
+                    <div class="focus-area-section" style="background-color: #000; color: #fff; padding: 20px; border-radius: 8px; margin-bottom: 20px;">
+                        <h4 style="color: #fff;">Startup Strategy & Growth</h4>
+                        <ul style="list-style: none; padding-left: 0;">
+                            <li style="margin-bottom: 10px;"><strong>Product Strategy & Market Fit:</strong> MVP planning, roadmaps, and finding product-market fit</li>
+                            <li style="margin-bottom: 10px;"><strong>Marketing & Messaging:</strong> Positioning, storytelling, and channel fit</li>
+                            <li style="margin-bottom: 10px;"><strong>Go-To-Market (GTM) & User Traction:</strong> Funnel design, launch checklists, and early user growth</li>
+                            <li style="margin-bottom: 10px;"><strong>Overcoming Growth Barriers:</strong> Identifying and addressing blockers to scale</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="focus-area-section" style="background-color: #000; color: #fff; padding: 20px; border-radius: 8px;">
+                        <h4 style="color: #fff;">Career Navigation & Positioning</h4>
+                        <ul style="list-style: none; padding-left: 0;">
+                            <li style="margin-bottom: 10px;"><strong>Career Pivots & Exploration:</strong> Navigating role changes and uncovering next steps</li>
+                            <li style="margin-bottom: 10px;"><strong>Resume & Portfolio Building:</strong> Crafting standout job materials for your next move</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
@@ -623,6 +610,34 @@
                             </div>
                             
                             <div class="startup-services-grid">
+                                <div class="startup-service-card">
+                                    <div class="service-icon">
+                                        <i class="fas fa-tachometer-alt"></i>
+                                    </div>
+                                    <h4>Product-Market Fit Workshop</h4>
+                                    <p class="service-description">Transform a good idea into a solution users love and will pay for.</p>
+                                    <p class="service-audience">For startups struggling with user adoption or retention.</p>
+                                    
+                                    <div class="service-details">
+                                        <div class="detail-item">
+                                            <h5>Why it's for you:</h5>
+                                            <p>You have a product but users aren't sticking around or paying as expected.</p>
+                                        </div>
+                                        
+                                        <div class="detail-item">
+                                            <h5>What you'll get:</h5>
+                                            <p>A clear product roadmap focused on features that drive user value and retention.</p>
+                                        </div>
+                                        
+                                        <div class="detail-item">
+                                            <h5>What we'll do:</h5>
+                                            <p>User research analysis, value proposition refinement, and feature prioritization.</p>
+                                        </div>
+                                    </div>
+                                    
+                                    <a href="https://topmate.io/swati12" class="btn primary" target="_blank" rel="noopener noreferrer">Book a Consultation</a>
+                                </div>
+                                
                                 <div class="startup-service-card">
                                     <div class="service-icon">
                                         <i class="fas fa-lightbulb"></i>
@@ -709,10 +724,10 @@
                             </div>
                         </div>
                         
-                        <!-- Fundraising & Pitch Prep Category -->
+                        <!-- Pitch Prep Category -->
                         <div class="startup-category">
                             <div class="category-header">
-                                <h3>Fundraising & Pitch Prep</h3>
+                                <h3>Pitch Prep</h3>
                                 <p>Tell your story and secure the funding you need.</p>
                             </div>
                             
@@ -745,33 +760,7 @@
                                     <a href="https://topmate.io/swati12" class="btn primary" target="_blank" rel="noopener noreferrer">Book a Session</a>
                                 </div>
                                 
-                                <div class="startup-service-card">
-                                    <div class="service-icon">
-                                        <i class="fas fa-hand-holding-usd"></i>
-                                    </div>
-                                    <h4>Fundraise Ready</h4>
-                                    <p class="service-description">Confidently walk into your raise with a clear story and ask.</p>
-                                    <p class="service-audience">For founders preparing for seed or Series A funding.</p>
-                                    
-                                    <div class="service-details">
-                                        <div class="detail-item">
-                                            <h5>Why it's for you:</h5>
-                                            <p>You're planning a fundraising round and need to maximize your chances of success.</p>
-                                        </div>
-                                        
-                                        <div class="detail-item">
-                                            <h5>What you'll get:</h5>
-                                            <p>Complete fundraising strategy and investor targeting plan with readiness assessment.</p>
-                                        </div>
-                                        
-                                        <div class="detail-item">
-                                            <h5>What we'll do:</h5>
-                                            <p>Financial story development, investor due diligence preparation, and negotiation guidance.</p>
-                                        </div>
-                                    </div>
-                                    
-                                    <a href="https://topmate.io/swati12" class="btn primary" target="_blank" rel="noopener noreferrer">Book a Session</a>
-                                </div>
+
                                 
                                 <div class="startup-service-card">
                                     <div class="service-icon">
@@ -816,23 +805,30 @@
                                         <i class="fas fa-bullhorn"></i>
                                     </div>
                                     <h4>Marketing Acceleration</h4>
-                                    <p class="service-description">Break through marketing barriers with data-driven strategies.</p>
-                                    <p class="service-audience">For founders who need to optimize customer acquisition and retention.</p>
+                                    <p class="service-description">Break through growth barriers with data-driven, end-to-end strategy.</p>
+                                    <p class="service-audience">For early-stage founders ready to grow faster and smarter.</p>
                                     
                                     <div class="service-details">
                                         <div class="detail-item">
                                             <h5>Why it's for you:</h5>
-                                            <p>Your customer acquisition costs are too high or conversion rates are too low.</p>
+                                            <p>Your customer acquisition is too costly, your website isn't converting, your brand message feels unclear, or your social presence isn't driving results.</p>
                                         </div>
                                         
                                         <div class="detail-item">
                                             <h5>What you'll get:</h5>
-                                            <p>A comprehensive marketing strategy with execution roadmap.</p>
+                                            <p>A full-spectrum marketing advisory with clear execution steps, covering:</p>
+                                            <ul style="list-style: none; padding-left: 0; margin-top: 10px;">
+                                                <li><strong>Social Media Strategy</strong><br>Tailored Instagram and LinkedIn approaches to grow visibility and engagement</li>
+                                                <li style="margin-top: 8px;"><strong>Website Redesign Guidance</strong><br>Improve layout, flow, and copy to better convert visitors into customers</li>
+                                                <li style="margin-top: 8px;"><strong>SEO Roadmap</strong><br>Actionable plan to improve discoverability and rank higher on search</li>
+                                                <li style="margin-top: 8px;"><strong>Brand Positioning & Messaging</strong><br>Clarify your value and communicate it to the right audience</li>
+                                                <li style="margin-top: 8px;"><strong>Funnel Optimization</strong><br>Build a system that nurtures leads, reduces drop-off, and increases retention</li>
+                                            </ul>
                                         </div>
                                         
                                         <div class="detail-item">
                                             <h5>What we'll do:</h5>
-                                            <p>Audit your current approach, identify quick wins, and build long-term tactics.</p>
+                                            <p>We'll audit your current marketing stack, identify quick wins, and build a long-term strategy. You'll walk away with a focused, founder-friendly plan to strengthen your digital presence and drive real growth.</p>
                                         </div>
                                     </div>
                                     
@@ -968,7 +964,7 @@
                                 </div>
                                 
                                 <div class="engagement-model">
-                                    <h4>5. Playbooks & DIY Tools</h4>
+                                    <h4>5. Playbooks & DIY Tools <i class="fas fa-lock" style="font-size: 0.8em; margin-left: 5px; color: #888;"></i></h4>
                                     <p class="model-description">Use our startup-tested playbooks and frameworks—on your own time.</p>
                                     <p>Practical, no-fluff tools for founders and teams who want to move fast and stay lean.</p>
                                     
@@ -986,7 +982,7 @@
                                         </ul>
                                     </div>
                                     
-                                    <a href="https://topmate.io/swati12" class="btn primary" target="_blank" rel="noopener noreferrer">Book a Consultation</a>
+                                    <a href="#" class="btn primary">Join to Unlock</a>
                                 </div>
                             </div>
                         </div>
@@ -1809,28 +1805,28 @@
                     <h3>Premium Content Locked</h3>
                     <p>Our knowledge hub contains valuable case studies, articles, resources, and guides to help you accelerate your growth journey.</p>
                     <p>Book a session to unlock access to these premium resources and get personalized guidance for your specific challenges.</p>
-                    <a href="https://topmate.io/swati12" class="btn primary" target="_blank" rel="noopener">Book a Session on Topmate</a>
+                    <a href="#" class="btn primary">Join to Unlock</a>
                 </div>
                 
                 <div class="locked-preview">
                     <div class="preview-item">
                         <i class="fas fa-file-alt"></i>
-                        <h4>Case Studies</h4>
+                        <h4>Case Studies <i class="fas fa-lock" style="font-size: 0.8em; margin-left: 5px; color: #888;"></i></h4>
                         <p>Real success stories and data-driven results from our clients</p>
                     </div>
                     <div class="preview-item">
                         <i class="fas fa-newspaper"></i>
-                        <h4>Articles</h4>
+                        <h4>Articles <i class="fas fa-lock" style="font-size: 0.8em; margin-left: 5px; color: #888;"></i></h4>
                         <p>In-depth analysis and actionable insights on business growth</p>
                     </div>
                     <div class="preview-item">
                         <i class="fas fa-download"></i>
-                        <h4>Resources</h4>
+                        <h4>Resources <i class="fas fa-lock" style="font-size: 0.8em; margin-left: 5px; color: #888;"></i></h4>
                         <p>Templates, worksheets, and tools for immediate implementation</p>
                     </div>
                     <div class="preview-item">
                         <i class="fas fa-book"></i>
-                        <h4>Guides</h4>
+                        <h4>Guides <i class="fas fa-lock" style="font-size: 0.8em; margin-left: 5px; color: #888;"></i></h4>
                         <p>Comprehensive playbooks for navigating specific challenges</p>
                     </div>
                 </div>
@@ -2476,57 +2472,81 @@
                         <div class="contact-form-container">
                             <div class="contact-form">
                                 <h3>Get in Touch</h3>
-                                <form id="clientStoryContactForm" class="contact-form">
-                                <div class="form-group">
-                                    <label for="name">Your Name</label>
-                                        <input type="text" id="name" name="name" placeholder="Enter your full name" required>
-                                </div>
-                                
-                                <div class="form-group">
-                                    <label for="email">Email Address</label>
-                                        <input type="email" id="email" name="email" placeholder="Enter your email address" required>
-                                </div>
-                                
-                                <div class="form-group">
-                                    <label for="phone">Phone Number</label>
-                                    <input type="tel" id="phone" name="phone" placeholder="Enter your phone number">
-                                </div>
-                                
-                                <div class="form-group">
-                                    <label for="subject">Subject</label>
-                                    <select id="subject" name="subject" required>
-                                        <option value="" disabled selected>Select reason for contact</option>
-                                        <option value="startup-advisory">Startup Advisory</option>
-                                        <option value="career-guidance">Career Guidance</option>
-                                        <option value="partnership">Partnership Opportunities</option>
-                                        <option value="general">General Inquiry</option>
-                                    </select>
-                                </div>
-
-                                    <div class="form-group">
-                                        <label for="supporting-docs">Supporting Documentation</label>
-                                        <input type="text" id="supporting-docs" name="supporting_docs" placeholder="Website URL, Social Media Handle, or other relevant links">
-                                        <small class="form-text">For startups: Share your website, social media, or any relevant links. For individuals: Share your LinkedIn or portfolio.</small>
-                                </div>
-                                
-                                <div class="form-group">
-                                    <label for="message">Message</label>
-                                    <textarea id="message" name="message" rows="5" placeholder="Tell us about your needs or questions" required></textarea>
-                                </div>
-                                
-                                <div class="form-group">
-                                        <label for="file-upload">Additional Files (Optional)</label>
-                                        <input type="file" id="file-upload" name="file" accept=".pdf,.doc,.docx,.txt">
-                                        <small class="form-text">Upload any additional documentation (max size: 5MB)</small>
-                                </div>
-                                
-                                <div class="checkbox-group">
-                                    <input type="checkbox" id="newsletter" name="newsletter" checked>
-                                    <label for="newsletter">Subscribe to our newsletter for growth insights and resources</label>
-                                </div>
-                                
-                                <button type="submit" class="btn primary">Send Message</button>
-                            </form>
+                                <!-- JotForm embed code -->
+                                <iframe
+                                  id="JotFormIFrame-251483052301445-tab"
+                                  title="Contact"
+                                  onload="window.parent.scrollTo(0,0)"
+                                  allowtransparency="true"
+                                  allow="geolocation; microphone; camera; fullscreen; payment"
+                                  src="https://form.jotform.com/251483052301445"
+                                  frameborder="0"
+                                  class="jotform-frame"
+                                  style="min-width:100%;max-width:100%;height:600px;border:none;border-radius:12px;"
+                                  scrolling="no"
+                                >
+                                </iframe>
+                                <script src='https://cdn.jotfor.ms/s/umd/latest/for-form-embed-handler.js'></script>
+                                <script>
+                                  window.jotformEmbedHandler("iframe[id='JotFormIFrame-251483052301445-tab']", "https://form.jotform.com/");
+                                  
+                                  // Custom JotForm styling
+                                  document.addEventListener('DOMContentLoaded', function() {
+                                    const jotformIframe = document.getElementById('JotFormIFrame-251483052301445-tab');
+                                    if (jotformIframe) {
+                                      jotformIframe.onload = function() {
+                                        try {
+                                          // Add custom CSS to JotForm
+                                          const iframeDoc = jotformIframe.contentDocument || jotformIframe.contentWindow.document;
+                                          const customStyles = document.createElement('style');
+                                          customStyles.textContent = `
+                                            body, .form-all {
+                                              font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important; 
+                                              background-color: #ffffff !important;
+                                              border-radius: 12px !important;
+                                            }
+                                            .form-line {
+                                              padding: 12px 20px !important;
+                                              margin-bottom: 10px !important;
+                                            }
+                                            .form-label {
+                                              font-weight: 600 !important;
+                                              color: #333333 !important;
+                                            }
+                                            .form-textbox, .form-textarea, .form-dropdown {
+                                              padding: 12px 15px !important;
+                                              border-radius: 8px !important;
+                                              border: 1px solid #e0e0e0 !important;
+                                              box-shadow: none !important;
+                                              transition: border-color 0.3s ease !important;
+                                            }
+                                            .form-textbox:focus, .form-textarea:focus, .form-dropdown:focus {
+                                              border-color: #333333 !important;
+                                              outline: none !important;
+                                            }
+                                            .form-submit-button {
+                                              background-color: #333333 !important;
+                                              color: #ffffff !important;
+                                              padding: 12px 25px !important;
+                                              border-radius: 6px !important;
+                                              font-weight: 600 !important;
+                                              border: none !important;
+                                              cursor: pointer !important;
+                                              transition: background-color 0.3s ease !important;
+                                            }
+                                            .form-submit-button:hover {
+                                              background-color: #555555 !important;
+                                            }
+                                          `;
+                                          iframeDoc.head.appendChild(customStyles);
+                                        } catch (err) {
+                                          console.log('Error applying custom styles to JotForm:', err);
+                                        }
+                                      };
+                                    }
+                                  });
+                                </script>
+                            
                             </div>
                         </div>
                     </div>
@@ -2996,7 +3016,10 @@
                     <h3>The Unstuck Growth</h3>
                     <p>Strategic advisory for founders and professionals ready to accelerate their growth.</p>
                     <div class="social-icons">
-                        <a href="https://www.linkedin.com/in/swati-shukla-63327614/" target="_blank" rel="noopener"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://www.linkedin.com/company/the-unstuck-growth/" target="_blank" rel="noopener"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" target="_blank" rel="noopener"><i class="fab fa-twitter"></i></a>
+                        <a href="#" target="_blank" rel="noopener"><i class="fab fa-instagram"></i></a>
+                        <a href="#" target="_blank" rel="noopener"><i class="fab fa-reddit"></i></a>
                         <a href="https://wa.me/12063561265" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i></a>
                         <a href="mailto:unstuckgrowth@gmail.com"><i class="fas fa-envelope"></i></a>
                     </div>
@@ -3260,5 +3283,46 @@
     <script src="debug-testimonials.js"></script>
     <script src="testimonial-direct-fix.js"></script>
     <script src="fix-mobile-floating-button.js"></script>
+    <script src="hamburger-fix.js"></script>
+    
+    <!-- Contact Tab Script -->
+    <script>
+        // Function to open the client stories tab and select the contact tab
+        function openContactTab(e) {
+            e.preventDefault();
+            
+            // First scroll to the client stories section
+            const clientStoriesSection = document.getElementById('client-stories');
+            if (clientStoriesSection) {
+                clientStoriesSection.scrollIntoView({ behavior: 'smooth' });
+                
+                // Wait for the scroll to complete
+                setTimeout(function() {
+                    // Find the tabs
+                    const tabs = document.querySelectorAll('.client-stories-tabs .tab-btn');
+                    
+                    // Find the contact tab button
+                    let contactTabBtn = null;
+                    tabs.forEach(function(tab) {
+                        if (tab.getAttribute('data-tab') === 'contact') {
+                            contactTabBtn = tab;
+                        }
+                    });
+                    
+                    // Click the contact tab button
+                    if (contactTabBtn) {
+                        contactTabBtn.click();
+                    }
+                }, 700); // Adjust timing as needed
+            }
+        }
+        
+        // Add click event to all contact links
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelectorAll('.contact-link').forEach(function(link) {
+                link.addEventListener('click', openContactTab);
+            });
+        });
+    </script>
 </body>
 </html> 

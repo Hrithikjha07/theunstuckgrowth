@@ -6,6 +6,7 @@
     <title>Contact Us - The Unstuck Growth</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="client-story-form.css">
+    <link rel="stylesheet" href="jotform-custom.css">
     <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
@@ -54,12 +55,71 @@
                       allow="geolocation; microphone; camera; fullscreen; payment"
                       src="https://form.jotform.com/251483052301445"
                       frameborder="0"
-                      style="min-width:100%;max-width:100%;height:539px;border:none;"
+                      class="jotform-frame"
+                      style="min-width:100%;max-width:100%;height:600px;border:none;border-radius:12px;"
                       scrolling="no"
                     >
                     </iframe>
                     <script src='https://cdn.jotfor.ms/s/umd/latest/for-form-embed-handler.js'></script>
-                    <script>window.jotformEmbedHandler("iframe[id='JotFormIFrame-251483052301445']", "https://form.jotform.com/")</script>
+                    <script>
+                      window.jotformEmbedHandler("iframe[id='JotFormIFrame-251483052301445']", "https://form.jotform.com/");
+                      
+                      // Custom JotForm styling
+                      document.addEventListener('DOMContentLoaded', function() {
+                        const jotformIframe = document.getElementById('JotFormIFrame-251483052301445');
+                        if (jotformIframe) {
+                          jotformIframe.onload = function() {
+                            try {
+                              // Add custom CSS to JotForm
+                              const iframeDoc = jotformIframe.contentDocument || jotformIframe.contentWindow.document;
+                              const customStyles = document.createElement('style');
+                              customStyles.textContent = `
+                                body, .form-all {
+                                  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important; 
+                                  background-color: #ffffff !important;
+                                  border-radius: 12px !important;
+                                }
+                                .form-line {
+                                  padding: 12px 20px !important;
+                                  margin-bottom: 10px !important;
+                                }
+                                .form-label {
+                                  font-weight: 600 !important;
+                                  color: #333333 !important;
+                                }
+                                .form-textbox, .form-textarea, .form-dropdown {
+                                  padding: 12px 15px !important;
+                                  border-radius: 8px !important;
+                                  border: 1px solid #e0e0e0 !important;
+                                  box-shadow: none !important;
+                                  transition: border-color 0.3s ease !important;
+                                }
+                                .form-textbox:focus, .form-textarea:focus, .form-dropdown:focus {
+                                  border-color: #333333 !important;
+                                  outline: none !important;
+                                }
+                                .form-submit-button {
+                                  background-color: #333333 !important;
+                                  color: #ffffff !important;
+                                  padding: 12px 25px !important;
+                                  border-radius: 6px !important;
+                                  font-weight: 600 !important;
+                                  border: none !important;
+                                  cursor: pointer !important;
+                                  transition: background-color 0.3s ease !important;
+                                }
+                                .form-submit-button:hover {
+                                  background-color: #555555 !important;
+                                }
+                              `;
+                              iframeDoc.head.appendChild(customStyles);
+                            } catch (err) {
+                              console.log('Error applying custom styles to JotForm:', err);
+                            }
+                          };
+                        }
+                      });
+                    </script>
                 </div>
             </div>
         </section>
