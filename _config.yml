@@ -1,0 +1,30 @@
+title: The Unstuck Growth
+description: Strategic Advisory for Growth-Focused Leaders
+url: https://theunstuckgrowth.com
+domain: theunstuckgrowth.com
+baseurl: ""
+repository: Hrithikjha07/theunstuckgrowth
+github_username: Hrithikjha07
+
+# Build settings
+markdown: kramdown
+theme: jekyll-theme-cayman
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+  - jekyll-seo-tag
+
+# Exclude from processing
+exclude:
+  - .git/
+  - .github/workflows/auto-push.yml
+  - node_modules/
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - LICENSE
+  - CNAME
+  - package.json
+  - package-lock.json
+  - full-deploy.ps1
+  - sync-repo.bat 
