@@ -1,0 +1,42 @@
+<svg width="800" height="450" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background gradient -->
+  <defs>
+    <linearGradient id="bg-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#3498db" />
+      <stop offset="100%" stop-color="#8e44ad" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="100%" height="100%" fill="url(#bg-gradient)" rx="10" ry="10" />
+  
+  <!-- Music Notes -->
+  <g fill="white" opacity="0.2">
+    <path d="M150,100 Q170,80 200,100 Q230,120 250,100" stroke="white" stroke-width="5" fill="none" />
+    <circle cx="250" cy="100" r="15" />
+    
+    <path d="M300,150 Q320,130 350,150 Q380,170 400,150" stroke="white" stroke-width="5" fill="none" />
+    <circle cx="400" cy="150" r="15" />
+    
+    <path d="M450,120 Q470,100 500,120 Q530,140 550,120" stroke="white" stroke-width="5" fill="none" />
+    <circle cx="550" cy="120" r="15" />
+    
+    <path d="M200,200 Q220,180 250,200 Q280,220 300,200" stroke="white" stroke-width="5" fill="none" />
+    <circle cx="300" cy="200" r="15" />
+  </g>
+  
+  <!-- Title -->
+  <text x="400" y="180" font-family="Arial, sans-serif" font-size="40" fill="white" text-anchor="middle" font-weight="bold">Music Review Platform</text>
+  
+  <!-- Subtitle -->
+  <text x="400" y="220" font-family="Arial, sans-serif" font-size="20" fill="white" text-anchor="middle" opacity="0.9">Strategic growth case study of a global music performance review platform</text>
+  
+  <!-- Metrics -->
+  <g font-family="Arial, sans-serif" fill="white">
+    <text x="300" y="300" font-size="48" text-anchor="middle" font-weight="bold">250%</text>
+    <text x="300" y="330" font-size="20" text-anchor="middle" opacity="0.8">User Growth</text>
+    
+    <text x="500" y="300" font-size="48" text-anchor="middle" font-weight="bold">6</text>
+    <text x="500" y="330" font-size="20" text-anchor="middle" opacity="0.8">New Markets</text>
+  </g>
+</svg> 

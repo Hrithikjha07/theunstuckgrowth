@@ -1,0 +1,20 @@
+Required Images for the Website:
+
+1. Case Study Images:
+   - case-study-1.jpg: FinTech Startup Case Study (suggested size: 800x450px)
+   - case-study-2.jpg: E-commerce Growth Case Study (suggested size: 800x450px)
+   - case-study-3.jpg: SaaS Marketing Case Study (suggested size: 800x450px)
+
+2. Profile Images:
+   - about-swati.jpg: Professional headshot (suggested size: 500x500px)
+
+3. Social Media & SEO Images:
+   - og-image.jpg: Open Graph image for social sharing (suggested size: 1200x630px)
+   - twitter-image.jpg: Twitter card image (suggested size: 1200x600px)
+   - favicon.ico: Website favicon (suggested size: 32x32px)
+
+4. Logo & Branding:
+   - logo.png: Company logo (suggested size: 200x50px)
+   - logo-white.png: White version of logo for dark backgrounds (suggested size: 200x50px)
+
+Please add these images to the images directory before deploying the website. 
